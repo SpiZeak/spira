@@ -7,13 +7,16 @@
 <!-- HERO -->
 <section class="relative bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 py-28 md:py-40 overflow-hidden">
 	<!-- Decorative botanical shapes -->
-	<div class="absolute inset-0 overflow-hidden pointer-events-none">
+	<div class="absolute inset-0 overflow-hidden pointer-events-none"
+		style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
 		<svg class="-top-20 -right-20 absolute opacity-60 w-[500px] h-[500px] text-leaf-100" viewBox="0 0 400 400"
-			fill="currentColor">
+			fill="currentColor"
+			style="position:absolute;top:-5rem;right:-5rem;opacity:0.6;width:500px;height:500px;color:#dceedd">
 			<ellipse cx="280" cy="150" rx="140" ry="220" transform="rotate(-30 280 150)" />
 		</svg>
 		<svg class="bottom-0 -left-24 absolute opacity-50 w-[400px] h-[400px] text-sage-100" viewBox="0 0 400 400"
-			fill="currentColor">
+			fill="currentColor"
+			style="position:absolute;bottom:0;left:-6rem;opacity:0.5;width:400px;height:400px;color:#e0eadc">
 			<ellipse cx="120" cy="280" rx="120" ry="180" transform="rotate(20 120 280)" />
 		</svg>
 		<!-- Small leaf dots pattern -->
@@ -64,9 +67,11 @@
 			style="animation-delay: {{ loop.index * 100 + 200 }}ms">
 			{% if page.extra.featured_image %}
 			<div class="bg-cream-100 aspect-[4/3] overflow-hidden">
-				<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}"
+				<img src="{{ page.extra.featured_image | replace(from='w=800&h=600', to='w=400&h=300') }}&auto=format"
+					srcset="{{ page.extra.featured_image | replace(from='w=800&h=600', to='w=400&h=300') }}&auto=format 400w, {{ page.extra.featured_image }}&auto=format 800w"
+					sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" alt="{{ page.title }}"
 					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-					loading="lazy" />
+					loading="lazy" width="800" height="600" />
 			</div>
 			{% endif %}
 			<div class="p-5">
@@ -198,9 +203,11 @@
 		<div class="animate-slide-up delay-200">
 			<div class="relative">
 				<div class="-top-4 -left-4 absolute bg-leaf-100 rounded-3xl w-full h-full"></div>
-				<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600&h=600&fit=crop&q=80"
-					alt="En samling krukväxter i hemmet"
-					class="relative shadow-md rounded-3xl w-full object-cover aspect-square" loading="lazy" />
+				<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400&h=400&fit=crop&q=80&auto=format"
+					srcset="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400&h=400&fit=crop&q=80&auto=format 400w, https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600&h=600&fit=crop&q=80&auto=format 600w"
+					sizes="(min-width: 768px) 50vw, 100vw" alt="En samling krukväxter i hemmet"
+					class="relative shadow-md rounded-3xl w-full object-cover aspect-square" loading="lazy" width="600"
+					height="600" />
 			</div>
 		</div>
 	</div>
