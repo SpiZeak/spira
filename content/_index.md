@@ -1,7 +1,6 @@
 +++
-title = "Home"
+title = "Hem"
+description = "Din guide till krukväxternas vackra värld — lär dig odla, ta hand om och älska dina gröna vänner."
 +++
 
-A minimal, production-ready boilerplate for building static sites with [Zola](https://www.getzola.org/) and [Tailwind CSS v4](https://tailwindcss.com/). The entire development environment runs inside Docker — no local Rust or Node.js required.
-
-Browse the source and get started on [GitHub](https://github.com/SpiZeak/zola-tailwind).
+Välkommen till Spira.

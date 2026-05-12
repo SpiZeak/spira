@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Guider | {{ config.title }}{% endblock title %}
+{% block description %}Lär dig allt om krukväxtskötsel med våra guider för nybörjare och erfarna entusiaster.{% endblock
+description %}
+
+{% block content %}
+
+<header class="mb-12">
+	<p class="mb-2 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">Lär dig mer
+	</p>
+	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-100">Guider</h1>
+	<p class="mt-4 max-w-xl text-soil-500 text-lg leading-relaxed animate-slide-up delay-200">
+		Allt du behöver veta för att lyckas med dina krukväxter — från vattning till ljussättning.
+	</p>
+</header>
+
+{% if paginator %}
+{% set pages = paginator.pages %}
+{% else %}
+{% set pages = section.pages %}
+{% endif %}
+
+{% if pages %}
+<div class="space-y-6">
+	{% for page in pages %}
+	<a href="{{ page.permalink }}"
+		class="group flex gap-6 bg-white shadow-sm hover:shadow-md p-6 border border-cream-200 rounded-2xl transition-all animate-slide-up duration-300"
+		style="animation-delay: {{ loop.index * 100 + 250 }}ms">
+		<div
+			class="flex flex-shrink-0 justify-center items-center bg-leaf-50 group-hover:bg-leaf-100 mt-0.5 border border-leaf-200 rounded-2xl w-12 h-12 transition-colors">
+			<svg class="w-5 h-5 text-leaf-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round"
+					d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+			</svg>
+		</div>
+		<div class="flex-1 min-w-0">
+			<h2 class="font-serif font-bold text-soil-900 group-hover:text-leaf-600 text-xl transition-colors">{{
+				page.title }}</h2>
+			{% if page.description %}
+			<p class="mt-2 text-soil-500 line-clamp-2 leading-relaxed">{{ page.description }}</p>
+			{% endif %}
+			{% if page.taxonomies.tags %}
+			<div class="flex flex-wrap gap-2 mt-3">
+				{% for tag in page.taxonomies.tags | slice(end=4) %}
+				<span class="bg-sage-50 px-2.5 py-0.5 border border-sage-200 rounded-full text-sage-700 text-xs">{{ tag
+					}}</span>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		<div class="flex flex-shrink-0 items-center self-center">
+			<svg class="w-5 h-5 text-soil-300 group-hover:text-leaf-600 transition-all group-hover:translate-x-1"
+				fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+			</svg>
+		</div>
+	</a>
+	{% endfor %}
+</div>
+
+{% if paginator %}
+<nav class="flex justify-between mt-12 font-medium text-sm" aria-label="Pagination">
+	{% if paginator.previous %}
+	<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">← Föregående</a>
+	{% else %}<span></span>{% endif %}
+	<span class="text-soil-400">Sida {{ paginator.current_index }} av {{ paginator.number_pagers }}</span>
+	{% if paginator.next %}
+	<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">Nästa →</a>
+	{% else %}<span></span>{% endif %}
+</nav>
+{% endif %}
+
+{% else %}
+<p class="py-12 text-soil-400 italic">Inga guider ännu. Återkom snart!</p>
+{% endif %}
+
+{% endblock content %}

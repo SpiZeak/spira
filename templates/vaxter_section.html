@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Växtbiblioteket | {{ config.title }}{% endblock title %}
+{% block description %}Utforska vårt växtbibliotek med detaljerade skötselguider för inomhusväxter.{% endblock description %}
+
+{% block main_class %}w-full{% endblock main_class %}
+
+{% block content %}
+
+<!-- Section hero -->
+<section class="bg-gradient-to-br from-leaf-50 via-cream-50 to-sage-50 py-20">
+	<div class="mx-auto max-w-6xl px-6">
+		<p class="text-leaf-600 text-xs font-semibold tracking-[0.2em] uppercase mb-3 animate-slide-up delay-50">Spira</p>
+		<h1 class="font-serif font-bold text-5xl md:text-6xl text-soil-900 animate-slide-up delay-100">Växtbiblioteket</h1>
+		<p class="mt-4 text-soil-500 text-lg max-w-xl leading-relaxed animate-slide-up delay-200">
+			Djupdyk i världen av krukväxter — lär dig allt om skötsel, ljusbehov och ursprung för varje växt.
+		</p>
+
+		<!-- Tag filter links -->
+		{% if config.taxonomies %}
+		<div class="mt-8 flex flex-wrap gap-2 animate-slide-up delay-300">
+			<a href="/vaxter" class="bg-leaf-600 text-white text-xs font-semibold px-4 py-2 rounded-full">Alla växter</a>
+			<a href="/tags/lättskött" class="bg-white border border-cream-200 text-soil-600 hover:border-leaf-300 hover:text-leaf-600 text-xs font-medium px-4 py-2 rounded-full transition-colors">Lättskött</a>
+			<a href="/tags/tropisk" class="bg-white border border-cream-200 text-soil-600 hover:border-leaf-300 hover:text-leaf-600 text-xs font-medium px-4 py-2 rounded-full transition-colors">Tropisk</a>
+			<a href="/tags/suckulenter" class="bg-white border border-cream-200 text-soil-600 hover:border-leaf-300 hover:text-leaf-600 text-xs font-medium px-4 py-2 rounded-full transition-colors">Suckulenter</a>
+			<a href="/tags/blomstrande" class="bg-white border border-cream-200 text-soil-600 hover:border-leaf-300 hover:text-leaf-600 text-xs font-medium px-4 py-2 rounded-full transition-colors">Blomstrande</a>
+		</div>
+		{% endif %}
+	</div>
+</section>
+
+<!-- Plant grid -->
+<div class="mx-auto max-w-6xl px-6 py-16">
+	{% if paginator %}
+	{% set pages = paginator.pages %}
+	{% else %}
+	{% set pages = section.pages %}
+	{% endif %}
+
+	{% if pages %}
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+		{% for page in pages %}
+		<a href="{{ page.permalink }}" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 animate-slide-up" style="animation-delay: {{ loop.index * 80 + 100 }}ms">
+			<!-- Plant image -->
+			<div class="aspect-[4/3] overflow-hidden bg-cream-100 relative">
+				{% if page.extra.featured_image %}
+				<img src="{{ page.extra.featured_image }}"
+					alt="{{ page.title }}"
+					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+					loading="lazy" />
+				{% else %}
+				<div class="w-full h-full flex items-center justify-center">
+					<svg class="w-16 h-16 text-cream-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+					</svg>
+				</div>
+				{% endif %}
+				<!-- Difficulty badge on image -->
+				{% if page.extra.difficulty %}
+				<div class="absolute top-3 right-3">
+					<span class="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm
+						{% if page.extra.difficulty == 'Lätt' %}bg-leaf-50/90 text-leaf-700 border-leaf-200
+						{% elif page.extra.difficulty == 'Medel' %}bg-amber-50/90 text-amber-700 border-amber-200
+						{% else %}bg-crimson-50/90 text-crimson-700 border-crimson-200{% endif %}">
+						{{ page.extra.difficulty }}
+					</span>
+				</div>
+				{% endif %}
+			</div>
+
+			<!-- Card content -->
+			<div class="p-5">
+				<div>
+					<h2 class="font-serif font-bold text-xl text-soil-900 group-hover:text-leaf-600 transition-colors leading-tight">{{ page.title }}</h2>
+					{% if page.extra.latin_name %}
+					<p class="text-xs text-soil-400 italic mt-0.5">{{ page.extra.latin_name }}</p>
+					{% endif %}
+				</div>
+
+				{% if page.description %}
+				<p class="mt-3 text-soil-500 text-sm leading-relaxed line-clamp-2">{{ page.description }}</p>
+				{% endif %}
+
+				<!-- Care quick-facts -->
+				{% if page.extra.light or page.extra.water %}
+				<div class="mt-4 flex items-center gap-4 text-xs text-soil-400 border-t border-cream-100 pt-3">
+					{% if page.extra.light %}
+					<span class="flex items-center gap-1.5 min-w-0 truncate">
+						<svg class="w-3.5 h-3.5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-9H21M3 12H2m15.07-6.07-.71.71M7.64 16.36l-.71.71M18.36 16.36l-.71-.71M6.34 7.64l-.71-.71M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z" />
+						</svg>
+						<span class="truncate">{{ page.extra.light }}</span>
+					</span>
+					{% endif %}
+					{% if page.extra.water %}
+					<span class="flex items-center gap-1.5 min-w-0 truncate">
+						<svg class="w-3.5 h-3.5 text-leaf-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+						</svg>
+						<span class="truncate">{{ page.extra.water }}</span>
+					</span>
+					{% endif %}
+				</div>
+				{% endif %}
+
+				<!-- Tags -->
+				{% if page.taxonomies.tags %}
+				<div class="mt-3 flex flex-wrap gap-1.5">
+					{% for tag in page.taxonomies.tags | slice(end=3) %}
+					<span class="text-xs bg-sage-50 text-sage-700 border border-sage-200 px-2.5 py-0.5 rounded-full">{{ tag }}</span>
+					{% endfor %}
+				</div>
+				{% endif %}
+			</div>
+		</a>
+		{% endfor %}
+	</div>
+
+	{% if paginator %}
+	<nav class="flex justify-between mt-12 font-medium text-sm" aria-label="Pagination">
+		{% if paginator.previous %}
+		<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">← Föregående</a>
+		{% else %}
+		<span></span>
+		{% endif %}
+		<span class="text-soil-400">Sida {{ paginator.current_index }} av {{ paginator.number_pagers }}</span>
+		{% if paginator.next %}
+		<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">Nästa →</a>
+		{% else %}
+		<span></span>
+		{% endif %}
+	</nav>
+	{% endif %}
+
+	{% else %}
+	<p class="text-soil-400 italic text-center py-12">Inga växter ännu. Återkom snart!</p>
+	{% endif %}
+</div>
+
+{% endblock content %}

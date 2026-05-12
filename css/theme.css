@@ -1,60 +1,87 @@
-@variant dark (&:where(.dark, .dark *));
-
 @theme {
-	--font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+	--font-sans: "Lato", ui-sans-serif, system-ui, sans-serif;
+	--font-serif: "Playfair Display", ui-serif, Georgia, serif;
 
 	/* Reset all colors to their initial values for the current theme */
 	--color-*: initial;
 
-	/* --- Warm Charcoal (Neutral) --- */
-	--color-warm-charcoal-50:  #f2f2f2;
-	--color-warm-charcoal-100: #e6e6e6;
-	--color-warm-charcoal-200: #cccccc;
-	--color-warm-charcoal-300: #b3b3b3;
-	--color-warm-charcoal-400: #808080;
-	--color-warm-charcoal-500: #4d4d4d;
-	--color-warm-charcoal-600: #333333;
-	--color-warm-charcoal-700: #1a1a1a; /* Original */
-	--color-warm-charcoal-800: #141414;
-	--color-warm-charcoal-900: #0d0d0d;
-	--color-warm-charcoal-950: #050505;
-	--color-warm-charcoal: var(--color-warm-charcoal-700);
+	/* --- Leaf (Primary botanical green) --- */
+	--color-leaf-50: #f0f7f0;
+	--color-leaf-100: #dceedd;
+	--color-leaf-200: #b9ddb9;
+	--color-leaf-300: #89c489;
+	--color-leaf-400: #5aaa5d;
+	--color-leaf-500: #39913b;
+	--color-leaf-600: #2a7a2d; /* Primary accent */
+	--color-leaf-700: #226225;
+	--color-leaf-800: #1a4e1d;
+	--color-leaf-900: #123a14;
+	--color-leaf-950: #091f0a;
+	--color-leaf: var(--color-leaf-600);
 
-	/* --- Pumpkin (Accent) --- */
-	--color-pumpkin-50:  #fff7ed;
-	--color-pumpkin-100: #ffedd5;
-	--color-pumpkin-200: #fed7aa;
-	--color-pumpkin-300: #fdba74;
-	--color-pumpkin-400: #fb923c;
-	--color-pumpkin-500: #ff6b00; /* Original */
-	--color-pumpkin-600: #ea580c;
-	--color-pumpkin-700: #c2410c;
-	--color-pumpkin-800: #9a3412;
-	--color-pumpkin-900: #7c2d12;
-	--color-pumpkin-950: #431407;
-	--color-pumpkin: var(--color-pumpkin-500);
+	/* --- Sage (Secondary muted green) --- */
+	--color-sage-50: #f2f6f1;
+	--color-sage-100: #e0eadc;
+	--color-sage-200: #c2d5bc;
+	--color-sage-300: #9bba93;
+	--color-sage-400: #77a06d;
+	--color-sage-500: #5c8551;
+	--color-sage-600: #476b3e;
+	--color-sage-700: #385430;
+	--color-sage-800: #2d4226;
+	--color-sage-900: #1e2f1b;
+	--color-sage-950: #101a0f;
+	--color-sage: var(--color-sage-500);
 
-	/* --- Emerald (Success) --- */
-	--color-emerald-50:  #ecfdf5;
-	--color-emerald-100: #d1fae5;
-	--color-emerald-200: #a7f3d0;
-	--color-emerald-300: #6ee7b7;
-	--color-emerald-400: #34d399;
-	--color-emerald-500: #10b981; /* Original Base */
-	--color-emerald-600: #059669;
-	--color-emerald-700: #047857;
-	--color-emerald-800: #065f46;
-	--color-emerald-900: #064e3b;
-	--color-emerald-950: #022c22;
-	--color-emerald: var(--color-emerald-500);
+	/* --- Cream (Warm backgrounds) --- */
+	--color-cream-50: #fdfbf6; /* Page background */
+	--color-cream-100: #f8f4e9;
+	--color-cream-200: #f0e8ce;
+	--color-cream-300: #e3d4a6;
+	--color-cream-400: #cfb46b;
+	--color-cream-500: #b89044;
+	--color-cream-600: #9a7434;
+	--color-cream-700: #7a5929;
+	--color-cream-800: #5c4220;
+	--color-cream-900: #3c2c16;
+	--color-cream-950: #22180b;
+	--color-cream: var(--color-cream-50);
 
-	/* --- Crimson (Danger) --- */
-	--color-crimson-50:  #fef2f2;
+	/* --- Soil (Earthy neutrals / text) --- */
+	--color-soil-50: #f6f4f1;
+	--color-soil-100: #ece9e1;
+	--color-soil-200: #d6d0c3;
+	--color-soil-300: #b9b09e;
+	--color-soil-400: #978676;
+	--color-soil-500: #7b6c5c;
+	--color-soil-600: #5f5347;
+	--color-soil-700: #483e35;
+	--color-soil-800: #312920;
+	--color-soil-900: #1c150c; /* Primary text */
+	--color-soil-950: #0e0a05;
+	--color-soil: var(--color-soil-900);
+
+	/* --- Amber (Medium difficulty) --- */
+	--color-amber-50: #fffbeb;
+	--color-amber-100: #fef3c7;
+	--color-amber-200: #fde68a;
+	--color-amber-300: #fcd34d;
+	--color-amber-400: #fbbf24;
+	--color-amber-500: #f59e0b;
+	--color-amber-600: #d97706;
+	--color-amber-700: #b45309;
+	--color-amber-800: #92400e;
+	--color-amber-900: #78350f;
+	--color-amber-950: #451a03;
+	--color-amber: var(--color-amber-500);
+
+	/* --- Crimson (Advanced difficulty / danger) --- */
+	--color-crimson-50: #fef2f2;
 	--color-crimson-100: #fee2e2;
 	--color-crimson-200: #fecaca;
 	--color-crimson-300: #fca5a5;
 	--color-crimson-400: #f87171;
-	--color-crimson-500: #ef4444; /* Original Base */
+	--color-crimson-500: #ef4444;
 	--color-crimson-600: #dc2626;
 	--color-crimson-700: #b91c1c;
 	--color-crimson-800: #991b1b;
@@ -62,17 +89,7 @@
 	--color-crimson-950: #450a0a;
 	--color-crimson: var(--color-crimson-500);
 
-	/* --- Seasalt (Neutrals/Backgrounds) --- */
-	--color-seasalt-50:  #f9fafb; /* Original Base */
-	--color-seasalt-100: #f3f4f6;
-	--color-seasalt-200: #e5e7eb;
-	--color-seasalt-300: #d1d5db;
-	--color-seasalt-400: #9ca3af;
-	--color-seasalt-500: #6b7280;
-	--color-seasalt-600: #4b5563;
-	--color-seasalt-700: #374151;
-	--color-seasalt-800: #1f2937;
-	--color-seasalt-900: #111827;
-	--color-seasalt-950: #030712;
-	--color-seasalt: var(--color-seasalt-50);
+	/* --- Essentials --- */
+	--color-white: #ffffff;
+	--color-black: #000000;
 }

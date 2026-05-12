@@ -1,11 +1,11 @@
 # The URL the site will be built for
-base_url = "https://zola.trewhitt.se"
+base_url = "https://spira.se"
 
 # Site title — available in templates as {{ config.title }}
-title = "My Zola Site"
+title = "Spira"
 
 # Site description — available in templates as {{ config.description }}
-description = "A fast static site built with Zola and Tailwind CSS."
+description = "Din guide till krukväxternas vackra värld — lär dig odla, ta hand om och älska dina gröna vänner."
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
@@ -16,7 +16,7 @@ build_search_index = false
 [[taxonomies]]
 name = "tags"
 url = "tags"
-feed = true
+feed = false
 
 [markdown]
 
@@ -24,4 +24,4 @@ feed = true
 theme = "catppuccin-mocha"
 
 [extra]
-# Put all your custom variables here
+author = "Spira"

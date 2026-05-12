@@ -1,27 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Tags | {{ config.title }}{% endblock title %}
+{% block title %}Taggar | {{ config.title }}{% endblock title %}
 
 {% block content %}
 
 <header class="mb-10">
-	<h1 class="font-extrabold text-4xl tracking-tight animate-slide-up delay-50">Tags</h1>
+	<p class="text-leaf-600 text-xs font-semibold tracking-[0.2em] uppercase mb-2 animate-slide-up delay-50">Kategorier</p>
+	<h1 class="font-serif font-bold text-5xl text-soil-900 animate-slide-up delay-100">Alla taggar</h1>
 </header>
 
 {% if terms %}
 <ul class="flex flex-wrap gap-3">
 	{% for term in terms %}
-	<li class="animate-slide-up" style="animation-delay: {{ loop.index * 50 + 100 }}ms">
+	<li class="animate-slide-up" style="animation-delay: {{ loop.index * 50 + 150 }}ms">
 		<a href="{{ term.permalink }}"
-			class="inline-flex items-center gap-1.5 bg-seasalt-100 hover:bg-pumpkin-50 dark:bg-seasalt-800 dark:hover:bg-seasalt-700 px-3 py-1.5 rounded-lg font-medium text-pumpkin dark:text-pumpkin-300 text-sm transition-colors">
-			#{{ term.name }}
-			<span class="text-emerald text-xs">({{ term.pages | length }})</span>
+			class="inline-flex items-center gap-2 bg-white hover:bg-leaf-50 border border-cream-200 hover:border-leaf-300 px-4 py-2 rounded-full font-medium text-soil-700 hover:text-leaf-700 text-sm transition-colors">
+			{{ term.name }}
+			<span class="bg-leaf-100 text-leaf-700 text-xs font-semibold px-2 py-0.5 rounded-full">{{ term.pages | length }}</span>
 		</a>
 	</li>
 	{% endfor %}
 </ul>
 {% else %}
-<p class="text-seasalt-500">No tags yet.</p>
+<p class="text-soil-400 italic">Inga taggar ännu.</p>
 {% endif %}
 
 {% endblock content %}

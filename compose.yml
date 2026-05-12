@@ -4,10 +4,10 @@ services:
     image: ghcr.io/getzola/zola:v0.22.1
     container_name: zola
     ports:
-      - "80:80"
+      - "5000:5000"
     volumes:
       - .:/project
-    command: serve --interface 0.0.0.0 --port 80 --base-url localhost
+    command: serve --interface 0.0.0.0 --port 5000 --base-url localhost
     working_dir: /project
 
   tailwind:

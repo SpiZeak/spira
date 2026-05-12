@@ -1,33 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}#{{ term.name }} | {{ config.title }}{% endblock title %}
+{% block title %}{{ term.name }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
 
 <header class="mb-10">
-	<h1 class="font-extrabold text-4xl tracking-tight animate-slide-up delay-50">#{{ term.name }}</h1>
-	<p class="mt-2 text-seasalt-500 text-sm animate-slide-up delay-150">{{ term.pages | length }} post{% if term.pages | length != 1 %}s{% endif %}
-	</p>
+	<a href="/tags" class="text-sm text-soil-400 hover:text-leaf-600 transition-colors inline-flex items-center gap-1.5 mb-4 animate-slide-up delay-50">
+		<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+		</svg>
+		Alla taggar
+	</a>
+	<span class="bg-leaf-50 text-leaf-700 border border-leaf-200 text-sm font-medium px-3 py-1 rounded-full inline-block mb-3 animate-slide-up delay-100">{{ term.name }}</span>
+	<h1 class="font-serif font-bold text-5xl text-soil-900 animate-slide-up delay-150">{{ term.name | capitalize }}</h1>
+	<p class="mt-2 text-soil-400 text-sm animate-slide-up delay-200">{{ term.pages | length }} {{ term.pages | length | pluralize(singular="växt", plural="växter") }}</p>
 </header>
 
-<ul class="space-y-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 	{% for page in term.pages %}
-	<li class="pb-8 border-seasalt-200 dark:border-warm-charcoal-600 last:border-0 border-b animate-slide-up" style="animation-delay: {{ loop.index * 75 + 200 }}ms">
-		<a href="{{ page.permalink }}" class="group block">
-			<h2 class="font-semibold group-hover:text-pumpkin text-xl transition-colors">
-				{{ page.title }}
-			</h2>
-			{% if page.date %}
-			<time class="block mt-1 text-seasalt-500 text-sm" datetime="{{ page.date }}">
-				{{ page.date | date(format="%B %e, %Y") }}
-			</time>
-			{% endif %}
-			{% if page.description %}
-			<p class="mt-2 text-seasalt-600 leading-relaxed">{{ page.description }}</p>
-			{% endif %}
-		</a>
-	</li>
+	<a href="{{ page.permalink }}" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 animate-slide-up" style="animation-delay: {{ loop.index * 75 + 250 }}ms">
+		{% if page.extra.featured_image %}
+		<div class="aspect-[3/2] overflow-hidden bg-cream-100">
+			<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+		</div>
+		{% endif %}
+		<div class="p-5">
+			<h2 class="font-serif font-bold text-xl text-soil-900 group-hover:text-leaf-600 transition-colors">{{ page.title }}</h2>
+			{% if page.extra.latin_name %}<p class="text-xs text-soil-400 italic mt-0.5">{{ page.extra.latin_name }}</p>{% endif %}
+			{% if page.description %}<p class="mt-2 text-soil-500 text-sm leading-relaxed line-clamp-2">{{ page.description }}</p>{% endif %}
+		</div>
+	</a>
 	{% endfor %}
-</ul>
+</div>
 
 {% endblock content %}
