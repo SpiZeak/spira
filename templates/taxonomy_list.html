@@ -5,8 +5,9 @@
 {% block content %}
 
 <header class="mb-10">
-	<p class="text-leaf-600 text-xs font-semibold tracking-[0.2em] uppercase mb-2 animate-slide-up delay-50">Kategorier</p>
-	<h1 class="font-serif font-bold text-5xl text-soil-900 animate-slide-up delay-100">Alla taggar</h1>
+	<p class="mb-2 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">Kategorier
+	</p>
+	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-100">Alla taggar</h1>
 </header>
 
 {% if terms %}
@@ -14,9 +15,10 @@
 	{% for term in terms %}
 	<li class="animate-slide-up" style="animation-delay: {{ loop.index * 50 + 150 }}ms">
 		<a href="{{ term.permalink }}"
-			class="inline-flex items-center gap-2 bg-white hover:bg-leaf-50 border border-cream-200 hover:border-leaf-300 px-4 py-2 rounded-full font-medium text-soil-700 hover:text-leaf-700 text-sm transition-colors">
+			class="inline-flex items-center gap-2 bg-white hover:bg-leaf-50 px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-700 hover:text-leaf-700 text-sm transition-colors">
 			{{ term.name }}
-			<span class="bg-leaf-100 text-leaf-700 text-xs font-semibold px-2 py-0.5 rounded-full">{{ term.pages | length }}</span>
+			<span class="bg-leaf-100 px-2 py-0.5 rounded-full font-semibold text-leaf-700 text-xs">{{ term.pages |
+				length }}</span>
 		</a>
 	</li>
 	{% endfor %}

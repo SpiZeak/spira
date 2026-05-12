@@ -9,9 +9,9 @@
 {% block content %}
 
 <header class="mb-10">
-	<h1 class="font-serif font-bold text-5xl text-soil-900 animate-slide-up delay-50">{{ section.title }}</h1>
+	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-50">{{ section.title }}</h1>
 	{% if section.content %}
-	<div class="mt-4 animate-slide-up delay-150 prose max-w-none">{{ section.content | safe }}</div>
+	<div class="mt-4 max-w-none animate-slide-up delay-150 prose">{{ section.content | safe }}</div>
 	{% endif %}
 </header>
 
@@ -24,9 +24,10 @@
 {% if pages %}
 <ul class="space-y-8">
 	{% for page in pages %}
-	<li class="pb-8 border-cream-200 last:border-0 border-b animate-slide-up" style="animation-delay: {{ loop.index * 75 + 150 }}ms">
+	<li class="pb-8 border-cream-200 last:border-0 border-b animate-slide-up"
+		style="animation-delay: {{ loop.index * 75 + 150 }}ms">
 		<a href="{{ page.permalink }}" class="group block">
-			<h2 class="font-serif font-bold text-2xl text-soil-900 group-hover:text-leaf-600 transition-colors">
+			<h2 class="font-serif font-bold text-soil-900 group-hover:text-leaf-600 text-2xl transition-colors">
 				{{ page.title }}
 			</h2>
 			{% if page.date %}
@@ -37,7 +38,9 @@
 			{% if page.taxonomies.tags %}
 			<span class="flex flex-wrap gap-2 mt-2">
 				{% for tag in page.taxonomies.tags %}
-				<span class="bg-leaf-50 border border-leaf-200 px-2.5 py-0.5 rounded-full text-leaf-700 text-xs font-medium">{{ tag }}</span>
+				<span
+					class="bg-leaf-50 px-2.5 py-0.5 border border-leaf-200 rounded-full font-medium text-leaf-700 text-xs">{{
+					tag }}</span>
 				{% endfor %}
 			</span>
 			{% endif %}

@@ -10,13 +10,15 @@
 
 <article>
 	<header class="mb-10">
-		<h1 class="font-serif font-bold text-5xl text-soil-900 leading-tight animate-slide-up delay-50">{{ page.title }}</h1>
+		<h1 class="font-serif font-bold text-soil-900 text-5xl leading-tight animate-slide-up delay-50">{{ page.title }}
+		</h1>
 		{% if page.date or page.taxonomies.tags %}
 		<div class="flex flex-wrap items-center gap-4 mt-4 text-soil-400 text-sm animate-slide-up delay-150">
 			{% if page.date %}
 			<time datetime="{{ page.date }}" class="flex items-center gap-1.5">
 				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+					<path stroke-linecap="round" stroke-linejoin="round"
+						d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
 				</svg>
 				{{ page.date | date(format="%e %B %Y") }}
 			</time>
@@ -25,7 +27,7 @@
 			<span class="flex flex-wrap gap-2">
 				{% for tag in page.taxonomies.tags %}
 				<a href="/tags/{{ tag | slugify }}"
-					class="bg-leaf-50 hover:bg-leaf-100 px-2.5 py-0.5 rounded-full text-leaf-700 border border-leaf-200 text-xs font-medium transition-colors">
+					class="bg-leaf-50 hover:bg-leaf-100 px-2.5 py-0.5 border border-leaf-200 rounded-full font-medium text-leaf-700 text-xs transition-colors">
 					{{ tag }}
 				</a>
 				{% endfor %}
@@ -35,10 +37,9 @@
 		{% endif %}
 	</header>
 
-	<div class="animate-fade-in delay-250 prose max-w-none">
+	<div class="max-w-none animate-fade-in delay-250 prose">
 		{{ page.content | safe }}
 	</div>
 </article>
 
 {% endblock content %}
-

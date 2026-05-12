@@ -5,29 +5,40 @@
 {% block content %}
 
 <header class="mb-10">
-	<a href="/tags" class="text-sm text-soil-400 hover:text-leaf-600 transition-colors inline-flex items-center gap-1.5 mb-4 animate-slide-up delay-50">
+	<a href="/tags"
+		class="inline-flex items-center gap-1.5 mb-4 text-soil-400 hover:text-leaf-600 text-sm transition-colors animate-slide-up delay-50">
 		<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
 		</svg>
 		Alla taggar
 	</a>
-	<span class="bg-leaf-50 text-leaf-700 border border-leaf-200 text-sm font-medium px-3 py-1 rounded-full inline-block mb-3 animate-slide-up delay-100">{{ term.name }}</span>
-	<h1 class="font-serif font-bold text-5xl text-soil-900 animate-slide-up delay-150">{{ term.name | capitalize }}</h1>
-	<p class="mt-2 text-soil-400 text-sm animate-slide-up delay-200">{{ term.pages | length }} {{ term.pages | length | pluralize(singular="växt", plural="växter") }}</p>
+	<span
+		class="inline-block bg-leaf-50 mb-3 px-3 py-1 border border-leaf-200 rounded-full font-medium text-leaf-700 text-sm animate-slide-up delay-100">{{
+		term.name }}</span>
+	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-150">{{ term.name | capitalize }}</h1>
+	<p class="mt-2 text-soil-400 text-sm animate-slide-up delay-200">{{ term.pages | length }} {{ term.pages | length |
+		pluralize(singular="växt", plural="växter") }}</p>
 </header>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="gap-6 grid grid-cols-1 sm:grid-cols-2">
 	{% for page in term.pages %}
-	<a href="{{ page.permalink }}" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 animate-slide-up" style="animation-delay: {{ loop.index * 75 + 250 }}ms">
+	<a href="{{ page.permalink }}"
+		class="group block bg-white shadow-sm hover:shadow-md rounded-2xl overflow-hidden transition-all animate-slide-up duration-300"
+		style="animation-delay: {{ loop.index * 75 + 250 }}ms">
 		{% if page.extra.featured_image %}
-		<div class="aspect-[3/2] overflow-hidden bg-cream-100">
-			<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+		<div class="bg-cream-100 aspect-[3/2] overflow-hidden">
+			<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}"
+				class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+				loading="lazy" />
 		</div>
 		{% endif %}
 		<div class="p-5">
-			<h2 class="font-serif font-bold text-xl text-soil-900 group-hover:text-leaf-600 transition-colors">{{ page.title }}</h2>
-			{% if page.extra.latin_name %}<p class="text-xs text-soil-400 italic mt-0.5">{{ page.extra.latin_name }}</p>{% endif %}
-			{% if page.description %}<p class="mt-2 text-soil-500 text-sm leading-relaxed line-clamp-2">{{ page.description }}</p>{% endif %}
+			<h2 class="font-serif font-bold text-soil-900 group-hover:text-leaf-600 text-xl transition-colors">{{
+				page.title }}</h2>
+			{% if page.extra.latin_name %}<p class="mt-0.5 text-soil-400 text-xs italic">{{ page.extra.latin_name }}</p>
+			{% endif %}
+			{% if page.description %}<p class="mt-2 text-soil-500 text-sm line-clamp-2 leading-relaxed">{{
+				page.description }}</p>{% endif %}
 		</div>
 	</a>
 	{% endfor %}
