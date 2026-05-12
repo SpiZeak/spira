@@ -6,6 +6,13 @@
 {%- if section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif -%}
 {% endblock description %}
 
+{% block og_title %}{{ section.title }} | {{ config.title }}{% endblock og_title %}
+{% block og_description %}{%- if section.description %}{{ section.description }}{% else %}{{ config.description }}{%
+endif -%}{% endblock og_description %}
+{% block twitter_title %}{{ section.title }} | {{ config.title }}{% endblock twitter_title %}
+{% block twitter_description %}{%- if section.description %}{{ section.description }}{% else %}{{ config.description
+}}{% endif -%}{% endblock twitter_description %}
+
 {% block content %}
 
 <header class="mb-10">
