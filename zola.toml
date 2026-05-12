@@ -11,7 +11,13 @@ description = "Din guide till krukväxternas vackra värld — lär dig odla, ta
 compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
+build_search_index = true
+
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+default_language = "sv"
+minify_html = false
 
 [[taxonomies]]
 name = "tags"
@@ -19,6 +25,7 @@ url = "tags"
 feed = false
 
 [markdown]
+lazy_async_image = true
 
 [markdown.highlighting]
 theme = "catppuccin-mocha"
