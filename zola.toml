@@ -21,7 +21,7 @@ minify_html = false
 
 [[taxonomies]]
 name = "tags"
-url = "tags"
+url = "taggar"
 feed = false
 
 [markdown]

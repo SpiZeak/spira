@@ -6,6 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>{% block title %}{{ config.title }}{% endblock title %}</title>
 	<meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
+	<link rel="canonical" href="{{ current_url | default(value=config.base_url) }}" />
+	<meta name="robots" content="index, follow" />
+	<!-- Open Graph -->
+	<meta property="og:site_name" content="{{ config.title }}" />
+	<meta property="og:locale" content="sv_SE" />
+	<meta property="og:type" content="{% block og_type %}website{% endblock og_type %}" />
+	<meta property="og:title" content="{{ self::title() }}" />
+	<meta property="og:description" content="{{ self::description() }}" />
+	<meta property="og:url" content="{{ current_url | default(value=config.base_url) }}" />
+	{% block og_image %}{% endblock og_image %}
+	<!-- Twitter / X Card -->
+	<meta name="twitter:card" content="{% block twitter_card %}summary{% endblock twitter_card %}" />
+	<meta name="twitter:title" content="{{ self::title() }}" />
+	<meta name="twitter:description" content="{{ self::description() }}" />
+	{% block twitter_image %}{% endblock twitter_image %}
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link rel="preload"
@@ -109,7 +124,7 @@
 						<p class="mb-3 font-semibold text-soil-400 text-xs uppercase tracking-wider">Sidor</p>
 						<ul class="space-y-2 text-soil-500 text-sm">
 							<li><a href="/om" class="hover:text-leaf-600 transition-colors">Om Spira</a></li>
-							<li><a href="/tags" class="hover:text-leaf-600 transition-colors">Alla taggar</a></li>
+							<li><a href="/taggar" class="hover:text-leaf-600 transition-colors">Alla taggar</a></li>
 						</ul>
 					</div>
 				</nav>

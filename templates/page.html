@@ -6,6 +6,8 @@
 {%- if page.description %}{{ page.description }}{% else %}{{ config.description }}{% endif -%}
 {% endblock description %}
 
+{% block og_type %}article{% endblock og_type %}
+
 {% block content %}
 
 <article>
@@ -26,7 +28,7 @@
 			{% if page.taxonomies.tags %}
 			<span class="flex flex-wrap gap-2">
 				{% for tag in page.taxonomies.tags %}
-				<a href="/tags/{{ tag | slugify }}"
+				<a href="/taggar/{{ tag | slugify }}"
 					class="bg-leaf-50 hover:bg-leaf-100 px-2.5 py-0.5 border border-leaf-200 rounded-full font-medium text-leaf-700 text-xs transition-colors">
 					{{ tag }}
 				</a>
