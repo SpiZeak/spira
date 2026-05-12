@@ -15,7 +15,7 @@ water = "Var 3–4 vecka"
 humidity = "Låg"
 difficulty = "Lätt"
 max_height = "40–80 cm"
-featured_image = "https://images.unsplash.com/photo-1459803600083-a3f3ccfb29fe?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=800&h=600&fit=crop&q=80"
 +++
 
 Aloe vera är en av världens äldsta medicinalväxter och har använts av människor i tusentals år — från det antika Egypten till modern kosmetika. Men utöver sin legendariska gel är aloe en vacker, minimalistisk växt som trivs på soliga fönsterbräden med minimal skötsel.

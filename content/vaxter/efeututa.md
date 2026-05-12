@@ -15,7 +15,7 @@ water = "Var 1–2 vecka"
 humidity = "Medel"
 difficulty = "Lätt"
 max_height = "Klättrar upp till 200+ cm"
-featured_image = "https://images.unsplash.com/photo-1598880940953-d8c3e79db18e?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1596724878582-76f1a8fdc24f?w=800&h=600&fit=crop&q=80"
 +++
 
 Efeututan kallas ibland för "den omöjliga att döda" — och det är inte utan grund. Denna klättrande rankväxt är känd för sin förmåga att klara sig i förhållanden som skulle testa andra växters tålamod: mörka hörn, glömd vattning, torr luft. Och ändå blomstrar den.
