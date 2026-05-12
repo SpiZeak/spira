@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"build": "tailwindcss -i ./css/tailwind.css -o ./static/tailwind.css --minify && zola build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.15",
+		"@tailwindcss/cli": "^4.3.0"
+	}
+}
