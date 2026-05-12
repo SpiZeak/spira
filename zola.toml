@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://spira.se"
+base_url = "https://spira.pages.dev"
 
 # Site title — available in templates as {{ config.title }}
 title = "Spira"
