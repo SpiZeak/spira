@@ -80,7 +80,8 @@
 	@media (prefers-reduced-motion: reduce) {
 		.animate-slide-down,
 		.animate-slide-up,
-		.animate-fade-in {
+		.animate-fade-in,
+		.animate-blob {
 			animation: none;
 		}
 	}
@@ -117,5 +118,61 @@
 	}
 	.mobile-menu.is-open > ul > li:nth-child(3) {
 		animation-delay: 180ms;
+	}
+}
+
+@keyframes blob-drift-1 {
+	0%,
+	100% {
+		transform: translate(0, 0) scale(1);
+	}
+	33% {
+		transform: translate(12px, -8px) scale(1.02);
+	}
+	66% {
+		transform: translate(-8px, 10px) scale(0.99);
+	}
+}
+
+@keyframes blob-drift-2 {
+	0%,
+	100% {
+		transform: translate(0, 0) scale(1);
+	}
+	33% {
+		transform: translate(-10px, 8px) scale(1.02);
+	}
+	66% {
+		transform: translate(9px, -10px) scale(0.98);
+	}
+}
+
+@keyframes blob-drift-3 {
+	0%,
+	100% {
+		transform: translate(0, 0) scale(1);
+	}
+	50% {
+		transform: translate(7px, 6px) scale(1.02);
+	}
+}
+
+@layer utilities {
+	.animate-blob-1 {
+		animation: blob-drift-1 20s ease-in-out infinite;
+	}
+	.animate-blob-2 {
+		animation: blob-drift-2 25s ease-in-out infinite;
+	}
+	.animate-blob-3 {
+		animation: blob-drift-3 18s ease-in-out infinite;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.animate-blob-1,
+		.animate-blob-2,
+		.animate-blob-3 {
+			animation: none;
+		}
 	}
 }

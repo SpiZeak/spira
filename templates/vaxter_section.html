@@ -26,8 +26,17 @@ twitter_description %}
 {% endfor %}
 
 <!-- Section hero -->
-<section class="bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 py-20">
-	<div class="mx-auto px-6 max-w-6xl">
+<section class="relative bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 py-20 overflow-hidden">
+	<!-- Animated blobs -->
+	<div aria-hidden="true"
+		class="-top-24 -left-24 absolute bg-leaf-200/40 blur-3xl rounded-full w-96 h-96 animate-blob-1"></div>
+	<div aria-hidden="true"
+		class="top-10 -right-32 absolute bg-sage-200/40 blur-3xl rounded-full w-80 h-80 animate-blob-2 [animation-delay:4s]">
+	</div>
+	<div aria-hidden="true"
+		class="-bottom-20 left-1/2 absolute bg-cream-300/30 blur-3xl rounded-full w-72 h-72 -translate-x-1/2 animate-blob-3 [animation-delay:2s]">
+	</div>
+	<div class="relative mx-auto px-6 max-w-6xl">
 		<p class="mb-3 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">Spira
 		</p>
 		<h1 class="font-serif font-bold text-soil-900 text-5xl md:text-6xl animate-slide-up delay-100">Växtbiblioteket
