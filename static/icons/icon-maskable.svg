@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+	<!-- Full bleed background (safe zone for maskable icons) -->
+	<rect width="512" height="512" fill="#2a7a2d" />
+	<!-- Content within inner ~80% circle safe zone, centered -->
+	<path
+		d="M256 106 C184 106 140 178 140 258 C140 338 184 400 256 400 C328 400 372 338 372 258 C372 178 328 106 256 106Z"
+		fill="#b9ddb9" />
+	<line x1="256" y1="128" x2="256" y2="388" stroke="#2a7a2d" stroke-width="16" stroke-linecap="round" />
+	<path d="M256 202 C230 182 196 190 180 212" stroke="#2a7a2d" stroke-width="11" stroke-linecap="round" fill="none" />
+	<path d="M256 202 C282 182 316 190 332 212" stroke="#2a7a2d" stroke-width="11" stroke-linecap="round" fill="none" />
+	<path d="M256 262 C230 242 196 250 180 272" stroke="#2a7a2d" stroke-width="11" stroke-linecap="round" fill="none" />
+	<path d="M256 262 C282 242 316 250 332 272" stroke="#2a7a2d" stroke-width="11" stroke-linecap="round" fill="none" />
+	<path d="M256 322 C230 302 196 310 180 332" stroke="#2a7a2d" stroke-width="11" stroke-linecap="round" fill="none" />
+	<path d="M256 322 C282 302 316 310 332 332" stroke="#2a7a2d" stroke-width="11" stroke-linecap="round" fill="none" />
+</svg>

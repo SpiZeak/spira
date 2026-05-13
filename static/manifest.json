@@ -1,0 +1,41 @@
+{
+	"name": "Spira",
+	"short_name": "Spira",
+	"description": "Din guide till krukväxternas vackra värld — lär dig odla, ta hand om och älska dina gröna vänner.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"orientation": "portrait-primary",
+	"background_color": "#fdfbf6",
+	"theme_color": "#fdfbf6",
+	"lang": "sv",
+	"dir": "ltr",
+	"categories": ["lifestyle", "education"],
+	"icons": [
+		{
+			"src": "/icons/icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any"
+		},
+		{
+			"src": "/icons/icon-maskable.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "maskable"
+		}
+	],
+	"screenshots": [],
+	"shortcuts": [
+		{
+			"name": "Växtbiblioteket",
+			"url": "/vaxter/",
+			"description": "Bläddra bland alla växter"
+		},
+		{
+			"name": "Guider",
+			"url": "/guider/",
+			"description": "Läs skötselguider"
+		}
+	]
+}

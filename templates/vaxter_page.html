@@ -34,8 +34,8 @@ endif -%}{% endblock twitter_description %}
 <!-- Hero image -->
 {% if page.extra.featured_image %}
 <div class="relative bg-cream-100 w-full h-[50vh] md:h-[60vh] overflow-hidden">
-	<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}"
-		class="w-full h-full object-center object-cover" />
+	<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}" class="w-full h-full object-center object-cover"
+		fetchpriority="high" decoding="sync" />
 	<div class="bottom-0 absolute inset-x-0 bg-gradient-to-t from-cream-50 to-transparent h-48 pointer-events-none">
 	</div>
 </div>
