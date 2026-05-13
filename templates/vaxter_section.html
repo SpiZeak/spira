@@ -14,6 +14,17 @@ twitter_description %}
 
 {% block content %}
 
+{% set all_tags = [] %}
+{% for page in section.pages %}
+{% if page.taxonomies.tags %}
+{% for tag in page.taxonomies.tags %}
+{% if tag not in all_tags %}
+{% set_global all_tags = all_tags | concat(with=tag) %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
 <!-- Section hero -->
 <section class="bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 py-20">
 	<div class="mx-auto px-6 max-w-6xl">
@@ -24,30 +35,23 @@ twitter_description %}
 		<p class="mt-4 max-w-xl text-soil-500 text-lg leading-relaxed animate-slide-up delay-200">
 			Djupdyk i världen av krukväxter — lär dig allt om skötsel, ljusbehov och ursprung för varje växt.
 		</p>
-		<p class="mt-3 font-medium text-leaf-600 text-sm animate-slide-up delay-250">{{ section.pages | length }} växter
-			i biblioteket</p>
+		<p class="mt-3 font-medium text-leaf-600 text-sm animate-slide-up delay-250" id="plant-count"><span
+				id="plant-count-number">{{ section.pages | length }}</span> växter
+			i <span id="plant-count-label">biblioteket</span></p>
 
-		<!-- Tag filter links -->
-		{% if config.taxonomies %}
-		<div class="flex flex-wrap gap-2 mt-8 animate-slide-up delay-300">
-			<a href="/vaxter" class="bg-leaf-600 px-4 py-2 rounded-full font-semibold text-white text-xs">Alla
-				växter</a>
-			<a href="/tags/lattskott"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Lättskött</a>
-			<a href="/tags/tropisk"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Tropisk</a>
-			<a href="/tags/suckulenter"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Suckulenter</a>
-			<a href="/tags/blomstrande"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Blomstrande</a>
-			<a href="/tags/hangande"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Hängande</a>
-			<a href="/tags/luftrenande"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Luftrenande</a>
-			<a href="/tags/elegant"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Elegant</a>
-			<a href="/tags/skuggtalig"
-				class="bg-white px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors">Skuggtålig</a>
+		<!-- Tag filter buttons -->
+		{% if all_tags %}
+		<div class="flex flex-wrap gap-2 mt-8 animate-slide-up delay-300" id="tag-filters">
+			<button data-tag="all" onclick="filterPlants('all')"
+				class="bg-leaf-600 tag-filter-btn px-4 py-2 border border-leaf-600 rounded-full font-semibold text-white text-xs transition-colors cursor-pointer active">
+				Alla växter
+			</button>
+			{% for tag in all_tags | sort %}
+			<button data-tag="{{ tag }}" onclick="filterPlants('{{ tag }}')"
+				class="bg-white tag-filter-btn px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors cursor-pointer">
+				{{ tag | title }}
+			</button>
+			{% endfor %}
 		</div>
 		{% endif %}
 	</div>
@@ -62,10 +66,10 @@ twitter_description %}
 	{% endif %}
 
 	{% if pages %}
-	<div class="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+	<div class="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" id="plants-grid">
 		{% for page in pages %}
-		<a href="{{ page.permalink }}"
-			class="group block bg-white shadow-sm hover:shadow-lg rounded-2xl overflow-hidden transition-all animate-slide-up duration-300"
+		<a href="{{ page.permalink }}" data-tags="{{ page.taxonomies.tags | default(value=[]) | join(sep=',') }}"
+			class="group block bg-white shadow-sm hover:shadow-lg rounded-2xl overflow-hidden transition-all animate-slide-up duration-300 plant-card"
 			style="animation-delay: {{ loop.index * 80 + 100 }}ms">
 			<!-- Plant image -->
 			<div class="relative bg-cream-100 aspect-[4/3] overflow-hidden">
@@ -170,5 +174,41 @@ twitter_description %}
 	<p class="py-12 text-soil-400 text-center italic">Inga växter ännu. Återkom snart!</p>
 	{% endif %}
 </div>
+
+<script>
+	function filterPlants(tag) {
+		const cards = document.querySelectorAll('.plant-card');
+		const buttons = document.querySelectorAll('.tag-filter-btn');
+
+		buttons.forEach(function (btn) {
+			if (btn.dataset.tag === tag) {
+				btn.classList.add('active', 'bg-leaf-600', 'border-leaf-600', 'text-white');
+				btn.classList.remove('bg-white', 'border-cream-200', 'text-soil-600', 'hover:border-leaf-300', 'hover:text-leaf-600');
+			} else {
+				btn.classList.remove('active', 'bg-leaf-600', 'border-leaf-600', 'text-white');
+				btn.classList.add('bg-white', 'border-cream-200', 'text-soil-600', 'hover:border-leaf-300', 'hover:text-leaf-600');
+			}
+		});
+
+		var visible = 0;
+		cards.forEach(function (card) {
+			if (tag === 'all') {
+				card.style.display = '';
+				visible++;
+			} else {
+				var tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+				if (tags.indexOf(tag) !== -1) {
+					card.style.display = '';
+					visible++;
+				} else {
+					card.style.display = 'none';
+				}
+			}
+		});
+		document.getElementById('plant-count-number').textContent = visible;
+		var label = tag === 'all' ? 'biblioteket' : tag.charAt(0).toUpperCase() + tag.slice(1);
+		document.getElementById('plant-count-label').textContent = label;
+	}
+</script>
 
 {% endblock content %}

@@ -35,6 +35,8 @@ Den vanligaste och enklaste metoden. Perfekt för efeututa, vandringsjude, monst
 
 **Tips:** Rötter bildas snabbare i varmt (20–25°C), ljust läge. Genomskinliga vaser gör att du kan följa processen.
 
+![Stamstickling med rötter rotad i ett vattenglas](https://images.unsplash.com/photo-1766902674264-d5b904d43892?w=800&h=500&fit=crop&q=80)
+
 ## Metod 2: Stamsticklingar i jord
 
 Fungerar utmärkt för geranium/pelargon, dracena, fikus och många andra vedartade växter.
@@ -59,6 +61,8 @@ Används för suckulenter, sansevieria och begonia.
 2. Lägg bladet på fuktig kaktus- eller suckulentjord
 3. Spraya lätt med vatten var tredje dag
 4. Efter 2–6 veckor syns små rosetter vid bladbasen
+
+![Bladförökning av suckulenter — nya rosetter vid bladbasen](https://images.unsplash.com/photo-1722233702403-d6ecffaccb34?w=800&h=500&fit=crop&q=80)
 
 ### Sansevieria
 

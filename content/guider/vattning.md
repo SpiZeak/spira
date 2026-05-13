@@ -36,6 +36,8 @@ För suckulenter och kaktusar kan du gå ännu längre — låt de översta 5–
 
 Det låter banalt, men de flesta vattningsproblem löser sig med denna enkla teknik.
 
+![Fingerprovet — känn efter fukt 2–3 cm ner i jorden](https://images.unsplash.com/photo-1605449669573-8abe6d34d583?w=800&h=500&fit=crop&q=80)
+
 ## Metoden: djupt och sällan
 
 När du väl vattnar — vattna ordentligt. Häll vatten tills det rinner ut ur dräneringshålet i botten. Då säkerställer du att hela jordvolymen är genomfuktad och att rötterna djupare i krukan också når vatten.
@@ -81,6 +83,8 @@ Lär dig läsa din växt:
 | Jord som drar sig från kanten | Extremt torr jord — blöt igenom ordentligt  |
 
 Notera: hängande blad kan orsakas av **både** för mycket och för lite vatten. Känn på jordens fuktighet för att avgöra vilket det är.
+
+![Vattna ordentligt tills vatten rinner ut ur dräneringshålet](https://images.unsplash.com/photo-1510247854398-8e6a1ac45557?w=800&h=500&fit=crop&q=80)
 
 ## Krukans roll
 

@@ -27,6 +27,8 @@ Nackdelar: Väger mer, kan spricka i frost och är dyrare än plast.
 
 **Passar bäst för:** Suckulenter, kaktusar, pelargoner, citrus, rosmarin, alla torktoleranta växter.
 
+![Terrakottakrukor — poröst material som andas](https://images.unsplash.com/photo-1777119846486-e65994915e3c?w=800&h=500&fit=crop&q=80)
+
 ### Plast
 
 Billigt, lätt och praktiskt. Plast är ogenomtränglig vilket innebär att jord håller sig fuktig längre — upp till 50 % längre än i terrakotta.
@@ -87,6 +89,8 @@ Det viktigaste av allt: **välj alltid krukor med dräneringshål**. Utan dräne
 Om du älskar en kruka utan hål, använd den som en yttre kaplkruka (cache pot) och ha en enklare kruka med hål inuti.
 
 **Dräneringsstenar** i botten — ett utbrett råd som faktiskt _inte_ fungerar. Studier visar att ett stenigt lager i botten inte förbättrar dränering; det skapar snarare en vattenmättad "perched water table" nära rötterna. Välj rätt jord istället.
+
+![Krukor med dräneringshål — alltid nödvändigt](https://images.unsplash.com/photo-1653340193326-a803d6d3e3d2?w=800&h=500&fit=crop&q=80)
 
 ## Underfat och vattenuppsamlare
 

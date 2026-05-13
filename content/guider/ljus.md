@@ -51,6 +51,8 @@ Vilka växter som passar varierar beroende på vilket håll dina fönster vetter
 | **Öster**       | Mjukt morgonljus            | Orkidéer, bregner, kryddor                    |
 | **Norr**        | Minst ljus, ingen direktsol | Fredskalla, murgröna, efeututa (klarar sig)   |
 
+![Krukväxter placerade i ett ljust fönster](https://images.unsplash.com/photo-1705885937930-35514f391d45?w=800&h=500&fit=crop&q=80)
+
 ## Distans från fönstret
 
 Det som många inte vet är hur dramatiskt ljusintensiteten minskar med avståndet från fönstret. Ljusstyrkan följer det omvända kvadrat-lagen:
@@ -94,6 +96,8 @@ Moderna LED-växtlampor är energieffektiva och effektiva. De bästa modellerna 
 - Håll lampan 20–40 cm ovanför plantan
 - 12–16 timmars belysning per dag är optimalt för de flesta växter
 - En timer gör det enkelt att hålla ett konsekvent schema
+
+![Växtlampa med fullspektrum LED ovanför krukväxter](https://images.unsplash.com/photo-1571684116845-6d62d8460b86?w=800&h=500&fit=crop&q=80)
 
 ## Rotera dina växter
 

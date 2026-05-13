@@ -28,11 +28,38 @@ endblock twitter_description %}
 {% endif %}
 
 {% if pages %}
-<div class="space-y-6">
+
+{% set all_tags = [] %}
+{% for page in pages %}
+{% if page.taxonomies.tags %}
+{% for tag in page.taxonomies.tags %}
+{% if tag not in all_tags %}
+{% set_global all_tags = all_tags | concat(with=tag) %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% if all_tags %}
+<div class="flex flex-wrap gap-2 mb-8 animate-slide-up" style="animation-delay: 300ms" id="tag-filters">
+	<button data-tag="all" onclick="filterGuides('all')"
+		class="bg-leaf-600 tag-filter-btn px-4 py-1.5 border border-leaf-600 rounded-full font-medium text-white text-sm transition-colors cursor-pointer active">
+		Alla
+	</button>
+	{% for tag in all_tags | sort %}
+	<button data-tag="{{ tag }}" onclick="filterGuides('{{ tag }}')"
+		class="bg-white hover:bg-sage-50 tag-filter-btn px-4 py-1.5 border border-sage-200 rounded-full font-medium text-sage-700 text-sm transition-colors cursor-pointer">
+		{{ tag | title }}
+	</button>
+	{% endfor %}
+</div>
+{% endif %}
+
+<div class="space-y-6" id="guides-list">
 	{% for page in pages %}
-	<a href="{{ page.permalink }}"
-		class="group flex gap-6 bg-white shadow-sm hover:shadow-md p-6 border border-cream-200 rounded-2xl transition-all animate-slide-up duration-300"
-		style="animation-delay: {{ loop.index * 100 + 250 }}ms">
+	<a href="{{ page.permalink }}" data-tags="{{ page.taxonomies.tags | default(value=[]) | join(sep=',') }}"
+		class="group flex gap-6 bg-white shadow-sm hover:shadow-md p-6 border border-cream-200 rounded-2xl transition-all animate-slide-up duration-300 guide-card"
+		style="animation-delay: {{ loop.index * 100 + 350 }}ms">
 		<div
 			class="flex justify-center items-center bg-leaf-50 group-hover:bg-leaf-100 mt-0.5 border border-leaf-200 rounded-2xl w-12 h-12 transition-colors shrink-0">
 			<svg class="w-5 h-5 text-leaf-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -64,6 +91,32 @@ endblock twitter_description %}
 	</a>
 	{% endfor %}
 </div>
+
+<script>
+	function filterGuides(tag) {
+		const cards = document.querySelectorAll('.guide-card');
+		const buttons = document.querySelectorAll('.tag-filter-btn');
+
+		buttons.forEach(function (btn) {
+			if (btn.dataset.tag === tag) {
+				btn.classList.add('active', 'bg-leaf-600', 'border-leaf-600', 'text-white');
+				btn.classList.remove('bg-white', 'border-sage-200', 'text-sage-700', 'hover:bg-sage-50');
+			} else {
+				btn.classList.remove('active', 'bg-leaf-600', 'border-leaf-600', 'text-white');
+				btn.classList.add('bg-white', 'border-sage-200', 'text-sage-700', 'hover:bg-sage-50');
+			}
+		});
+
+		cards.forEach(function (card) {
+			if (tag === 'all') {
+				card.style.display = '';
+			} else {
+				var tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+				card.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
+			}
+		});
+	}
+</script>
 
 {% if paginator %}
 <nav class="flex justify-between mt-12 font-medium text-sm" aria-label="Pagination">

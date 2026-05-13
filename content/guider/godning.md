@@ -32,6 +32,8 @@ Alla gödselmedel innehåller tre huvudämnen, alltid angivna som ett tal-trio p
 - **Blommande växter** (pelargon, orkidé) → välj gödselmedel med högre P och K
 - **Suckulenter och kaktusar** → specialgödsel med låg N och extra K
 
+![Gödselmedel för krukväxter — kväve, fosfor och kalium](https://images.unsplash.com/photo-1759422714268-0805b53525b7?w=800&h=500&fit=crop&q=80)
+
 ## När ska man gödsla?
 
 Regeln är enkel: **gödsla bara under växtsäsongen.**
@@ -55,6 +57,8 @@ Att gödsla en vilande växt under vintern är slöseri och kan i värsta fall s
 ### Flytande gödsel
 
 Det vanligaste och mest praktiska. Blandas ut i vattnet och ges vid vattning. Snabb effekt. Finns som koncentrat (spädas ut) eller färdigblandat. **Det bästa valet för de flesta.**
+
+![Flytande gödselmedel blandas i vattenkanna](https://images.unsplash.com/photo-1618498732743-b9907abfdf83?w=800&h=500&fit=crop&q=80)
 
 ### Långtidsverkande granulat
 
