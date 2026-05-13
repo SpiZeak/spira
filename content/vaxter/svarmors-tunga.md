@@ -15,7 +15,7 @@ water = "Var 3–6 vecka"
 humidity = "Låg"
 difficulty = "Lätt"
 max_height = "60–120 cm"
-featured_image = "https://images.unsplash.com/photo-1616879564684-3c8698d14fb2?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1764249454220-ce25a9153805?w=800&h=600&fit=crop&q=80"
 +++
 
 Svärmors tunga — eller sansevieria som den länge hette — är den perfekta inomhusväxten för dem som vill ha grönska i hemmet utan att behöva lägga ner mycket tid. De upprätta, bandformade bladen med silvergrön teckning och gula kanter är både grafiskt tilltalande och remarkabelt tåliga.

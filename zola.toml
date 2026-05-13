@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://spira.pages.dev"
+base_url = "https://spirabotanik.se"
 
 # Site title — available in templates as {{ config.title }}
 title = "Spira"
@@ -21,7 +21,6 @@ minify_html = false
 
 [[taxonomies]]
 name = "tags"
-url = "taggar"
 feed = false
 
 [markdown]

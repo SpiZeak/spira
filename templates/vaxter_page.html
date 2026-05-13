@@ -73,7 +73,7 @@ endif -%}{% endblock twitter_description %}
 		{% if page.taxonomies.tags %}
 		<div class="flex flex-wrap gap-2 mt-4">
 			{% for tag in page.taxonomies.tags %}
-			<a href="/taggar/{{ tag | slugify }}"
+			<a href="/tags/{{ tag | slugify }}"
 				class="bg-sage-50 hover:bg-sage-100 px-3 py-1 border border-sage-200 rounded-full font-medium text-sage-700 text-xs transition-colors">{{
 				tag }}</a>
 			{% endfor %}

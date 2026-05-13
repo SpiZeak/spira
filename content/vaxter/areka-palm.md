@@ -15,7 +15,7 @@ water = "Var 1–2 vecka"
 humidity = "Medel till hög"
 difficulty = "Medel"
 max_height = "150–250 cm"
-featured_image = "https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1598531403144-43fdb36c9ae8?w=800&h=600&fit=crop&q=80"
 +++
 
 Areka-palmen — även känd som bambupalm eller guld-fjäderpalm — är den mest sålda inomhuspalmen i världen, och med goda skäl. De eleganta, gulgröna stammarna och de böjda, fjäderliknande bladen skapar en direkt tropisk stämning som inga konstgjorda växter kan efterlikna. Och till skillnad från många palmertar klarar sig areka-palmen faktiskt ganska bra inomhus.

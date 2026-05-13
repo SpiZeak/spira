@@ -15,7 +15,7 @@ water = "Var 2–3 vecka"
 humidity = "Medel"
 difficulty = "Lätt"
 max_height = "150–300 cm"
-featured_image = "https://images.unsplash.com/photo-1550159930-40066082a4fc?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1771654249968-cad93a1641e8?w=800&h=600&fit=crop&q=80"
 +++
 
 Dracena marginata — ofta bara kallad "dracena" i handeln — är en av de vackraste och mest formstarka inomhusväxterna. De tunna, bågformiga bladen med röda eller lila kanter sitter i täta rosetter på slanka, korkliknande stammar som med åren grenar sig och skapar en unik, nästan skulptural siluett.

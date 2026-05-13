@@ -15,7 +15,7 @@ water = "Var 3–5 dag"
 humidity = "Låg till medel"
 difficulty = "Lätt"
 max_height = "20–60 cm"
-featured_image = "https://images.unsplash.com/photo-1596731498067-c9e55e23bfad?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1745415272360-d623e229a764?w=800&h=600&fit=crop&q=80"
 +++
 
 Pelargonen är en institution i det svenska sommarlandskapet. Från göteborgska balkonger till dalska gårdar — den röda, rosa eller vita blomfloran i fönsterkarmen är ett av sommarsveriges mest älskade inslag. Men pelargonen är mer än ett sommarnöje: med rätt omvårdnad kan den leva i många år och övervintra inomhus för att blomma igen nästa sommar.

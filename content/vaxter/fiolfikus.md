@@ -15,7 +15,7 @@ water = "Var 1–2 vecka"
 humidity = "Medel till hög"
 difficulty = "Medel"
 max_height = "100–300 cm"
-featured_image = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1638741280384-36839c90f329?w=800&h=600&fit=crop&q=80"
 +++
 
 Fiolfikusen är inredningsvärldens stora stjärna — dess stora, skulpturala blad med violinens form och djupgröna, skrynkliga yta är omedelbart igenkännlig från otaliga skandinaviska hem, hotelllobbyar och kafeer. Den är vacker, dramatisk och kräver lite mer omsorg än många andra inomhusväxter — men belöningen är enorm.

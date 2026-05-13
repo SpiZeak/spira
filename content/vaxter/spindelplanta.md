@@ -15,7 +15,7 @@ water = "Var 1–2 vecka"
 humidity = "Medel"
 difficulty = "Lätt"
 max_height = "30–60 cm (med hängande utlöpare)"
-featured_image = "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1753900526196-11c005bddd8b?w=800&h=600&fit=crop&q=80"
 +++
 
 Spindelplantan är en klassiker av rang i svenska hem — älskad av generationer för sin lättskötta natur, vackra bågande blad och de charmiga miniaturplantor som hänger i långa trådar nedanför moderplantan. Det är en växt som ger tillbaka mer än man ger den.
