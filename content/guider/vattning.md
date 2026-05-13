@@ -5,6 +5,9 @@ date = 2026-05-05
 
 [taxonomies]
 tags = ["skötsel", "vattning", "nybörjare"]
+
+[extra]
+featured_image = "https://images.unsplash.com/photo-1691290123815-cba16d4ed917?w=1200&h=600&fit=crop&q=80"
 +++
 
 Frågan jag får oftare än någon annan är: _"Hur ofta ska jag vattna?"_ Och svaret — som frustrerar folk — är: "Det beror på." Men det finns goda nyheter. När du förstår _varför_ det beror, löser sig allt annat av sig självt.

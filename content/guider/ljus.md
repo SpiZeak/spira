@@ -5,6 +5,9 @@ date = 2026-05-08
 
 [taxonomies]
 tags = ["ljus", "placering", "inomhus"]
+
+[extra]
+featured_image = "https://images.unsplash.com/photo-1775728601622-9068ca103cc3?w=1200&h=600&fit=crop&q=80"
 +++
 
 Ljus är fotosyntesens bränsle — det är bokstavligen det som driver all växtlighet. Ändå är felaktig placering en av de allra vanligaste orsakerna till att inomhusväxter inte mår bra. Att förstå ljus är att förstå hälften av all växtskötsel.

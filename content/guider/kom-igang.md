@@ -5,6 +5,9 @@ date = 2026-05-01
 
 [taxonomies]
 tags = ["nybörjare", "introduktion", "tips"]
+
+[extra]
+featured_image = "https://images.unsplash.com/photo-1755088134140-56e53d59b707?w=1200&h=600&fit=crop&q=80"
 +++
 
 Att börja odla krukväxter kan kännas överväldigande — det finns tusentals arter, dussintals myter och oändliga produkter att köpa. Men sanningen är att de flesta växter är enklare att ta hand om än vad du tror. Den här guiden tar dig igenom allt du behöver veta för att börja.

@@ -14,40 +14,128 @@
 {% block twitter_description %}{%- if page.description %}{{ page.description }}{% else %}{{ config.description }}{%
 endif -%}{% endblock twitter_description %}
 
+{% block og_image %}
+{%- if page.extra.featured_image %}
+<meta property="og:image" content="{{ page.extra.featured_image }}" />
+<meta property="og:image:alt" content="{{ page.title }}" />
+{%- endif %}
+{% endblock og_image %}
+{% block twitter_card %}{% if page.extra.featured_image %}summary_large_image{% else %}summary{% endif %}{% endblock
+twitter_card %}
+{% block twitter_image %}
+{%- if page.extra.featured_image %}
+<meta name="twitter:image" content="{{ page.extra.featured_image }}" />
+<meta name="twitter:image:alt" content="{{ page.title }}" />
+{%- endif %}
+{% endblock twitter_image %}
+
+{% block main_class %}w-full{% endblock main_class %}
+
 {% block content %}
 
-<article>
-	<header class="mb-10">
-		<h1 class="font-serif font-bold text-soil-900 text-5xl leading-tight animate-slide-up delay-50">{{ page.title }}
-		</h1>
-		{% if page.date or page.taxonomies.tags %}
-		<div class="flex flex-wrap items-center gap-4 mt-4 text-soil-400 text-sm animate-slide-up delay-150">
-			{% if page.date %}
-			<time datetime="{{ page.date }}" class="flex items-center gap-1.5">
-				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round"
-						d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-				</svg>
-				{{ page.date | date(format="%e %B %Y") }}
-			</time>
-			{% endif %}
-			{% if page.taxonomies.tags %}
-			<span class="flex flex-wrap gap-2">
-				{% for tag in page.taxonomies.tags %}
-				<a href="/tags/{{ tag | slugify }}"
-					class="bg-leaf-50 hover:bg-leaf-100 px-2.5 py-0.5 border border-leaf-200 rounded-full font-medium text-leaf-700 text-xs transition-colors">
-					{{ tag }}
-				</a>
-				{% endfor %}
-			</span>
-			{% endif %}
-		</div>
-		{% endif %}
-	</header>
-
-	<div class="max-w-none animate-fade-in delay-250 prose">
-		{{ page.content | safe }}
+{% if page.extra.featured_image %}
+<div class="relative bg-cream-100 w-full h-[45vh] md:h-[55vh] overflow-hidden">
+	<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}"
+		class="w-full h-full object-center object-cover" />
+	<div class="bottom-0 absolute inset-x-0 bg-gradient-to-t from-cream-50 to-transparent h-48 pointer-events-none">
 	</div>
-</article>
+</div>
+{% endif %}
+
+<div class="mx-auto px-6 py-12 w-full max-w-5xl">
+	<article>
+		<header class="mb-10">
+			{% if page.ancestors %}
+			<nav class="flex items-center gap-2 mb-6 text-soil-400 text-sm animate-slide-up delay-50"
+				aria-label="Brödsmulor">
+				<a href="/" class="hover:text-leaf-600 transition-colors">Hem</a>
+				{% for ancestor in page.ancestors %}
+				{% set anc_section = get_section(path=ancestor) %}
+				<svg class="w-4 h-4 text-soil-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+					stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+				</svg>
+				<a href="{{ anc_section.permalink }}" class="hover:text-leaf-600 transition-colors">{{ anc_section.title
+					}}</a>
+				{% endfor %}
+				<svg class="w-4 h-4 text-soil-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+					stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+				</svg>
+				<span class="font-medium text-soil-600">{{ page.title }}</span>
+			</nav>
+			{% endif %}
+			<h1 class="font-serif font-bold text-soil-900 text-5xl leading-tight animate-slide-up delay-50">{{
+				page.title }}
+			</h1>
+			{% if page.date or page.taxonomies.tags %}
+			<div class="flex flex-wrap items-center gap-4 mt-4 text-soil-400 text-sm animate-slide-up delay-150">
+				{% if page.date %}
+				<time datetime="{{ page.date }}" class="flex items-center gap-1.5">
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+					</svg>
+					{{ page.date | date(format="%e %B %Y") }}
+				</time>
+				{% endif %}
+				{% if page.taxonomies.tags %}
+				<span class="flex flex-wrap gap-2">
+					{% for tag in page.taxonomies.tags %}
+					<a href="/tags/{{ tag | slugify }}"
+						class="bg-leaf-50 hover:bg-leaf-100 px-2.5 py-0.5 border border-leaf-200 rounded-full font-medium text-leaf-700 text-xs transition-colors">
+						{{ tag }}
+					</a>
+					{% endfor %}
+				</span>
+				{% endif %}
+			</div>
+			{% endif %}
+		</header>
+
+		<div class="max-w-none animate-fade-in delay-250 prose">
+			{{ page.content | safe }}
+		</div>
+	</article>
+
+	<!-- Explore plants -->
+	{% set vaxter_section = get_section(path="vaxter/_index.md") %}
+	<div class="mt-14 pt-10 border-cream-200 border-t animate-fade-in delay-400">
+		<div class="flex justify-between items-center mb-6">
+			<h2 class="font-serif font-bold text-soil-900 text-2xl">Utforska växter</h2>
+			<a href="/vaxter" class="font-medium text-leaf-600 hover:text-leaf-700 text-sm transition-colors">Se alla
+				→</a>
+		</div>
+		<div class="gap-4 grid grid-cols-2 sm:grid-cols-4">
+			{% for p in vaxter_section.pages | slice(end=4) %}
+			<a href="{{ p.permalink }}"
+				class="group bg-white hover:shadow-md border border-cream-200 hover:border-leaf-200 rounded-2xl overflow-hidden transition-all">
+				{% if p.extra.featured_image %}
+				<div class="bg-cream-100 aspect-[4/3] overflow-hidden">
+					<img src="{{ p.extra.featured_image | replace(from='w=800&h=600', to='w=300&h=225') }}&auto=format"
+						alt="{{ p.title }}"
+						class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+						loading="lazy" />
+				</div>
+				{% endif %}
+				<div class="p-3">
+					<h3
+						class="font-serif font-bold text-soil-900 group-hover:text-leaf-600 text-sm leading-tight transition-colors">
+						{{ p.title }}</h3>
+					{% if p.extra.difficulty %}
+					<span class="inline-block mt-1 text-xs px-2 py-0.5 rounded-full
+					{% if p.extra.difficulty == 'Lätt' %}bg-leaf-50 text-leaf-700
+					{% elif p.extra.difficulty == 'Medel' %}bg-amber-50 text-amber-700
+					{% else %}bg-crimson-50 text-crimson-700{% endif %}">
+						{{ p.extra.difficulty }}
+					</span>
+					{% endif %}
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+
+</div>
 
 {% endblock content %}

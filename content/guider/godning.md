@@ -5,6 +5,9 @@ date = 2026-05-06
 
 [taxonomies]
 tags = ["skötsel", "nybörjare", "tips"]
+
+[extra]
+featured_image = "https://images.unsplash.com/photo-1693414854024-42f69780a923?w=1200&h=600&fit=crop&q=80"
 +++
 
 Gödsling är det ämnet som flest nybörjare antingen ignorerar helt eller överdoserar kraftigt. Sanningen är att det varken är komplicerat eller tidskrävande — men det kräver att du förstår ett par grundläggande principer.

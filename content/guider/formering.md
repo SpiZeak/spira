@@ -5,6 +5,9 @@ date = 2026-05-08
 
 [taxonomies]
 tags = ["skötsel", "tips", "nybörjare"]
+
+[extra]
+featured_image = "https://images.unsplash.com/photo-1766902652974-900bb7db80b9?w=1200&h=600&fit=crop&q=80"
 +++
 
 Det finns få saker som ger samma tillfredsställelse som att se rötter spira på en styckning du tagit från en älskad växt — att ta en bit av något levande och skapa något nytt. Formering, eller vegetativ förökning, är dessutom ett av de smartaste sätten att utöka sin växtsamling kostnadsfritt och dela med sig till vänner.

@@ -5,6 +5,9 @@ date = 2026-05-10
 
 [taxonomies]
 tags = ["skötsel", "nybörjare", "tips", "placering"]
+
+[extra]
+featured_image = "https://images.unsplash.com/photo-1620293106076-ad27d651efe3?w=1200&h=600&fit=crop&q=80"
 +++
 
 Det är lätt att tänka att en kruka är en kruka — bara en behållare för jord. Men valet av kruka påverkar hur snabbt jord torkar ut, hur väl rötterna andas, hur stabil plantan sitter och hur hela arrangemanget ser ut. Det är värt att tänka igenom.
