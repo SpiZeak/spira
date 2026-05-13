@@ -1,12 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+	<!-- Dark green rounded square background -->
 	<rect width="512" height="512" rx="110" fill="#2a7a2d" />
-	<path d="M256 90 C162 90 108 176 108 272 C108 368 168 430 256 430 C344 430 404 368 404 272 C404 176 350 90 256 90Z"
-		fill="#b9ddb9" />
-	<line x1="256" y1="115" x2="256" y2="415" stroke="#2a7a2d" stroke-width="18" stroke-linecap="round" />
-	<path d="M256 195 C224 170 178 178 160 205" stroke="#2a7a2d" stroke-width="12" stroke-linecap="round" fill="none" />
-	<path d="M256 195 C288 170 334 178 352 205" stroke="#2a7a2d" stroke-width="12" stroke-linecap="round" fill="none" />
-	<path d="M256 268 C224 243 178 251 160 278" stroke="#2a7a2d" stroke-width="12" stroke-linecap="round" fill="none" />
-	<path d="M256 268 C288 243 334 251 352 278" stroke="#2a7a2d" stroke-width="12" stroke-linecap="round" fill="none" />
-	<path d="M256 341 C224 316 178 324 160 351" stroke="#2a7a2d" stroke-width="12" stroke-linecap="round" fill="none" />
-	<path d="M256 341 C288 316 334 324 352 351" stroke="#2a7a2d" stroke-width="12" stroke-linecap="round" fill="none" />
+	<!--
+    Leaf shape: control points (268,65) and (244,65) sit almost directly
+    below the pointed tip (256,40), creating a sharp apex instead of a
+    rounded oval top. Widest at y≈260, then tapers to a narrow base.
+  -->
+	<path d="M 256 40
+           C 268 65, 430 145, 430 260
+           C 430 375, 330 462, 256 472
+           C 182 462,  82 375,  82 260
+           C  82 145, 244  65, 256  40 Z" fill="#b9ddb9" />
+	<!-- Petiole (stem stub below leaf base) -->
+	<line x1="256" y1="462" x2="256" y2="492" stroke="#b9ddb9" stroke-width="10" stroke-linecap="round" />
+	<!-- Central vein (midrib) -->
+	<line x1="256" y1="64" x2="256" y2="460" stroke="#2a7a2d" stroke-width="12" stroke-linecap="round" />
+	<!-- Upper vein pair -->
+	<path d="M 256 185 Q 292 165 348 172" stroke="#2a7a2d" stroke-width="8" fill="none" stroke-linecap="round" />
+	<path d="M 256 185 Q 220 165 164 172" stroke="#2a7a2d" stroke-width="8" fill="none" stroke-linecap="round" />
+	<!-- Middle vein pair -->
+	<path d="M 256 265 Q 305 248 376 258" stroke="#2a7a2d" stroke-width="8" fill="none" stroke-linecap="round" />
+	<path d="M 256 265 Q 207 248 136 258" stroke="#2a7a2d" stroke-width="8" fill="none" stroke-linecap="round" />
+	<!-- Lower vein pair -->
+	<path d="M 256 355 Q 295 345 352 352" stroke="#2a7a2d" stroke-width="8" fill="none" stroke-linecap="round" />
+	<path d="M 256 355 Q 217 345 160 352" stroke="#2a7a2d" stroke-width="8" fill="none" stroke-linecap="round" />
 </svg>
