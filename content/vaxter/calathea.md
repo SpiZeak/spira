@@ -15,7 +15,7 @@ water = "Var 1–2 vecka"
 humidity = "Hög"
 difficulty = "Medel"
 max_height = "40–90 cm"
-featured_image = "https://images.unsplash.com/photo-1620803366004-119b57f54cd6?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1714507767656-2fb307e1b03d?w=800&h=600&fit=crop&q=80"
 +++
 
 Få växter väcker lika mycket beundran som en välskött calathea. De runda, breda bladen med sina intrikata mönster — silverbandade, zebra-strimmiga, sammetsaktiga purpurundersidor — är ett av naturens mest spektakulära visuella verk. Calathea är inte den enklaste växtens att hålla, men med rätt miljö belönar den sin ägare med en skönhet som slår de flesta.

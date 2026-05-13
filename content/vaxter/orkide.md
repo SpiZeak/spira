@@ -15,7 +15,7 @@ water = "Var 7–10 dagar"
 humidity = "Hög (50–70 %)"
 difficulty = "Medel"
 max_height = "30–60 cm"
-featured_image = "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1768368052646-a6185df478c1?w=800&h=600&fit=crop&q=80"
 +++
 
 Det finns växter, och sedan finns det orkidéer. Phalaenopsis — fjärilsorkidén — tillhör en av naturens mest förfinande skapelser: blommor formade som fjärilar i vitt, lila, rosa, gult och alla nyanser däremellan. Att få en orkidé att blomma igen efter det ursprungliga blommandet är ett av inomhusodlingens mest tillfredsställande ögonblick.

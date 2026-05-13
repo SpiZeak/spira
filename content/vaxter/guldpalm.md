@@ -15,7 +15,7 @@ water = "Var 1–2 vecka"
 humidity = "Hög"
 difficulty = "Medel"
 max_height = "100–200 cm (inomhus)"
-featured_image = "https://images.unsplash.com/photo-1521334884684-d80222895322?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1768692857070-e57811d9ccaa?w=800&h=600&fit=crop&q=80"
 +++
 
 Guldpalmen — också känd som arekapalm eller bambuppalm — är en av de mest luftrenande inomhusväxterna enligt NASA:s välkända studie. Med sina guldgula stammar och eleganta, bågformade palmblad skapar den en direkt tropisk atmosfär, och dess förmåga att avdunsta stora mängder vatten gör den till en naturlig luftfuktare.
