@@ -35,8 +35,8 @@ plant_explore_more = "Utforska fler växter"
 plant_see_all = "Se alla →"
 plant_back = "Tillbaka till växtbiblioteket"
 
-# Plant section
 plant_empty = "Inga växter ännu. Återkom snart\!"plant_section_label = "Spira"
+# Plant section
 plant_section_title = "Växtbiblioteket"
 plant_section_description = "Djupdyk i världen av krukväxter — lär dig allt om skötsel, ljusbehov och ursprung för varje växt."
 plant_count_suffix = "växter i"
@@ -47,8 +47,8 @@ plant_page_next = "Nästa →"
 plant_page_label = "Sida"
 plant_page_of = "av"
 
-# Guide section
 guide_empty = "Inga guider ännu. Återkom snart\!"guide_section_label = "Lär dig mer"
+# Guide section
 guide_section_title = "Guider"
 guide_section_description = "Allt du behöver veta för att lyckas med dina krukväxter — från vattning till ljussättning."
 guide_filter_all = "Alla"
@@ -59,9 +59,6 @@ home_welcome = "Välkommen till"
 home_tagline = "Din guide till krukväxternas vackra värld — lär dig odla, ta hand om och älska dina gröna vänner."
 home_explore_plants = "Utforska växter"
 home_read_guides = "Läs guiderna"
-home_plant_profiles = "Växtprofiler"
-home_care_guides = "Skötselguider"
-home_free_info = "Gratis information"
 home_featured_label = "Växtbiblioteket"
 home_featured_title = "Utvalda växter"
 home_featured_link = "Se alla växter →"
@@ -97,8 +94,8 @@ home_category_elegant_sub = "Stilren inredning"
 home_category_shade_title = "Skuggtålig"
 home_category_shade_sub = "För mörka platser"
 
-# Section pagination
 pagination_empty = "Inga inlägg ännu. Återkom snart\!"pagination_newer = "← Nyare"
+# Section pagination
 pagination_older = "Äldre →"
 pagination_page_label = "Sida"
 pagination_page_of = "av"

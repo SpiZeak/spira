@@ -57,31 +57,6 @@
 	</div>
 </section>
 
-<!-- STATS -->
-<div class="bg-white py-10 border-cream-200 border-b">
-	<div class="mx-auto px-6 max-w-6xl">
-		<dl class="flex flex-wrap justify-center gap-10 md:gap-0">
-			<div class="md:flex-1 text-center animate-slide-up delay-100">
-				<dt class="font-serif font-bold text-soil-900 text-5xl">{{ vaxter.pages | length }}</dt>
-				<dd class="mt-2 font-medium text-soil-400 text-sm uppercase tracking-wide">{{
-					trans(key="home_plant_profiles", lang=lang) }}</dd>
-			</div>
-			<div class="hidden md:block self-stretch bg-cream-200 mx-10 w-px"></div>
-			<div class="md:flex-1 text-center animate-slide-up delay-200">
-				<dt class="font-serif font-bold text-soil-900 text-5xl">{{ guider.pages | length }}</dt>
-				<dd class="mt-2 font-medium text-soil-400 text-sm uppercase tracking-wide">{{
-					trans(key="home_care_guides", lang=lang) }}</dd>
-			</div>
-			<div class="hidden md:block self-stretch bg-cream-200 mx-10 w-px"></div>
-			<div class="md:flex-1 text-center animate-slide-up delay-300">
-				<dt class="font-serif font-bold text-soil-900 text-5xl">100%</dt>
-				<dd class="mt-2 font-medium text-soil-400 text-sm uppercase tracking-wide">{{
-					trans(key="home_free_info", lang=lang) }}</dd>
-			</div>
-		</dl>
-	</div>
-</div>
-
 <!-- FEATURED PLANTS -->
 {% if vaxter.pages %}
 <section class="mx-auto px-6 py-20 max-w-6xl">
