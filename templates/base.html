@@ -21,6 +21,9 @@
 	<title>{% block title %}{{ config.title }}{% endblock title %}</title>
 	<meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
 	<link rel="canonical" href="{{ current_url | default(value=config.base_url) }}" />
+	<link rel="alternate" hreflang="sv" href="https://spirabotanik.se/" />
+	<link rel="alternate" hreflang="en" href="https://spirabotanik.se/en/" />
+	<link rel="alternate" hreflang="x-default" href="https://spirabotanik.se/" />
 	<meta name="robots" content="index, follow" />
 	<!-- PWA -->
 	<link rel="manifest" href="/manifest.json" />
