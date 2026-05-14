@@ -15,7 +15,7 @@ water = "Var 1–2 vecka"
 humidity = "Medel"
 difficulty = "Lätt"
 max_height = "Hänger 30–100 cm"
-featured_image = "https://images.unsplash.com/photo-1567662577402-3c06e423c776?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1593234273421-b6e14f4e81f0?w=800&h=600&fit=crop&q=80"
 +++
 
 Vandringsjudet — med sina zebrarandiga blad i silvergrönt och djupaste purpur-röda undersidor — är en av de mest visuellt dramatiska inomhusväxterna och ändå en av de enklaste att odla. Det är sällsynt att en växt kombinerar sådan skönhet med sådan robusthet.

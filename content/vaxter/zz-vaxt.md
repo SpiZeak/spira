@@ -15,7 +15,7 @@ water = "Var 3–4 vecka"
 humidity = "Låg till medel"
 difficulty = "Lätt"
 max_height = "60–90 cm"
-featured_image = "https://images.unsplash.com/photo-1547414924-b71ebb598495?w=800&h=600&fit=crop&q=80"
+featured_image = "https://images.unsplash.com/photo-1715358405679-9b0dc9270c7b?w=800&h=600&fit=crop&q=80"
 +++
 
 ZZ-växten — ett smeknamn för det svårstavade _Zamioculcas zamiifolia_ — har under de senaste tio åren exploderat i popularitet och blivit en storfavorit i allt från skandinaviska hem till kontorslandskap runt om i världen. Det är inte svårt att förstå varför: de välvda stjälkarna med parvisa, djupgröna och högglansiga blad utstrålar en stilren, nästan skulptural skönhet.
