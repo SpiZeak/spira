@@ -62,13 +62,16 @@ endif -%}{% endblock og_description %}
 {% if paginator %}
 <nav class="flex justify-between mt-12 font-medium text-sm animate-slide-up delay-150" aria-label="Pagination">
 	{% if paginator.previous %}
-	<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">← Nyare</a>
+	<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">{{ trans(key="pagination_newer", lang=lang)
+		}}</a>
 	{% else %}
 	<span></span>
 	{% endif %}
-	<span class="text-soil-400">Sida {{ paginator.current_index }} av {{ paginator.number_pagers }}</span>
+	<span class="text-soil-400">{{ trans(key="pagination_page_label", lang=lang) }} {{ paginator.current_index }} {{
+		trans(key="pagination_page_of", lang=lang) }} {{ paginator.number_pagers }}</span>
 	{% if paginator.next %}
-	<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">Äldre →</a>
+	<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">{{ trans(key="pagination_older", lang=lang)
+		}}</a>
 	{% else %}
 	<span></span>
 	{% endif %}
@@ -76,7 +79,7 @@ endif -%}{% endblock og_description %}
 {% endif %}
 
 {% else %}
-<p class="text-soil-400 italic">Inga inlägg ännu. Återkom snart!</p>
+<p class="text-soil-400 italic">{{ trans(key="pagination_empty", lang=lang) }}</p>
 {% endif %}
 
 {% endblock content %}

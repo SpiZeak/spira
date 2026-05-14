@@ -47,8 +47,9 @@ twitter_card %}
 		<header class="mb-10">
 			{% if page.ancestors %}
 			<nav class="flex items-center gap-2 mb-6 text-soil-400 text-sm animate-slide-up delay-50"
-				aria-label="Brödsmulor">
-				<a href="/" class="hover:text-leaf-600 transition-colors">Hem</a>
+				aria-label="{{ trans(key='breadcrumb_label', lang=lang) }}">
+				<a href="{% if lang == 'sv' %}/{% else %}/en/{% endif %}"
+					class="hover:text-leaf-600 transition-colors">{{ trans(key="breadcrumb_home", lang=lang) }}</a>
 				{% for ancestor in page.ancestors %}
 				{% set anc_section = get_section(path=ancestor) %}
 				<svg class="w-4 h-4 text-soil-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"

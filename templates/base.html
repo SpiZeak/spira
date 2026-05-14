@@ -1,5 +1,19 @@
 <!DOCTYPE html>
-<html lang="sv" class="">
+<html lang="{{ lang }}" class="">
+
+{% if lang == "en" %}{% set bp = "/en" %}{% else %}{% set bp = "" %}{% endif %}
+{% if lang == "sv" %}{% set_global lang_url = "/en" %}{% else %}{% set_global lang_url = "/" %}{% endif %}
+{% if page is defined %}
+{% for t in page.translations %}
+{% if t.lang == "en" and lang == "sv" %}{% set_global lang_url = t.permalink %}{% endif %}
+{% if t.lang == "sv" and lang == "en" %}{% set_global lang_url = t.permalink %}{% endif %}
+{% endfor %}
+{% elif section is defined %}
+{% for t in section.translations %}
+{% if t.lang == "en" and lang == "sv" %}{% set_global lang_url = t.permalink %}{% endif %}
+{% if t.lang == "sv" and lang == "en" %}{% set_global lang_url = t.permalink %}{% endif %}
+{% endfor %}
+{% endif %}
 
 <head>
 	<meta charset="UTF-8" />
@@ -19,7 +33,7 @@
 	<meta name="color-scheme" content="light" />
 	<!-- Open Graph -->
 	<meta property="og:site_name" content="{{ config.title }}" />
-	<meta property="og:locale" content="sv_SE" />
+	<meta property="og:locale" content="{% if lang == 'en' %}en_US{% else %}sv_SE{% endif %}" />
 	<meta property="og:type" content="{% block og_type %}website{% endblock og_type %}" />
 	<meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}" />
 	<meta property="og:description"
@@ -59,7 +73,7 @@
 <body class="flex flex-col bg-cream-50 min-h-screen text-soil-900">
 	<header class="top-0 z-50 sticky bg-cream-50/95 backdrop-blur-sm border-cream-200 border-b animate-slide-down">
 		<nav class="flex justify-between items-center mx-auto px-6 py-4 max-w-6xl">
-			<a href="/"
+			<a href="{{ bp }}/"
 				class="font-serif font-bold text-soil-900 hover:text-leaf-600 text-2xl tracking-tight transition-colors animate-fade-in delay-100">
 				Spira
 			</a>
@@ -67,24 +81,38 @@
 			<!-- Desktop nav -->
 			<ul class="hidden sm:flex items-center gap-8 font-medium text-sm">
 				<li class="animate-fade-in delay-150">
-					<a href="/vaxter" class="text-soil-600 hover:text-leaf-600 transition-colors">Växter</a>
+					<a href="{{ bp }}/vaxter" class="text-soil-600 hover:text-leaf-600 transition-colors">{{
+						trans(key="nav_plants", lang=lang) }}</a>
 				</li>
 				<li class="animate-fade-in delay-200">
-					<a href="/guider" class="text-soil-600 hover:text-leaf-600 transition-colors">Guider</a>
+					<a href="{{ bp }}/guider" class="text-soil-600 hover:text-leaf-600 transition-colors">{{
+						trans(key="nav_guides", lang=lang) }}</a>
 				</li>
 				<li class="animate-fade-in delay-250">
-					<a href="/om" class="text-soil-600 hover:text-leaf-600 transition-colors">Om</a>
+					<a href="{{ bp }}/om" class="text-soil-600 hover:text-leaf-600 transition-colors">{{
+						trans(key="nav_about", lang=lang) }}</a>
 				</li>
 				<li class="animate-fade-in delay-300">
-					<a href="/vaxter"
+					<a href="{{ lang_url }}"
+						class="flex items-center gap-1.5 px-4 py-2 border border-soil-300 hover:border-leaf-600 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-sm transition-colors">
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round"
+								d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12c0 .778.099 1.533.284 2.253" />
+						</svg>
+						{{ trans(key="lang_switch", lang=lang) }}
+					</a>
+				</li>
+				<li class="animate-fade-in delay-350">
+					<a href="{{ bp }}/vaxter"
 						class="bg-leaf-600 hover:bg-leaf-700 px-5 py-2 rounded-full font-semibold text-white text-sm transition-colors">
-						Utforska växter
+						{{ trans(key="nav_explore", lang=lang) }}
 					</a>
 				</li>
 			</ul>
 
 			<!-- Mobile menu button -->
-			<button id="menu-toggle" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu"
+			<button id="menu-toggle" aria-label="{{ trans(key='nav_open_menu', lang=lang) }}" aria-expanded="false"
+				aria-controls="mobile-menu"
 				class="sm:hidden hover:bg-cream-100 p-2 rounded-lg text-soil-600 hover:text-leaf-600 transition-colors cursor-pointer">
 				<svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor" stroke-width="2">
@@ -100,14 +128,21 @@
 		<!-- Mobile menu -->
 		<div id="mobile-menu" class="sm:hidden border-cream-200 border-t mobile-menu">
 			<ul class="flex flex-col gap-1 px-6 py-3">
-				<li><a href="/vaxter"
-						class="block hover:bg-cream-100 px-3 py-2.5 rounded-lg font-medium text-soil-700 hover:text-leaf-600 transition-colors">Växter</a>
+				<li><a href="{{ bp }}/vaxter"
+						class="block hover:bg-cream-100 px-3 py-2.5 rounded-lg font-medium text-soil-700 hover:text-leaf-600 transition-colors">{{
+						trans(key="nav_plants", lang=lang) }}</a>
 				</li>
-				<li><a href="/guider"
-						class="block hover:bg-cream-100 px-3 py-2.5 rounded-lg font-medium text-soil-700 hover:text-leaf-600 transition-colors">Guider</a>
+				<li><a href="{{ bp }}/guider"
+						class="block hover:bg-cream-100 px-3 py-2.5 rounded-lg font-medium text-soil-700 hover:text-leaf-600 transition-colors">{{
+						trans(key="nav_guides", lang=lang) }}</a>
 				</li>
-				<li><a href="/om"
-						class="block hover:bg-cream-100 px-3 py-2.5 rounded-lg font-medium text-soil-700 hover:text-leaf-600 transition-colors">Om</a>
+				<li><a href="{{ bp }}/om"
+						class="block hover:bg-cream-100 px-3 py-2.5 rounded-lg font-medium text-soil-700 hover:text-leaf-600 transition-colors">{{
+						trans(key="nav_about", lang=lang) }}</a>
+				</li>
+				<li><a href="{{ lang_url }}"
+						class="block hover:bg-cream-100 px-3 py-2.5 rounded-lg font-medium text-soil-700 hover:text-leaf-600 transition-colors">{{
+						trans(key="lang_switch", lang=lang) }}</a>
 				</li>
 			</ul>
 		</div>
@@ -122,28 +157,34 @@
 			<div class="flex md:flex-row flex-col justify-between items-start md:items-center gap-8">
 				<div>
 					<span class="font-serif font-bold text-soil-900 text-2xl">Spira</span>
-					<p class="mt-1.5 max-w-xs text-soil-500 text-sm leading-relaxed">Botanik för alla sinnen —
-						inspirera, lär och låt det gröna ta plats i ditt liv.</p>
+					<p class="mt-1.5 max-w-xs text-soil-500 text-sm leading-relaxed">{{ trans(key="footer_tagline",
+						lang=lang) }}</p>
 				</div>
 				<nav class="flex sm:flex-row flex-col gap-4 sm:gap-8">
 					<div>
-						<p class="mb-3 font-semibold text-soil-400 text-xs uppercase tracking-wider">Utforska</p>
+						<p class="mb-3 font-semibold text-soil-400 text-xs uppercase tracking-wider">{{
+							trans(key="footer_explore", lang=lang) }}</p>
 						<ul class="space-y-2 text-soil-500 text-sm">
-							<li><a href="/vaxter" class="hover:text-leaf-600 transition-colors">Växtbiblioteket</a></li>
-							<li><a href="/guider" class="hover:text-leaf-600 transition-colors">Guider</a></li>
+							<li><a href="{{ bp }}/vaxter" class="hover:text-leaf-600 transition-colors">{{
+									trans(key="footer_plant_library", lang=lang) }}</a></li>
+							<li><a href="{{ bp }}/guider" class="hover:text-leaf-600 transition-colors">{{
+									trans(key="footer_guides", lang=lang) }}</a></li>
 						</ul>
 					</div>
 					<div>
-						<p class="mb-3 font-semibold text-soil-400 text-xs uppercase tracking-wider">Sidor</p>
+						<p class="mb-3 font-semibold text-soil-400 text-xs uppercase tracking-wider">{{
+							trans(key="footer_pages", lang=lang) }}</p>
 						<ul class="space-y-2 text-soil-500 text-sm">
-							<li><a href="/om" class="hover:text-leaf-600 transition-colors">Om Spira</a></li>
-							<li><a href="/tags" class="hover:text-leaf-600 transition-colors">Alla taggar</a></li>
+							<li><a href="{{ bp }}/om" class="hover:text-leaf-600 transition-colors">{{
+									trans(key="footer_about_spira", lang=lang) }}</a></li>
+							<li><a href="{{ bp }}/tags" class="hover:text-leaf-600 transition-colors">{{
+									trans(key="footer_all_tags", lang=lang) }}</a></li>
 						</ul>
 					</div>
 				</nav>
 			</div>
 			<div class="mt-8 pt-6 border-cream-200 border-t text-soil-400 text-xs text-center">
-				© 2026 Spira. Gjord med botanisk kärlek.
+				© 2026 Spira. {{ trans(key="footer_copyright", lang=lang) }}
 			</div>
 		</div>
 	</footer>

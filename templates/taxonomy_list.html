@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Taggar | {{ config.title }}{% endblock title %}
-{% block og_title %}Taggar | {{ config.title }}{% endblock og_title %}
-{% block twitter_title %}Taggar | {{ config.title }}{% endblock twitter_title %}
+{% block title %}{{ trans(key="taxonomy_all_tags", lang=lang) }} | {{ config.title }}{% endblock title %}
+{% block og_title %}{{ trans(key="taxonomy_all_tags", lang=lang) }} | {{ config.title }}{% endblock og_title %}
+{% block twitter_title %}{{ trans(key="taxonomy_all_tags", lang=lang) }} | {{ config.title }}{% endblock twitter_title
+%}
 
 {% block content %}
 
 <header class="mb-10">
-	<p class="mb-2 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">Kategorier
+	<p class="mb-2 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">{{
+		trans(key="taxonomy_categories", lang=lang) }}
 	</p>
-	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-100">Alla taggar</h1>
+	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-100">{{ trans(key="taxonomy_all_tags",
+		lang=lang) }}</h1>
 </header>
 
 {% if terms %}
@@ -26,7 +29,7 @@
 	{% endfor %}
 </ul>
 {% else %}
-<p class="text-soil-400 italic">Inga taggar ännu.</p>
+<p class="text-soil-400 italic">{{ trans(key="taxonomy_no_tags", lang=lang) }}</p>
 {% endif %}
 
 {% endblock content %}

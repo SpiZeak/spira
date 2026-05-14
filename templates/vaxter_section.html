@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Växtbiblioteket | {{ config.title }}{% endblock title %}
-{% block description %}Utforska vårt växtbibliotek med detaljerade skötselguider för inomhusväxter.{% endblock
-description %}
-{% block og_title %}Växtbiblioteket | {{ config.title }}{% endblock og_title %}
-{% block og_description %}Utforska vårt växtbibliotek med detaljerade skötselguider för inomhusväxter.{% endblock
-og_description %}
-{% block twitter_title %}Växtbiblioteket | {{ config.title }}{% endblock twitter_title %}
-{% block twitter_description %}Utforska vårt växtbibliotek med detaljerade skötselguider för inomhusväxter.{% endblock
+{% block title %}{{ trans(key="plant_section_title", lang=lang) }} | {{ config.title }}{% endblock title %}
+{% block description %}{{ section.description | default(value=config.description) }}{% endblock description %}
+{% block og_title %}{{ trans(key="plant_section_title", lang=lang) }} | {{ config.title }}{% endblock og_title %}
+{% block og_description %}{{ section.description | default(value=config.description) }}{% endblock og_description %}
+{% block twitter_title %}{{ trans(key="plant_section_title", lang=lang) }} | {{ config.title }}{% endblock twitter_title
+%}
+{% block twitter_description %}{{ section.description | default(value=config.description) }}{% endblock
 twitter_description %}
 
 {% block main_class %}w-full{% endblock main_class %}
 
 {% block content %}
+
+{% if lang == "en" %}{% set bp = "/en" %}{% else %}{% set bp = "" %}{% endif %}
 
 {% set all_tags = [] %}
 {% for page in section.pages %}
@@ -37,23 +38,27 @@ twitter_description %}
 		class="-bottom-20 left-1/2 absolute bg-cream-300/30 blur-3xl rounded-full w-72 h-72 -translate-x-1/2 animate-blob-3 [animation-delay:2s]">
 	</div>
 	<div class="relative mx-auto px-6 max-w-6xl">
-		<p class="mb-3 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">Spira
+		<p class="mb-3 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">{{
+			trans(key="plant_section_label", lang=lang) }}
 		</p>
-		<h1 class="font-serif font-bold text-soil-900 text-5xl md:text-6xl animate-slide-up delay-100">Växtbiblioteket
+		<h1 class="font-serif font-bold text-soil-900 text-5xl md:text-6xl animate-slide-up delay-100">{{
+			trans(key="plant_section_title", lang=lang) }}
 		</h1>
 		<p class="mt-4 max-w-xl text-soil-500 text-lg leading-relaxed animate-slide-up delay-200">
-			Djupdyk i världen av krukväxter — lär dig allt om skötsel, ljusbehov och ursprung för varje växt.
+			{{ trans(key="plant_section_description", lang=lang) }}
 		</p>
 		<p class="mt-3 font-medium text-leaf-600 text-sm animate-slide-up delay-250" id="plant-count"><span
-				id="plant-count-number">{{ section.pages | length }}</span> växter
-			i <span id="plant-count-label">biblioteket</span></p>
+				id="plant-count-number">{{ section.pages | length }}</span> {{ trans(key="plant_count_suffix",
+			lang=lang) }} <span id="plant-count-label"
+				data-library="{{ trans(key='plant_count_library', lang=lang) }}">{{ trans(key="plant_count_library",
+				lang=lang) }}</span></p>
 
 		<!-- Tag filter buttons -->
 		{% if all_tags %}
 		<div class="flex flex-wrap gap-2 mt-8 animate-slide-up delay-300" id="tag-filters">
 			<button data-tag="all" onclick="filterPlants('all')"
 				class="bg-leaf-600 tag-filter-btn px-4 py-2 border border-leaf-600 rounded-full font-semibold text-white text-xs transition-colors cursor-pointer active">
-				Alla växter
+				{{ trans(key="plant_filter_all", lang=lang) }}
 			</button>
 			{% for tag in all_tags | sort %}
 			<button data-tag="{{ tag }}" onclick="filterPlants('{{ tag }}')"
@@ -99,9 +104,10 @@ twitter_description %}
 				{% if page.extra.difficulty %}
 				<div class="top-3 right-3 absolute">
 					<span class="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm
-						{% if page.extra.difficulty == 'Lätt' %}bg-leaf-50/90 text-leaf-700 border-leaf-200
-						{% elif page.extra.difficulty == 'Medel' %}bg-amber-50/90 text-amber-700 border-amber-200
-						{% else %}bg-crimson-50/90 text-crimson-700 border-crimson-200{% endif %}">
+				{% if page.extra.difficulty == trans(key=" difficulty_easy", lang=lang) %}bg-leaf-50/90 text-leaf-700
+						border-leaf-200 {% elif page.extra.difficulty==trans(key="difficulty_medium" , lang=lang)
+						%}bg-amber-50/90 text-amber-700 border-amber-200 {% else %}bg-crimson-50/90 text-crimson-700
+						border-crimson-200{% endif %}">
 						{{ page.extra.difficulty }}
 					</span>
 				</div>
@@ -166,13 +172,16 @@ twitter_description %}
 	{% if paginator %}
 	<nav class="flex justify-between mt-12 font-medium text-sm" aria-label="Pagination">
 		{% if paginator.previous %}
-		<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">← Föregående</a>
+		<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">{{ trans(key="plant_page_prev",
+			lang=lang) }}</a>
 		{% else %}
 		<span></span>
 		{% endif %}
-		<span class="text-soil-400">Sida {{ paginator.current_index }} av {{ paginator.number_pagers }}</span>
+		<span class="text-soil-400">{{ trans(key="plant_page_label", lang=lang) }} {{ paginator.current_index }} {{
+			trans(key="plant_page_of", lang=lang) }} {{ paginator.number_pagers }}</span>
 		{% if paginator.next %}
-		<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">Nästa →</a>
+		<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">{{ trans(key="plant_page_next", lang=lang)
+			}}</a>
 		{% else %}
 		<span></span>
 		{% endif %}
@@ -180,7 +189,7 @@ twitter_description %}
 	{% endif %}
 
 	{% else %}
-	<p class="py-12 text-soil-400 text-center italic">Inga växter ännu. Återkom snart!</p>
+	<p class="py-12 text-soil-400 text-center italic">{{ trans(key="plant_empty", lang=lang) }}</p>
 	{% endif %}
 </div>
 
@@ -215,7 +224,8 @@ twitter_description %}
 			}
 		});
 		document.getElementById('plant-count-number').textContent = visible;
-		var label = tag === 'all' ? 'biblioteket' : tag.charAt(0).toUpperCase() + tag.slice(1);
+		var libraryLabel = document.getElementById('plant-count-label').dataset.library;
+		var label = tag === 'all' ? libraryLabel : tag.charAt(0).toUpperCase() + tag.slice(1);
 		document.getElementById('plant-count-label').textContent = label;
 	}
 </script>

@@ -31,6 +31,8 @@ endif -%}{% endblock twitter_description %}
 
 {% block content %}
 
+{% if lang == "en" %}{% set bp = "/en" %}{% else %}{% set bp = "" %}{% endif %}
+
 <!-- Hero image -->
 {% if page.extra.featured_image %}
 <div class="relative bg-cream-100 w-full h-[50vh] md:h-[60vh] overflow-hidden">
@@ -44,12 +46,15 @@ endif -%}{% endblock twitter_description %}
 <div class="mx-auto px-6 py-10 max-w-6xl">
 
 	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 mb-8 text-soil-400 text-sm animate-slide-up delay-50" aria-label="Brödsmulor">
-		<a href="/" class="hover:text-leaf-600 transition-colors">Hem</a>
+	<nav class="flex items-center gap-2 mb-8 text-soil-400 text-sm animate-slide-up delay-50"
+		aria-label="{{ trans(key='breadcrumb_label', lang=lang) }}">
+		<a href="{{ bp }}/" class="hover:text-leaf-600 transition-colors">{{ trans(key="breadcrumb_home", lang=lang)
+			}}</a>
 		<svg class="w-4 h-4 text-soil-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
 		</svg>
-		<a href="/vaxter" class="hover:text-leaf-600 transition-colors">Växter</a>
+		<a href="{{ bp }}/vaxter" class="hover:text-leaf-600 transition-colors">{{ trans(key="breadcrumb_plants",
+			lang=lang) }}</a>
 		<svg class="w-4 h-4 text-soil-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
 		</svg>
@@ -62,9 +67,9 @@ endif -%}{% endblock twitter_description %}
 			<h1 class="font-serif font-bold text-soil-900 text-5xl md:text-6xl leading-tight">{{ page.title }}</h1>
 			{% if page.extra.difficulty %}
 			<span class="mt-3 text-sm font-semibold px-3 py-1.5 rounded-full border flex-shrink-0
-				{% if page.extra.difficulty == 'Lätt' %}bg-leaf-50 text-leaf-700 border-leaf-200
-				{% elif page.extra.difficulty == 'Medel' %}bg-amber-50 text-amber-700 border-amber-200
-				{% else %}bg-crimson-50 text-crimson-700 border-crimson-200{% endif %}">
+				{% if page.extra.difficulty == trans(key="difficulty_easy", lang=lang) %}bg-leaf-50 text-leaf-700 border-leaf-200
+				{% elif page.extra.difficulty==trans(key="difficulty_medium" , lang=lang) %}bg-amber-50 text-amber-700
+				border-amber-200 {% else %}bg-crimson-50 text-crimson-700 border-crimson-200{% endif %}">
 				{{ page.extra.difficulty }}
 			</span>
 			{% endif %}
@@ -75,7 +80,7 @@ endif -%}{% endblock twitter_description %}
 		{% if page.taxonomies.tags %}
 		<div class="flex flex-wrap gap-2 mt-4">
 			{% for tag in page.taxonomies.tags %}
-			<a href="/tags/{{ tag | slugify }}"
+			<a href="{{ bp }}/tags/{{ tag | slugify }}"
 				class="bg-sage-50 hover:bg-sage-100 px-3 py-1 border border-sage-200 rounded-full font-medium text-sage-700 text-xs transition-colors">{{
 				tag }}</a>
 			{% endfor %}
@@ -96,7 +101,8 @@ endif -%}{% endblock twitter_description %}
 		<!-- Specs sidebar -->
 		<aside class="lg:col-span-1 animate-slide-up delay-150">
 			<div class="top-24 sticky bg-cream-100 p-6 border border-cream-200 rounded-2xl">
-				<h2 class="mb-5 pb-4 border-cream-200 border-b font-serif font-bold text-soil-900 text-xl">Skötselguide
+				<h2 class="mb-5 pb-4 border-cream-200 border-b font-serif font-bold text-soil-900 text-xl">{{
+					trans(key="plant_care_guide", lang=lang) }}
 				</h2>
 				<dl class="space-y-4">
 
@@ -111,7 +117,8 @@ endif -%}{% endblock twitter_description %}
 							</svg>
 						</div>
 						<div>
-							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">Ljus</dt>
+							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">{{
+								trans(key="plant_light", lang=lang) }}</dt>
 							<dd class="mt-0.5 font-semibold text-soil-800 text-sm">{{ page.extra.light }}</dd>
 						</div>
 					</div>
@@ -128,7 +135,8 @@ endif -%}{% endblock twitter_description %}
 							</svg>
 						</div>
 						<div>
-							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">Vattning</dt>
+							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">{{
+								trans(key="plant_water", lang=lang) }}</dt>
 							<dd class="mt-0.5 font-semibold text-soil-800 text-sm">{{ page.extra.water }}</dd>
 						</div>
 					</div>
@@ -145,7 +153,8 @@ endif -%}{% endblock twitter_description %}
 							</svg>
 						</div>
 						<div>
-							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">Luftfuktighet</dt>
+							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">{{
+								trans(key="plant_humidity", lang=lang) }}</dt>
 							<dd class="mt-0.5 font-semibold text-soil-800 text-sm">{{ page.extra.humidity }}</dd>
 						</div>
 					</div>
@@ -162,7 +171,8 @@ endif -%}{% endblock twitter_description %}
 							</svg>
 						</div>
 						<div>
-							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">Max höjd</dt>
+							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">{{
+								trans(key="plant_max_height", lang=lang) }}</dt>
 							<dd class="mt-0.5 font-semibold text-soil-800 text-sm">{{ page.extra.max_height }}</dd>
 						</div>
 					</div>
@@ -179,7 +189,8 @@ endif -%}{% endblock twitter_description %}
 							</svg>
 						</div>
 						<div>
-							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">Ursprung</dt>
+							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">{{
+								trans(key="plant_origin", lang=lang) }}</dt>
 							<dd class="mt-0.5 font-semibold text-soil-800 text-sm">{{ page.extra.origin }}</dd>
 						</div>
 					</div>
@@ -196,7 +207,8 @@ endif -%}{% endblock twitter_description %}
 							</svg>
 						</div>
 						<div>
-							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">Familj</dt>
+							<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">{{
+								trans(key="plant_family", lang=lang) }}</dt>
 							<dd class="mt-0.5 font-semibold text-soil-800 text-sm italic">{{ page.extra.family }}</dd>
 						</div>
 					</div>
@@ -205,9 +217,14 @@ endif -%}{% endblock twitter_description %}
 				</dl>
 
 				<!-- Related guides -->
+				{% if lang == "en" %}
+				{% set guider_section = get_section(path="guider/_index.en.md") %}
+				{% else %}
 				{% set guider_section = get_section(path="guider/_index.md") %}
+				{% endif %}
 				<div class="mt-5 pt-5 border-cream-200 border-t">
-					<h3 class="mb-3 font-serif font-bold text-soil-900 text-sm">Läs våra guider</h3>
+					<h3 class="mb-3 font-serif font-bold text-soil-900 text-sm">{{ trans(key="plant_read_guides",
+						lang=lang) }}</h3>
 					<ul class="space-y-1.5">
 						{% for guide in guider_section.pages %}
 						<li>
@@ -229,12 +246,17 @@ endif -%}{% endblock twitter_description %}
 	</div>
 
 	<!-- Discover more plants -->
+	{% if lang == "en" %}
+	{% set vaxter_section = get_section(path="vaxter/_index.en.md") %}
+	{% else %}
 	{% set vaxter_section = get_section(path="vaxter/_index.md") %}
+	{% endif %}
 	<div class="mt-16 pt-12 border-cream-200 border-t">
 		<div class="flex justify-between items-center mb-8">
-			<h2 class="font-serif font-bold text-soil-900 text-2xl">Utforska fler växter</h2>
-			<a href="/vaxter" class="font-medium text-leaf-600 hover:text-leaf-700 text-sm transition-colors">Se alla
-				→</a>
+			<h2 class="font-serif font-bold text-soil-900 text-2xl">{{ trans(key="plant_explore_more", lang=lang) }}
+			</h2>
+			<a href="{{ bp }}/vaxter" class="font-medium text-leaf-600 hover:text-leaf-700 text-sm transition-colors">{{
+				trans(key="plant_see_all", lang=lang) }}</a>
 		</div>
 		<div class="gap-5 grid grid-cols-1 sm:grid-cols-3">
 			{% for p in vaxter_section.pages | slice(end=3) %}
@@ -264,12 +286,12 @@ endif -%}{% endblock twitter_description %}
 
 	<!-- Back link -->
 	<div class="mt-10 pt-8 border-cream-200 border-t">
-		<a href="/vaxter"
+		<a href="{{ bp }}/vaxter"
 			class="inline-flex items-center gap-2 font-medium text-leaf-600 hover:text-leaf-700 transition-colors">
 			<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
 			</svg>
-			Tillbaka till växtbiblioteket
+			{{ trans(key="plant_back", lang=lang) }}
 		</a>
 	</div>
 </div>

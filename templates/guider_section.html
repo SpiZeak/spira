@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}Guider | {{ config.title }}{% endblock title %}
-{% block description %}Lär dig allt om krukväxtskötsel med våra guider för nybörjare och erfarna entusiaster.{% endblock
-description %}
-{% block og_title %}Guider | {{ config.title }}{% endblock og_title %}
-{% block og_description %}Lär dig allt om krukväxtskötsel med våra guider för nybörjare och erfarna entusiaster.{%
-endblock og_description %}
-{% block twitter_title %}Guider | {{ config.title }}{% endblock twitter_title %}
-{% block twitter_description %}Lär dig allt om krukväxtskötsel med våra guider för nybörjare och erfarna entusiaster.{%
-endblock twitter_description %}
+{% block title %}{{ trans(key="guide_section_title", lang=lang) }} | {{ config.title }}{% endblock title %}
+{% block description %}{{ section.description | default(value=config.description) }}{% endblock description %}
+{% block og_title %}{{ trans(key="guide_section_title", lang=lang) }} | {{ config.title }}{% endblock og_title %}
+{% block og_description %}{{ section.description | default(value=config.description) }}{% endblock og_description %}
+{% block twitter_title %}{{ trans(key="guide_section_title", lang=lang) }} | {{ config.title }}{% endblock twitter_title
+%}
+{% block twitter_description %}{{ section.description | default(value=config.description) }}{% endblock
+twitter_description %}
 
 {% block content %}
 
 <header class="mb-12">
-	<p class="mb-2 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">Lär dig mer
+	<p class="mb-2 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">{{
+		trans(key="guide_section_label", lang=lang) }}
 	</p>
-	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-100">Guider</h1>
+	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-100">{{
+		trans(key="guide_section_title", lang=lang) }}</h1>
 	<p class="mt-4 max-w-xl text-soil-500 text-lg leading-relaxed animate-slide-up delay-200">
-		Allt du behöver veta för att lyckas med dina krukväxter — från vattning till ljussättning.
+		{{ trans(key="guide_section_description", lang=lang) }}
 	</p>
 </header>
 
@@ -44,7 +45,7 @@ endblock twitter_description %}
 <div class="flex flex-wrap gap-2 mb-8 animate-slide-up" style="animation-delay: 300ms" id="tag-filters">
 	<button data-tag="all" onclick="filterGuides('all')"
 		class="bg-leaf-600 tag-filter-btn px-4 py-1.5 border border-leaf-600 rounded-full font-medium text-white text-sm transition-colors cursor-pointer active">
-		Alla
+		{{ trans(key="guide_filter_all", lang=lang) }}
 	</button>
 	{% for tag in all_tags | sort %}
 	<button data-tag="{{ tag }}" onclick="filterGuides('{{ tag }}')"
@@ -121,17 +122,20 @@ endblock twitter_description %}
 {% if paginator %}
 <nav class="flex justify-between mt-12 font-medium text-sm" aria-label="Pagination">
 	{% if paginator.previous %}
-	<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">← Föregående</a>
+	<a href="{{ paginator.previous }}" class="text-leaf-600 hover:underline">{{ trans(key="plant_page_prev", lang=lang)
+		}}</a>
 	{% else %}<span></span>{% endif %}
-	<span class="text-soil-400">Sida {{ paginator.current_index }} av {{ paginator.number_pagers }}</span>
+	<span class="text-soil-400">{{ trans(key="plant_page_label", lang=lang) }} {{ paginator.current_index }} {{
+		trans(key="plant_page_of", lang=lang) }} {{ paginator.number_pagers }}</span>
 	{% if paginator.next %}
-	<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">Nästa →</a>
+	<a href="{{ paginator.next }}" class="text-leaf-600 hover:underline">{{ trans(key="plant_page_next", lang=lang)
+		}}</a>
 	{% else %}<span></span>{% endif %}
 </nav>
 {% endif %}
 
 {% else %}
-<p class="py-12 text-soil-400 italic">Inga guider ännu. Återkom snart!</p>
+<p class="py-12 text-soil-400 italic">{{ trans(key="guide_empty", lang=lang) }}</p>
 {% endif %}
 
 {% endblock content %}

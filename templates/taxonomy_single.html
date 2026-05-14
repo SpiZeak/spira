@@ -2,29 +2,30 @@
 
 {% block title %}{{ term.name }} | {{ config.title }}{% endblock title %}
 
-{% block description %}Växter taggade med {{ term.name }} på {{ config.title }}.{% endblock description %}
+{% block description %}{{ trans(key="taxonomy_tagged", lang=lang) }} {{ term.name }} {{ trans(key="taxonomy_on", lang=lang) }} {{ config.title }}.{% endblock description %}
 {% block og_title %}{{ term.name }} | {{ config.title }}{% endblock og_title %}
-{% block og_description %}Växter taggade med {{ term.name }} på {{ config.title }}.{% endblock og_description %}
+{% block og_description %}{{ trans(key="taxonomy_tagged", lang=lang) }} {{ term.name }} {{ trans(key="taxonomy_on", lang=lang) }} {{ config.title }}.{% endblock og_description %}
 {% block twitter_title %}{{ term.name }} | {{ config.title }}{% endblock twitter_title %}
-{% block twitter_description %}Växter taggade med {{ term.name }} på {{ config.title }}.{% endblock twitter_description
-%}
+{% block twitter_description %}{{ trans(key="taxonomy_tagged", lang=lang) }} {{ term.name }} {{ trans(key="taxonomy_on", lang=lang) }} {{ config.title }}.{% endblock twitter_description %}
 
 {% block content %}
 
+{% if lang == "en" %}{% set bp = "/en" %}{% else %}{% set bp = "" %}{% endif %}
+
 <header class="mb-10">
-	<a href="/tags"
+	<a href="{{ bp }}/tags"
 		class="inline-flex items-center gap-1.5 mb-4 text-soil-400 hover:text-leaf-600 text-sm transition-colors animate-slide-up delay-50">
 		<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
 		</svg>
-		Alla taggar
+		{{ trans(key="taxonomy_all_tags_link", lang=lang) }}
 	</a>
 	<span
 		class="inline-block bg-leaf-50 mb-3 px-3 py-1 border border-leaf-200 rounded-full font-medium text-leaf-700 text-sm animate-slide-up delay-100">{{
 		term.name }}</span>
 	<h1 class="font-serif font-bold text-soil-900 text-5xl animate-slide-up delay-150">{{ term.name | capitalize }}</h1>
 	<p class="mt-2 text-soil-400 text-sm animate-slide-up delay-200">{{ term.pages | length }} {{ term.pages | length |
-		pluralize(singular="växt", plural="växter") }}</p>
+		pluralize(singular=trans(key="taxonomy_plant_singular", lang=lang), plural=trans(key="taxonomy_plant_plural", lang=lang)) }}</p>
 </header>
 
 <div class="gap-6 grid grid-cols-1 sm:grid-cols-2">
@@ -40,8 +41,8 @@
 			{% if page.extra.difficulty %}
 			<div class="top-3 right-3 absolute">
 				<span class="text-xs font-semibold px-2.5 py-1 rounded-full border backdrop-blur-sm
-					{% if page.extra.difficulty == 'Lätt' %}bg-leaf-50/90 text-leaf-700 border-leaf-200
-					{% elif page.extra.difficulty == 'Medel' %}bg-amber-50/90 text-amber-700 border-amber-200
+					{% if page.extra.difficulty == trans(key="difficulty_easy", lang=lang) %}bg-leaf-50/90 text-leaf-700 border-leaf-200
+					{% elif page.extra.difficulty == trans(key="difficulty_medium", lang=lang) %}bg-amber-50/90 text-amber-700 border-amber-200
 					{% else %}bg-crimson-50/90 text-crimson-700 border-crimson-200{% endif %}">
 					{{ page.extra.difficulty }}
 				</span>
