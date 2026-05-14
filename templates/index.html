@@ -103,9 +103,13 @@
 			class="group block bg-white shadow-sm hover:shadow-md rounded-2xl overflow-hidden transition-all animate-slide-up duration-300"
 			style="animation-delay: {{ loop.index * 100 + 200 }}ms">
 			{% if page.extra.featured_image %}
-			<div class="bg-cream-100 aspect-[4/3] overflow-hidden">
-				<img src="{{ page.extra.featured_image | replace(from='w=800&h=600', to='w=400&h=300') }}&auto=format"
-					srcset="{{ page.extra.featured_image | replace(from='w=800&h=600', to='w=400&h=300') }}&auto=format 400w, {{ page.extra.featured_image }}&auto=format 800w"
+			{% set base_unsplash_url = page.extra.featured_image | split(pat="?") | first %}
+
+			<div class="bg-cream-100 aspect-4/3 overflow-hidden">
+				<img src="{{ base_unsplash_url }}?w=800&h=600&fit=crop&q=80&auto=format" srcset="
+                {{ base_unsplash_url }}?w=400&h=300&fit=crop&q=80&auto=format 400w, 
+                {{ base_unsplash_url }}?w=800&h=600&fit=crop&q=80&auto=format 800w,
+                {{ base_unsplash_url }}?w=1200&h=900&fit=crop&q=80&auto=format 1200w"
 					sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" alt="{{ page.title }}"
 					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 					loading="lazy" width="800" height="600" />
@@ -390,8 +394,13 @@
 		<div class="animate-slide-up delay-200">
 			<div class="relative">
 				<div class="-top-4 -left-4 absolute bg-leaf-100 rounded-3xl w-full h-full"></div>
-				<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400&h=400&fit=crop&q=80&auto=format"
-					srcset="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400&h=400&fit=crop&q=80&auto=format 400w, https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600&h=600&fit=crop&q=80&auto=format 600w"
+
+				<!-- Base URL: https://images.unsplash.com/photo-1501004318641-b39e6451bec6 -->
+				<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600&h=600&fit=crop&q=80&auto=format"
+					srcset="
+                https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400&h=400&fit=crop&q=80&auto=format 400w, 
+                https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800&h=800&fit=crop&q=80&auto=format 800w,
+                https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1200&h=1200&fit=crop&q=80&auto=format 1200w"
 					sizes="(min-width: 768px) 50vw, 100vw" alt="En samling krukväxter i hemmet"
 					class="relative shadow-md rounded-3xl w-full object-cover aspect-square" loading="lazy" width="600"
 					height="600" />
