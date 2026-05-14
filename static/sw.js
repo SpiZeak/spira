@@ -1,18 +1,17 @@
-const CACHE_NAME = "spira-v1";
+// MUST BUMP THIS VERSION ON EVERY DEPLOY (e.g., spira-v2, spira-v3)
+// Otherwise, old cachebusted assets will bloat the user's storage forever.
+const CACHE_NAME = "spira-v2";
 
 const PRECACHE_URLS = ["/", "/vaxter/", "/guider/", "/om/"];
 
 // ---------------------------------------------------------------------------
-// Install – precache key pages
+// Install & Activate (Unchanged)
 // ---------------------------------------------------------------------------
 self.addEventListener("install", (event) => {
 	event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS)));
 	self.skipWaiting();
 });
 
-// ---------------------------------------------------------------------------
-// Activate – remove stale caches
-// ---------------------------------------------------------------------------
 self.addEventListener("activate", (event) => {
 	event.waitUntil(
 		caches
@@ -30,15 +29,21 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
 	const { request } = event;
 
-	// Only handle GET requests
 	if (request.method !== "GET") return;
 
 	const url = new URL(request.url);
 
-	// External origins (e.g. Google Fonts) – stale-while-revalidate
+	// Handle External Origins
 	if (url.origin !== self.location.origin) {
+		// Google Fonts
 		if (url.hostname.includes("fonts.g")) {
 			event.respondWith(staleWhileRevalidate(request));
+			return;
+		}
+		// Unsplash Images (Cache First for offline support)
+		if (url.hostname.includes("images.unsplash.com")) {
+			event.respondWith(cacheFirst(request));
+			return;
 		}
 		return;
 	}
@@ -49,7 +54,7 @@ self.addEventListener("fetch", (event) => {
 		return;
 	}
 
-	// Static assets (CSS, JS, images, icons, manifests) – cache-first
+	// Static assets (CSS, JS, local images, icons, manifests) – cache-first
 	event.respondWith(cacheFirst(request));
 });
 
@@ -62,7 +67,10 @@ async function cacheFirst(request) {
 	if (cached) return cached;
 
 	const response = await fetch(request);
-	if (response.ok) {
+
+	// Only cache successful responses (or opaque cross-origin responses from Unsplash)
+	// response.type === 'opaque' happens when fetching cross-origin without CORS
+	if (response.ok || response.type === "opaque") {
 		const cache = await caches.open(CACHE_NAME);
 		cache.put(request, response.clone());
 	}
@@ -80,7 +88,6 @@ async function networkFirst(request) {
 	} catch {
 		const cached = await cache.match(request);
 		if (cached) return cached;
-		// Fall back to the cached home page for offline navigation
 		const home = await cache.match("/");
 		return home ?? new Response("Offline", { status: 503, statusText: "Service Unavailable" });
 	}
