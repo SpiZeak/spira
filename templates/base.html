@@ -82,28 +82,27 @@
 </head>
 
 <body class="flex flex-col bg-cream-50 min-h-screen text-soil-900">
-	<header class="top-0 z-50 sticky bg-cream-50/95 backdrop-blur-sm border-cream-200 border-b animate-slide-down">
+	<header class="top-0 z-50 sticky bg-cream-50/95 backdrop-blur-sm border-cream-200 border-b">
 		<nav class="flex justify-between items-center mx-auto px-6 py-4 max-w-6xl">
-			<a href="{{ bp }}/"
-				class="font-serif font-bold text-soil-900 hover:text-leaf-600 text-2xl tracking-tight transition-colors animate-fade-in delay-100">
+			<a href="{{ bp }}/" class="font-serif font-bold text-soil-900 hover:text-leaf-600 text-2xl tracking-tight">
 				Spira
 			</a>
 
 			<!-- Desktop nav -->
 			<ul class="hidden sm:flex items-center gap-8 font-medium text-sm">
-				<li class="animate-fade-in delay-150">
+				<li>
 					<a href="{{ bp }}/vaxter" class="text-soil-600 hover:text-leaf-600 transition-colors">{{
 						trans(key="nav_plants", lang=lang) }}</a>
 				</li>
-				<li class="animate-fade-in delay-200">
+				<li>
 					<a href="{{ bp }}/guider" class="text-soil-600 hover:text-leaf-600 transition-colors">{{
 						trans(key="nav_guides", lang=lang) }}</a>
 				</li>
-				<li class="animate-fade-in delay-250">
+				<li>
 					<a href="{{ bp }}/om" class="text-soil-600 hover:text-leaf-600 transition-colors">{{
 						trans(key="nav_about", lang=lang) }}</a>
 				</li>
-				<li class="animate-fade-in delay-300">
+				<li>
 					<a href="{{ lang_url }}"
 						class="flex items-center gap-1.5 px-4 py-2 border border-soil-300 hover:border-leaf-600 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-sm transition-colors">
 						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -113,7 +112,7 @@
 						{{ trans(key="lang_switch", lang=lang) }}
 					</a>
 				</li>
-				<li class="animate-fade-in delay-350">
+				<li>
 					<a href="{{ bp }}/vaxter"
 						class="bg-leaf-600 hover:bg-leaf-700 px-5 py-2 rounded-full font-semibold text-white text-sm transition-colors">
 						{{ trans(key="nav_explore", lang=lang) }}
