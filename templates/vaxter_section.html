@@ -273,6 +273,10 @@ twitter_description %}
 			var searchMatch = !currentSearch || (card.dataset.title || '').indexOf(currentSearch) !== -1;
 			if (tagMatch && searchMatch) {
 				card.style.display = '';
+				card.classList.remove('animate-slide-up');
+				card.style.animationDelay = (visible * 80 + 100) + 'ms';
+				void card.offsetWidth;
+				card.classList.add('animate-slide-up');
 				visible++;
 			} else {
 				card.style.display = 'none';
