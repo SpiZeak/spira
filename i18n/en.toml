@@ -60,6 +60,15 @@ guide_filter_all = "All"
 guide_empty = "No guides yet. Check back soon!"
 guide_read_more = "Read more"
 
+# 404 page
+404_title = "Page not found — Spira"
+404_label = "Lost in the greenhouse"
+404_heading = "This page got lost in the soil"
+404_description = "This page seems to have lost its roots. Maybe it's being repotted — or you just followed a broken link."
+404_back_home = "Back to home"
+404_explore_plants = "Explore plants"
+404_read_guides = "Read guides"
+
 # Homepage
 home_welcome = "Welcome to"
 home_tagline = "Your guide to the beautiful world of houseplants — learn to grow, care for, and love your green friends."

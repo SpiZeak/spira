@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}{{ trans(key="404_title", lang=lang) }}{% endblock title %}
+{% block description %}{{ trans(key="404_description", lang=lang) }}{% endblock description %}
+
+{% block main_class %}w-full{% endblock main_class %}
+
+{% block content %}
+{% if lang == "en" %}{% set bp = "/en" %}{% else %}{% set bp = "" %}{% endif %}
+
+<section
+	class="relative flex flex-col justify-center items-center bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 px-6 py-28 md:py-40 min-h-[70vh] overflow-hidden text-center">
+
+	<!-- Decorative blobs -->
+	<div class="absolute inset-0 overflow-hidden pointer-events-none">
+		<svg class="-top-24 -right-24 absolute opacity-50 w-[520px] h-[520px] text-leaf-100" viewBox="0 0 400 400"
+			fill="currentColor" style="animation: blob-drift-1 22s ease-in-out infinite">
+			<ellipse cx="260" cy="160" rx="150" ry="220" transform="rotate(-25 260 160)" />
+		</svg>
+		<svg class="-bottom-16 -left-20 absolute opacity-40 w-[420px] h-[420px] text-sage-100" viewBox="0 0 400 400"
+			fill="currentColor" style="animation: blob-drift-2 28s ease-in-out infinite">
+			<ellipse cx="110" cy="290" rx="130" ry="170" transform="rotate(15 110 290)" />
+		</svg>
+		<div class="top-12 left-1/4 absolute bg-leaf-200 opacity-50 rounded-full w-3 h-3"
+			style="animation: blob-drift-3 19s ease-in-out infinite"></div>
+		<div class="top-28 left-1/3 absolute bg-sage-200 opacity-50 rounded-full w-2 h-2"
+			style="animation: blob-drift-1 24s ease-in-out infinite; animation-delay: 5s"></div>
+		<div class="right-1/4 bottom-20 absolute bg-leaf-100 opacity-70 rounded-full w-4 h-4"
+			style="animation: blob-drift-2 21s ease-in-out infinite; animation-delay: 2s"></div>
+		<div class="top-1/2 right-12 absolute bg-cream-300 opacity-40 rounded-full w-2 h-2"
+			style="animation: blob-drift-3 17s ease-in-out infinite; animation-delay: 8s"></div>
+	</div>
+
+	<!-- Botanical illustration -->
+	<div class="relative mb-8 animate-fade-in" style="animation-delay: 100ms">
+		<svg viewBox="0 0 220 260" class="mx-auto w-48 md:w-56 h-48 md:h-56" fill="none" aria-hidden="true">
+			<!-- Pot -->
+			<path d="M60 180 L68 230 Q110 240 152 230 L160 180 Z" fill="#c2d5bc" stroke="#9bba93" stroke-width="2"
+				stroke-linejoin="round" />
+			<path d="M55 175 Q110 185 165 175" stroke="#9bba93" stroke-width="3" stroke-linecap="round" fill="none" />
+			<rect x="55" y="168" width="110" height="12" rx="6" fill="#b9ddb9" stroke="#9bba93" stroke-width="1.5" />
+			<!-- Soil surface -->
+			<ellipse cx="110" cy="174" rx="50" ry="7" fill="#7b6c5c" opacity="0.35" />
+
+			<!-- Drooping main stem -->
+			<path d="M110 172 C110 150 118 130 114 105 C110 80 102 60 108 30" stroke="#476b3e" stroke-width="3.5"
+				stroke-linecap="round" fill="none" />
+
+			<!-- Wilted left leaf -->
+			<path d="M108 100 C90 90 65 88 55 110 C75 112 95 108 108 100Z" fill="#89c489" stroke="#476b3e"
+				stroke-width="1.5" opacity="0.85" />
+			<path d="M108 100 C90 95 70 98 55 110" stroke="#2a7a2d" stroke-width="1" stroke-linecap="round" fill="none"
+				opacity="0.5" />
+
+			<!-- Wilted right leaf (drooping down) -->
+			<path d="M112 120 C130 108 158 112 162 135 C142 130 122 126 112 120Z" fill="#89c489" stroke="#476b3e"
+				stroke-width="1.5" opacity="0.85" />
+			<path d="M112 120 C132 115 152 124 162 135" stroke="#2a7a2d" stroke-width="1" stroke-linecap="round"
+				fill="none" opacity="0.5" />
+
+			<!-- Wilted top — drooping over with question mark vibe -->
+			<path d="M108 30 C112 18 122 8 118 -2" stroke="#476b3e" stroke-width="3" stroke-linecap="round" fill="none"
+				opacity="0.7" />
+			<!-- Wilted top leaf (drooping sadly) -->
+			<path d="M108 48 C92 35 72 30 68 48 C84 52 98 50 108 48Z" fill="#5aaa5d" stroke="#476b3e" stroke-width="1.5"
+				opacity="0.9" />
+			<!-- Small drooping right leaf -->
+			<path d="M111 70 C126 58 148 60 150 78 C134 72 120 70 111 70Z" fill="#5aaa5d" stroke="#476b3e"
+				stroke-width="1.5" opacity="0.9" />
+
+			<!-- Question mark above the plant -->
+			<text x="108" y="26" text-anchor="middle" font-family="serif" font-size="28" font-weight="bold"
+				fill="#2a7a2d" opacity="0.9">?</text>
+
+			<!-- Small dots (fallen petals) -->
+			<circle cx="78" cy="155" r="3" fill="#b9ddb9" opacity="0.7" />
+			<circle cx="138" cy="160" r="2.5" fill="#b9ddb9" opacity="0.6" />
+			<circle cx="92" cy="165" r="2" fill="#89c489" opacity="0.5" />
+		</svg>
+	</div>
+
+	<!-- 404 number -->
+	<p class="mb-3 font-semibold text-leaf-600 text-sm uppercase tracking-[0.25em] animate-slide-up"
+		style="animation-delay: 150ms">
+		{{ trans(key="404_label", lang=lang) }}
+	</p>
+
+	<h1 class="mb-5 font-serif font-bold text-soil-900 leading-tight animate-slide-up"
+		style="font-size: clamp(2.8rem, 8vw, 5.5rem); animation-delay: 200ms">
+		<span class="text-leaf-200"
+			style="font-size: clamp(5rem, 18vw, 13rem); line-height: 0.85; display: block; letter-spacing: -0.03em; color: #dceedd; -webkit-text-stroke: 3px #b9ddb9">404</span>
+		{{ trans(key="404_heading", lang=lang) }}
+	</h1>
+
+	<p class="mx-auto mb-10 max-w-md text-soil-500 text-lg leading-relaxed animate-slide-up"
+		style="animation-delay: 250ms">
+		{{ trans(key="404_description", lang=lang) }}
+	</p>
+
+	<!-- CTA buttons -->
+	<div class="flex flex-wrap justify-center gap-3 animate-slide-up" style="animation-delay: 300ms">
+		<a href="{{ bp }}/"
+			class="inline-flex items-center gap-2 bg-leaf-600 hover:bg-leaf-700 shadow-sm px-7 py-3.5 rounded-full font-semibold text-white text-sm transition-colors">
+			<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round"
+					d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9" />
+			</svg>
+			{{ trans(key="404_back_home", lang=lang) }}
+		</a>
+		<a href="{{ bp }}/vaxter"
+			class="inline-flex items-center gap-2 bg-white/70 hover:bg-white px-7 py-3.5 border border-soil-300 hover:border-leaf-600 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-sm transition-colors">
+			<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round"
+					d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+			</svg>
+			{{ trans(key="404_explore_plants", lang=lang) }}
+		</a>
+		<a href="{{ bp }}/guider"
+			class="inline-flex items-center gap-2 bg-white/70 hover:bg-white px-7 py-3.5 border border-soil-300 hover:border-leaf-600 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-sm transition-colors">
+			<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round"
+					d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+			</svg>
+			{{ trans(key="404_read_guides", lang=lang) }}
+		</a>
+	</div>
+
+</section>
+{% endblock content %}

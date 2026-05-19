@@ -58,6 +58,15 @@ guide_section_description = "Allt du behöver veta för att lyckas med dina kruk
 guide_filter_all = "Alla"
 guide_read_more = "Läs mer"
 
+# 404 page
+404_title = "Sidan hittades inte — Spira"
+404_label = "Förlorad i trädgården"
+404_heading = "Sidan gick upp i rök"
+404_description = "Den här sidan verkar ha tappat kontakten med jorden. Kanske omputtas den — eller så hittade du bara en trasig länk."
+404_back_home = "Tillbaka till startsidan"
+404_explore_plants = "Utforska växter"
+404_read_guides = "Läs guider"
+
 # Homepage
 home_welcome = "Välkommen till"
 home_tagline = "Din guide till krukväxternas vackra värld — lär dig odla, ta hand om och älska dina gröna vänner."
