@@ -53,21 +53,49 @@ twitter_description %}
 				data-library="{{ trans(key='plant_count_library', lang=lang) }}">{{ trans(key="plant_count_library",
 				lang=lang) }}</span></p>
 
-		<!-- Tag filter buttons -->
-		{% if all_tags %}
-		<div class="flex flex-wrap gap-2 mt-8 animate-slide-up delay-300" id="tag-filters">
-			<button data-tag="all" onclick="filterPlants('all')"
-				class="bg-leaf-600 tag-filter-btn px-4 py-2 border border-leaf-600 rounded-full font-semibold text-white text-xs transition-colors cursor-pointer active">
-				{{ trans(key="plant_filter_all", lang=lang) }}
-			</button>
-			{% for tag in all_tags | sort %}
-			<button data-tag="{{ tag }}" onclick="filterPlants('{{ tag }}')"
-				class="bg-white tag-filter-btn px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors cursor-pointer">
-				{{ tag | title }}
-			</button>
-			{% endfor %}
+		<!-- Search + Tag filters -->
+		<div class="space-y-3 mt-8 animate-slide-up delay-300">
+			<!-- Search input -->
+			<div class="relative max-w-sm">
+				<svg class="top-1/2 left-3.5 absolute w-4 h-4 text-soil-400 -translate-y-1/2 pointer-events-none"
+					fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round"
+						d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+				</svg>
+				<input id="plant-search" type="search" autocomplete="off"
+					placeholder="{{ trans(key='plant_search_placeholder', lang=lang) }}"
+					oninput="searchPlants(this.value)"
+					class="bg-white py-2.5 pr-4 pl-10 border border-cream-200 focus:border-leaf-400 rounded-full focus:outline-none focus:ring-2 focus:ring-leaf-200 w-full text-soil-700 placeholder:text-soil-400 text-sm transition-colors" />
+			</div>
+
+			{% if all_tags %}
+			<!-- Collapsible tag filter area -->
+			<div>
+				<div id="tag-filters"
+					class="flex flex-wrap gap-2 overflow-hidden transition-[max-height] duration-300 ease-in-out"
+					style="max-height: 2.5rem" aria-label="{{ trans(key='plant_filter_label', lang=lang) }}">
+					<button data-tag="all" onclick="filterPlants('all')"
+						class="flex-shrink-0 bg-leaf-600 tag-filter-btn px-4 py-2 border border-leaf-600 rounded-full font-semibold text-white text-xs transition-colors cursor-pointer active">
+						{{ trans(key="plant_filter_all", lang=lang) }}
+					</button>
+					{% for tag in all_tags | sort %}
+					<button data-tag="{{ tag }}" onclick="filterPlants('{{ tag }}')"
+						class="flex-shrink-0 bg-white tag-filter-btn px-4 py-2 border border-cream-200 hover:border-leaf-300 rounded-full font-medium text-soil-600 hover:text-leaf-600 text-xs transition-colors cursor-pointer">
+						{{ tag | title }}
+					</button>
+					{% endfor %}
+				</div>
+				<button id="toggle-tags-btn" onclick="toggleTagFilters()"
+					class="flex items-center gap-1 mt-2 font-medium text-leaf-600 hover:text-leaf-700 text-xs transition-colors cursor-pointer">
+					<span id="toggle-tags-label">{{ trans(key="plant_filter_show_all", lang=lang) }}</span>
+					<svg id="toggle-tags-icon" class="w-3.5 h-3.5 transition-transform duration-300" fill="none"
+						viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+					</svg>
+				</button>
+			</div>
+			{% endif %}
 		</div>
-		{% endif %}
 	</div>
 </section>
 
@@ -83,6 +111,7 @@ twitter_description %}
 	<div class="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" id="plants-grid">
 		{% for page in pages %}
 		<a href="{{ page.permalink }}" data-tags="{{ page.taxonomies.tags | default(value=[]) | join(sep=',') }}"
+			data-title="{{ page.title | lower }}"
 			class="group block bg-white shadow-sm hover:shadow-lg rounded-2xl overflow-hidden transition-all animate-slide-up duration-300 plant-card"
 			style="animation-delay: {{ loop.index * 80 + 100 }}ms">
 			<!-- Plant image -->
@@ -194,39 +223,70 @@ twitter_description %}
 </div>
 
 <script>
-	function filterPlants(tag) {
-		const cards = document.querySelectorAll('.plant-card');
-		const buttons = document.querySelectorAll('.tag-filter-btn');
+	var tagsExpanded = false;
+	var currentTag = 'all';
+	var currentSearch = '';
+	var showAllLabel = '{{ trans(key="plant_filter_show_all", lang=lang) }}';
+	var showLessLabel = '{{ trans(key="plant_filter_show_less", lang=lang) }}';
 
+	function toggleTagFilters() {
+		var container = document.getElementById('tag-filters');
+		var label = document.getElementById('toggle-tags-label');
+		var icon = document.getElementById('toggle-tags-icon');
+		tagsExpanded = !tagsExpanded;
+		if (tagsExpanded) {
+			container.style.maxHeight = container.scrollHeight + 'px';
+			label.textContent = showLessLabel;
+			icon.style.transform = 'rotate(180deg)';
+		} else {
+			container.style.maxHeight = '2.5rem';
+			label.textContent = showAllLabel;
+			icon.style.transform = '';
+		}
+	}
+
+	function searchPlants(query) {
+		currentSearch = query.toLowerCase().trim();
+		applyFilters();
+	}
+
+	function filterPlants(tag) {
+		currentTag = tag;
+		var buttons = document.querySelectorAll('.tag-filter-btn');
 		buttons.forEach(function (btn) {
 			if (btn.dataset.tag === tag) {
-				btn.classList.add('active', 'bg-leaf-600', 'border-leaf-600', 'text-white');
-				btn.classList.remove('bg-white', 'border-cream-200', 'text-soil-600', 'hover:border-leaf-300', 'hover:text-leaf-600');
+				btn.classList.add('active', 'bg-leaf-600', 'border-leaf-600', 'text-white', 'font-semibold');
+				btn.classList.remove('bg-white', 'border-cream-200', 'text-soil-600', 'hover:border-leaf-300', 'hover:text-leaf-600', 'font-medium');
 			} else {
-				btn.classList.remove('active', 'bg-leaf-600', 'border-leaf-600', 'text-white');
-				btn.classList.add('bg-white', 'border-cream-200', 'text-soil-600', 'hover:border-leaf-300', 'hover:text-leaf-600');
+				btn.classList.remove('active', 'bg-leaf-600', 'border-leaf-600', 'text-white', 'font-semibold');
+				btn.classList.add('bg-white', 'border-cream-200', 'text-soil-600', 'hover:border-leaf-300', 'hover:text-leaf-600', 'font-medium');
 			}
 		});
+		applyFilters();
+	}
 
+	function applyFilters() {
+		var cards = document.querySelectorAll('.plant-card');
 		var visible = 0;
 		cards.forEach(function (card) {
-			if (tag === 'all') {
+			var tagMatch = currentTag === 'all' || (card.dataset.tags ? card.dataset.tags.split(',') : []).indexOf(currentTag) !== -1;
+			var searchMatch = !currentSearch || (card.dataset.title || '').indexOf(currentSearch) !== -1;
+			if (tagMatch && searchMatch) {
 				card.style.display = '';
 				visible++;
 			} else {
-				var tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
-				if (tags.indexOf(tag) !== -1) {
-					card.style.display = '';
-					visible++;
-				} else {
-					card.style.display = 'none';
-				}
+				card.style.display = 'none';
 			}
 		});
 		document.getElementById('plant-count-number').textContent = visible;
 		var libraryLabel = document.getElementById('plant-count-label').dataset.library;
-		var label = tag === 'all' ? libraryLabel : tag.charAt(0).toUpperCase() + tag.slice(1);
-		document.getElementById('plant-count-label').textContent = label;
+		if (currentTag === 'all' && !currentSearch) {
+			document.getElementById('plant-count-label').textContent = libraryLabel;
+		} else if (currentSearch) {
+			document.getElementById('plant-count-label').textContent = '\u201c' + currentSearch + '\u201d';
+		} else {
+			document.getElementById('plant-count-label').textContent = currentTag.charAt(0).toUpperCase() + currentTag.slice(1);
+		}
 	}
 </script>
 
