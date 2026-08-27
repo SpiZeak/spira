@@ -7,6 +7,7 @@ date = 2026-05-09
 tags = ["suckulenter", "torktålig", "lättskött"]
 
 [extra]
+featured = true
 latin_name = "Cactaceae (familj)"
 family = "Cactaceae"
 origin = "Amerika (Nord-, Syd- och Centralamerika)"
@@ -14,6 +15,7 @@ light = "Fullt solljus"
 water = "Var 2–6 vecka"
 humidity = "Låg"
 difficulty = "Lätt"
+pet_safe = true
 max_height = "5–200 cm (beroende på art)"
 featured_image = "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=800&h=600&fit=crop&q=80"
 +++

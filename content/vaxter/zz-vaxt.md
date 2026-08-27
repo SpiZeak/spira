@@ -4,7 +4,7 @@ description = "ZZ-växten är den moderna inomhusväxtens svar på oförstörbar
 date = 2026-05-06
 
 [taxonomies]
-tags = ["lättskött", "skuggtalig", "torktålig", "elegant"]
+tags = ["lättskött", "skuggtålig", "torktålig", "elegant"]
 
 [extra]
 latin_name = "Zamioculcas zamiifolia"
@@ -14,6 +14,7 @@ light = "Svagt till måttligt indirekt ljus"
 water = "Var 3–4 vecka"
 humidity = "Låg till medel"
 difficulty = "Lätt"
+pet_safe = false
 max_height = "60–90 cm"
 featured_image = "https://images.unsplash.com/photo-1715358405679-9b0dc9270c7b?w=800&h=600&fit=crop&q=80"
 +++

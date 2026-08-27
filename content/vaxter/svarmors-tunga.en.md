@@ -7,7 +7,10 @@ date = 2026-05-05
 tags = ["easy-care","shade-tolerant","air-purifying","beginner","drought-tolerant"]
 
 [extra]
+family = "Asparagaceae"
+latin_name = "Dracaena trifasciata"
 difficulty = "Easy"
+pet_safe = false
 light = "Low shade to bright indirect light"
 water = "Every 3–6 weeks"
 humidity = "Low"

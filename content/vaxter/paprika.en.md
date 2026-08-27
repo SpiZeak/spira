@@ -14,6 +14,7 @@ light = "Full sun"
 water = "Regularly, let topsoil dry slightly between waterings"
 humidity = "Medium"
 difficulty = "Medium"
+pet_safe = true
 max_height = "60–100 cm"
 featured_image = "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=800&h=600&fit=crop&q=80"
 +++

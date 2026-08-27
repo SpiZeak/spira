@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","fragrant","outdoor","perennial"]
 
 [extra]
+family = "Paeoniaceae"
+latin_name = "Paeonia lactiflora"
 difficulty = "Easy"
+pet_safe = false
 light = "Full sun to semi-shade"
 water = "Every 5–7 days"
 humidity = "Medium"

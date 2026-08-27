@@ -14,6 +14,7 @@ light = "Fullt solljus"
 water = "Var 3–5 dag"
 humidity = "Medel"
 difficulty = "Medel"
+pet_safe = true
 max_height = "30–300 cm (beroende på sort)"
 featured_image = "https://images.unsplash.com/photo-1616844868137-7ffaf43c2d80?w=800&h=600&fit=crop&q=80"
 +++

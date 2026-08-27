@@ -14,6 +14,7 @@ light = "Halvskugga till indirekt solljus"
 water = "Regelbundet, håll jord fuktig"
 humidity = "Medel till hög"
 difficulty = "Lätt"
+pet_safe = true
 max_height = "20–40 cm"
 featured_image = "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=800&h=600&fit=crop&q=80"
 +++

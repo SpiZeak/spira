@@ -4,7 +4,7 @@ description = "Hoya carnosa, känd som porslinsblomma, är en fascinerande häng
 date = 2026-05-13
 
 [taxonomies]
-tags = ["blomstrande", "hangande", "torktalig", "elegant"]
+tags = ["blomstrande", "hängande", "torktålig", "elegant"]
 
 [extra]
 latin_name = "Hoya carnosa"
@@ -14,6 +14,7 @@ light = "Måttligt till starkt indirekt ljus"
 water = "Var 2–3 vecka"
 humidity = "Medel"
 difficulty = "Lätt"
+pet_safe = true
 max_height = "200–400 cm (klättrande)"
 featured_image = "https://images.unsplash.com/photo-1769346442881-b63ba7476b77?w=800&h=600&fit=crop&q=80"
 +++

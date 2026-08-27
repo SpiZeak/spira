@@ -7,6 +7,7 @@ date = 2026-05-01
 tags = ["tropisk", "lättskött", "luftrenande"]
 
 [extra]
+featured = true
 latin_name = "Monstera deliciosa"
 family = "Araceae"
 origin = "Centralamerika, södra Mexiko"
@@ -14,6 +15,7 @@ light = "Indirekt ljus"
 water = "Var 1–2 vecka"
 humidity = "Medel till hög"
 difficulty = "Lätt"
+pet_safe = false
 max_height = "200–300 cm"
 featured_image = "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=800&h=600&fit=crop&q=80"
 +++

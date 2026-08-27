@@ -7,7 +7,10 @@ date = 2026-05-03
 tags = ["easy-care","trailing","beginner","air-purifying"]
 
 [extra]
+family = "Araceae"
+latin_name = "Epipremnum aureum"
 difficulty = "Easy"
+pet_safe = false
 light = "Indirect light to semi-shade"
 water = "Every 1–2 weeks"
 humidity = "Medium"

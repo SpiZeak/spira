@@ -14,6 +14,7 @@ light = "Skugga till halvskugga"
 water = "Var 3–4 dag"
 humidity = "Medel till hög"
 difficulty = "Medel"
+pet_safe = false
 max_height = "500–1500 cm"
 featured_image = "https://images.unsplash.com/photo-1484015310453-0fbb5cac82e6?w=800&h=600&fit=crop&q=80"
 +++

@@ -14,6 +14,7 @@ light = "Fullt solljus"
 water = "Regelbundet, låt ytjorden torka lite emellan"
 humidity = "Låg till medel"
 difficulty = "Lätt till medel"
+pet_safe = false
 max_height = "30–120 cm (sortberoende)"
 featured_image = "https://images.unsplash.com/photo-1526346698789-22fd84314424?w=800&h=600&fit=crop&q=80"
 +++

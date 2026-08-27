@@ -7,7 +7,11 @@ date = 2026-05-14
 tags = ["flowering","fragrant","drought-tolerant","outdoor"]
 
 [extra]
+featured = true
+family = "Lamiaceae"
+latin_name = "Lavandula angustifolia"
 difficulty = "Easy"
+pet_safe = false
 light = "Full sun"
 water = "Every 1–2 weeks (drought-tolerant)"
 humidity = "Low"

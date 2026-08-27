@@ -7,7 +7,10 @@ date = 2026-05-13
 tags = ["tropical","flowering","elegant","exotic"]
 
 [extra]
+family = "Strelitziaceae"
+latin_name = "Strelitzia reginae"
 difficulty = "Medium"
+pet_safe = false
 light = "Full sun to bright indirect light"
 water = "Every 1–2 weeks"
 humidity = "Low to medium"

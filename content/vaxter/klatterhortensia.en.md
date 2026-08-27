@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","shade-tolerant","outdoor","climber"]
 
 [extra]
+family = "Hydrangeaceae"
+latin_name = "Hydrangea anomala subsp. petiolaris"
 difficulty = "Medium"
+pet_safe = false
 light = "Shade to semi-shade"
 water = "Every 3–4 days"
 humidity = "Medium to high"

@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","fragrant","outdoor","elegant"]
 
 [extra]
+family = "Rosaceae"
+latin_name = "Rosa"
 difficulty = "Medium"
+pet_safe = true
 light = "Full sun"
 water = "Every 3–5 days"
 humidity = "Medium"

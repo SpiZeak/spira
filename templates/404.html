@@ -12,23 +12,22 @@
 	class="relative flex flex-col justify-center items-center bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 px-6 py-28 md:py-40 min-h-[70vh] overflow-hidden text-center">
 
 	<!-- Decorative blobs -->
-	<div class="absolute inset-0 overflow-hidden pointer-events-none">
-		<svg class="-top-24 -right-24 absolute opacity-50 w-[520px] h-[520px] text-leaf-100" viewBox="0 0 400 400"
-			fill="currentColor" style="animation: blob-drift-1 22s ease-in-out infinite">
+	<div aria-hidden="true" class="absolute inset-0 overflow-hidden pointer-events-none">
+		<svg class="-top-24 -right-24 absolute w-[520px] h-[520px] text-leaf-100 animate-blob-1" viewBox="0 0 400 400"
+			fill="currentColor">
 			<ellipse cx="260" cy="160" rx="150" ry="220" transform="rotate(-25 260 160)" />
 		</svg>
-		<svg class="-bottom-16 -left-20 absolute opacity-40 w-[420px] h-[420px] text-sage-100" viewBox="0 0 400 400"
-			fill="currentColor" style="animation: blob-drift-2 28s ease-in-out infinite">
+		<svg class="-bottom-16 -left-20 absolute w-[420px] h-[420px] text-sage-100 animate-blob-2" viewBox="0 0 400 400"
+			fill="currentColor">
 			<ellipse cx="110" cy="290" rx="130" ry="170" transform="rotate(15 110 290)" />
 		</svg>
-		<div class="top-12 left-1/4 absolute bg-leaf-200 opacity-50 rounded-full w-3 h-3"
-			style="animation: blob-drift-3 19s ease-in-out infinite"></div>
-		<div class="top-28 left-1/3 absolute bg-sage-200 opacity-50 rounded-full w-2 h-2"
-			style="animation: blob-drift-1 24s ease-in-out infinite; animation-delay: 5s"></div>
-		<div class="right-1/4 bottom-20 absolute bg-leaf-100 opacity-70 rounded-full w-4 h-4"
-			style="animation: blob-drift-2 21s ease-in-out infinite; animation-delay: 2s"></div>
-		<div class="top-1/2 right-12 absolute bg-cream-300 opacity-40 rounded-full w-2 h-2"
-			style="animation: blob-drift-3 17s ease-in-out infinite; animation-delay: 8s"></div>
+		<div class="top-12 left-1/4 absolute bg-leaf-200 rounded-full opacity-50 w-3 h-3 animate-blob-3"></div>
+		<div class="top-28 left-1/3 absolute bg-sage-200 rounded-full opacity-50 w-2 h-2 animate-blob-1 [animation-delay:5s]">
+		</div>
+		<div class="right-1/4 bottom-20 absolute bg-leaf-100 rounded-full opacity-70 w-4 h-4 animate-blob-2 [animation-delay:2s]">
+		</div>
+		<div class="top-1/2 right-12 absolute bg-cream-300 rounded-full opacity-40 w-2 h-2 animate-blob-3 [animation-delay:8s]">
+		</div>
 	</div>
 
 	<!-- Botanical illustration -->
@@ -80,7 +79,8 @@
 	</div>
 
 	<!-- 404 number -->
-	<p class="mb-3 font-semibold text-leaf-600 text-sm uppercase tracking-[0.25em] animate-slide-up"
+	<p data-sv="{{ trans(key='404_label', lang='sv') }}" data-en="{{ trans(key='404_label', lang='en') }}"
+		class="mb-3 font-semibold text-leaf-600 text-sm uppercase tracking-[0.25em] animate-slide-up"
 		style="animation-delay: 150ms">
 		{{ trans(key="404_label", lang=lang) }}
 	</p>
@@ -89,10 +89,13 @@
 		style="font-size: clamp(2.8rem, 8vw, 5.5rem); animation-delay: 200ms">
 		<span class="text-leaf-200"
 			style="font-size: clamp(5rem, 18vw, 13rem); line-height: 0.85; display: block; letter-spacing: -0.03em; color: #dceedd; -webkit-text-stroke: 3px #b9ddb9">404</span>
-		{{ trans(key="404_heading", lang=lang) }}
+		<span data-sv="{{ trans(key='404_heading', lang='sv') }}"
+			data-en="{{ trans(key='404_heading', lang='en') }}">{{ trans(key="404_heading", lang=lang) }}</span>
 	</h1>
 
-	<p class="mx-auto mb-10 max-w-md text-soil-500 text-lg leading-relaxed animate-slide-up"
+	<p data-sv="{{ trans(key='404_description', lang='sv') }}"
+		data-en="{{ trans(key='404_description', lang='en') }}"
+		class="mx-auto mb-10 max-w-md text-soil-500 text-lg leading-relaxed animate-slide-up"
 		style="animation-delay: 250ms">
 		{{ trans(key="404_description", lang=lang) }}
 	</p>
@@ -100,30 +103,51 @@
 	<!-- CTA buttons -->
 	<div class="flex flex-wrap justify-center gap-3 animate-slide-up" style="animation-delay: 300ms">
 		<a href="{{ bp }}/"
-			class="inline-flex items-center gap-2 bg-leaf-600 hover:bg-leaf-700 shadow-sm px-7 py-3.5 rounded-full font-semibold text-white text-sm transition-colors">
+			class="js-404-link inline-flex items-center gap-2 bg-leaf-600 hover:bg-leaf-700 shadow-sm px-7 py-3.5 rounded-full font-semibold text-white text-sm transition-colors">
 			<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 				<path stroke-linecap="round" stroke-linejoin="round"
 					d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9" />
 			</svg>
-			{{ trans(key="404_back_home", lang=lang) }}
+			<span data-sv="{{ trans(key='404_back_home', lang='sv') }}"
+				data-en="{{ trans(key='404_back_home', lang='en') }}">{{ trans(key="404_back_home", lang=lang) }}</span>
 		</a>
 		<a href="{{ bp }}/vaxter"
-			class="inline-flex items-center gap-2 bg-white/70 hover:bg-white px-7 py-3.5 border border-soil-300 hover:border-leaf-600 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-sm transition-colors">
+			class="js-404-link inline-flex items-center gap-2 bg-white/70 hover:bg-white px-7 py-3.5 border border-soil-300 hover:border-leaf-600 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-sm transition-colors">
 			<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 				<path stroke-linecap="round" stroke-linejoin="round"
 					d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
 			</svg>
-			{{ trans(key="404_explore_plants", lang=lang) }}
+			<span data-sv="{{ trans(key='404_explore_plants', lang='sv') }}"
+				data-en="{{ trans(key='404_explore_plants', lang='en') }}">{{ trans(key="404_explore_plants",
+				lang=lang) }}</span>
 		</a>
 		<a href="{{ bp }}/guider"
-			class="inline-flex items-center gap-2 bg-white/70 hover:bg-white px-7 py-3.5 border border-soil-300 hover:border-leaf-600 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-sm transition-colors">
+			class="js-404-link inline-flex items-center gap-2 bg-white/70 hover:bg-white px-7 py-3.5 border border-soil-300 hover:border-leaf-600 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-sm transition-colors">
 			<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 				<path stroke-linecap="round" stroke-linejoin="round"
 					d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 			</svg>
-			{{ trans(key="404_read_guides", lang=lang) }}
+			<span data-sv="{{ trans(key='404_read_guides', lang='sv') }}"
+				data-en="{{ trans(key='404_read_guides', lang='en') }}">{{ trans(key="404_read_guides", lang=lang)
+				}}</span>
 		</a>
 	</div>
 
 </section>
+<script>
+	// Zola serves a single 404 in the default language — switch to English for /en/* paths.
+	(function () {
+		var isEn = window.location.pathname.indexOf('/en') === 0;
+		if (!isEn) return;
+		document.documentElement.lang = 'en';
+		document.title = {{ trans(key="404_title", lang="en") | json_encode | safe }};
+		document.querySelectorAll('[data-en]').forEach(function (el) {
+			el.textContent = el.getAttribute('data-en');
+		});
+		document.querySelectorAll('.js-404-link').forEach(function (a) {
+			var href = a.getAttribute('href');
+			if (href.indexOf('/en') !== 0) a.setAttribute('href', '/en' + href);
+		});
+	})();
+</script>
 {% endblock content %}

@@ -7,7 +7,10 @@ date = 2026-05-06
 tags = ["easy-care","shade-tolerant","drought-tolerant","beginner"]
 
 [extra]
+family = "Araceae"
+latin_name = "Zamioculcas zamiifolia"
 difficulty = "Easy"
+pet_safe = false
 light = "Low to moderate indirect light"
 water = "Every 3–4 weeks"
 humidity = "Low to medium"

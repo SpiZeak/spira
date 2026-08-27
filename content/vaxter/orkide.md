@@ -7,6 +7,7 @@ date = 2026-05-05
 tags = ["blomstrande", "exotisk", "elegant"]
 
 [extra]
+featured = true
 latin_name = "Phalaenopsis spp."
 family = "Orchidaceae"
 origin = "Sydostasien, Australien"
@@ -14,6 +15,7 @@ light = "Starkt indirekt ljus"
 water = "Var 7–10 dagar"
 humidity = "Hög (50–70 %)"
 difficulty = "Medel"
+pet_safe = true
 max_height = "30–60 cm"
 featured_image = "https://images.unsplash.com/photo-1768368052646-a6185df478c1?w=800&h=600&fit=crop&q=80"
 +++

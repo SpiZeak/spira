@@ -14,6 +14,7 @@ light = "Måttligt till starkt indirekt ljus"
 water = "Var 1–2 vecka"
 humidity = "Medel"
 difficulty = "Lätt"
+pet_safe = false
 max_height = "Hänger 30–100 cm"
 featured_image = "https://images.unsplash.com/photo-1593234273421-b6e14f4e81f0?w=800&h=600&fit=crop&q=80"
 +++

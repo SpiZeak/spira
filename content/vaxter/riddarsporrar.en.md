@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","outdoor","perennial"]
 
 [extra]
+family = "Ranunculaceae"
+latin_name = "Delphinium elatum"
 difficulty = "Medium"
+pet_safe = false
 light = "Full sun"
 water = "Every 3–5 days"
 humidity = "Medium"

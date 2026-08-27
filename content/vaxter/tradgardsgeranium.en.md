@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","outdoor","ground-cover"]
 
 [extra]
+family = "Geraniaceae"
+latin_name = "Geranium"
 difficulty = "Easy"
+pet_safe = true
 light = "Sun to shade (depending on variety)"
 water = "Every 5–7 days"
 humidity = "Medium"

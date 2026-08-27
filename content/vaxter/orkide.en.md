@@ -7,7 +7,11 @@ date = 2026-05-05
 tags = ["flowering","elegant","tropical"]
 
 [extra]
+featured = true
+family = "Orchidaceae"
+latin_name = "Phalaenopsis spp."
 difficulty = "Medium"
+pet_safe = true
 light = "Bright indirect light"
 water = "Every 7–10 days"
 humidity = "High (50–70%)"

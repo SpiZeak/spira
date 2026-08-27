@@ -7,6 +7,7 @@ date = 2026-05-14
 tags = ["utomhus", "blomstrande", "perenn", "doftande", "torktålig"]
 
 [extra]
+featured = true
 latin_name = "Lavandula angustifolia"
 family = "Lamiaceae"
 origin = "Medelhavsområdet"
@@ -14,6 +15,7 @@ light = "Fullt solljus"
 water = "Var 1–2 vecka (torktålig)"
 humidity = "Låg"
 difficulty = "Lätt"
+pet_safe = false
 max_height = "30–60 cm"
 featured_image = "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=800&h=600&fit=crop&q=80"
 +++

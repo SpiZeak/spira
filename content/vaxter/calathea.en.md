@@ -7,7 +7,11 @@ date = 2026-05-10
 tags = ["tropical","elegant","shade-tolerant"]
 
 [extra]
+featured = true
+family = "Marantaceae"
+latin_name = "Calathea orbifolia (och Calathea-släktet)"
 difficulty = "Medium"
+pet_safe = true
 light = "Moderate to low indirect light"
 water = "Every 1–2 weeks"
 humidity = "High"

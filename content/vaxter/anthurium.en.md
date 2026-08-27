@@ -7,7 +7,10 @@ date = 2026-05-13
 tags = ["flowering","tropical","elegant","air-purifying"]
 
 [extra]
+family = "Araceae"
+latin_name = "Anthurium andraeanum"
 difficulty = "Medium"
+pet_safe = false
 light = "Indirect light"
 water = "Every 1–2 weeks"
 humidity = "High (60–80%)"

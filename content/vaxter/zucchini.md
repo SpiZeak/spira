@@ -14,6 +14,7 @@ light = "Fullt solljus"
 water = "Riklig, 2–3 gånger per vecka"
 humidity = "Medel"
 difficulty = "Lätt"
+pet_safe = true
 max_height = "60–100 cm (buskig)"
 featured_image = "https://images.unsplash.com/photo-1628689469838-524a4a973b8e?w=800&h=600&fit=crop&q=80"
 +++

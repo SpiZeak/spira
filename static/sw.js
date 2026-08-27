@@ -1,8 +1,8 @@
 // MUST BUMP THIS VERSION ON EVERY DEPLOY (e.g., spira-v2, spira-v3)
 // Otherwise, old cachebusted assets will bloat the user's storage forever.
-const CACHE_NAME = "spira-v2";
+const CACHE_NAME = "spira-v3";
 
-const PRECACHE_URLS = ["/", "/vaxter/", "/guider/", "/om/"];
+const PRECACHE_URLS = ["/", "/vaxter/", "/guider/", "/om/", "/sok/"];
 
 // ---------------------------------------------------------------------------
 // Install & Activate (Unchanged)
@@ -35,11 +35,6 @@ self.addEventListener("fetch", (event) => {
 
 	// Handle External Origins
 	if (url.origin !== self.location.origin) {
-		// Google Fonts
-		if (url.hostname.includes("fonts.g")) {
-			event.respondWith(staleWhileRevalidate(request));
-			return;
-		}
 		// Unsplash Images (Cache First for offline support)
 		if (url.hostname.includes("images.unsplash.com")) {
 			event.respondWith(cacheFirst(request));
@@ -91,16 +86,4 @@ async function networkFirst(request) {
 		const home = await cache.match("/");
 		return home ?? new Response("Offline", { status: 503, statusText: "Service Unavailable" });
 	}
-}
-
-async function staleWhileRevalidate(request) {
-	const cache = await caches.open(CACHE_NAME);
-	const cached = await cache.match(request);
-
-	const networkFetch = fetch(request).then((response) => {
-		if (response.ok) cache.put(request, response.clone());
-		return response;
-	});
-
-	return cached ?? networkFetch;
 }

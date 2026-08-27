@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","outdoor","summer-flower"]
 
 [extra]
+family = "Asteraceae"
+latin_name = "Dahlia × hybrida"
 difficulty = "Medium"
+pet_safe = false
 light = "Full sun"
 water = "Every 2–3 days"
 humidity = "Medium"

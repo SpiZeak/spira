@@ -7,7 +7,10 @@ date = 2026-05-02
 tags = ["easy-care","shade-tolerant","air-purifying","flowering"]
 
 [extra]
+family = "Araceae"
+latin_name = "Spathiphyllum wallisii"
 difficulty = "Easy"
+pet_safe = false
 light = "Low to moderate light"
 water = "Every 1–2 weeks"
 humidity = "High"

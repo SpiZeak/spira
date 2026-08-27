@@ -33,7 +33,7 @@ Baserat på dina svar kan du börja smalna av alternativen. För de flesta nybö
 
 ## Ljus — den viktigaste faktorn
 
-Ljus är den variabel som har störst påverkan på om en växt mår bra. Många nybörjare underskattar detta och placerar ljälälskande växter i mörka hörn, eller tvärtom.
+Ljus är den variabel som har störst påverkan på om en växt mår bra. Många nybörjare underskattar detta och placerar ljusälskande växter i mörka hörn, eller tvärtom.
 
 **Hur bedömer du ljuset i ditt hem?**
 
@@ -74,7 +74,7 @@ Välj alltid en kruka med dräneringshål — detta är inte förhandlingsbart. 
 - **Plastkrukor:** Billiga och lätta, behåller fukt — funkar för de flesta
 - **Självbevattningskrukor:** Med vattenbehållare i botten — praktiskt om du reser
 
-Använd jord anpassad till växttypen. "Univerasjord" fungerar för de flesta, men suckulenter behöver snabbt dränerande kaktus- eller suckulentjord.
+Använd jord anpassad till växttypen. "universaljord" fungerar för de flesta, men suckulenter behöver snabbt dränerande kaktus- eller suckulentjord.
 
 ![Krukor och jord — välj rätt kombination för din växt](https://images.unsplash.com/photo-1614959541555-4550895d4b2d?w=800&h=500&fit=crop&q=80)
 

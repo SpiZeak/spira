@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","outdoor","shade-tolerant"]
 
 [extra]
+family = "Hydrangeaceae"
+latin_name = "Hydrangea quercifolia"
 difficulty = "Medium"
+pet_safe = false
 light = "Sun to semi-shade"
 water = "Every 3–4 days"
 humidity = "Medium"

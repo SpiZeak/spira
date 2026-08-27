@@ -7,7 +7,10 @@ date = 2026-05-09
 tags = ["flowering","easy-care","outdoor","fragrant"]
 
 [extra]
+family = "Geraniaceae"
+latin_name = "Pelargonium × hortorum"
 difficulty = "Easy"
+pet_safe = false
 light = "Full sun"
 water = "Every 3–5 days"
 humidity = "Low to medium"

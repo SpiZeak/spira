@@ -14,6 +14,7 @@ light = "Starkt indirekt ljus"
 water = "Var 1–2 vecka"
 humidity = "Medel till hög"
 difficulty = "Medel"
+pet_safe = false
 max_height = "100–300 cm"
 featured_image = "https://images.unsplash.com/photo-1638741280384-36839c90f329?w=800&h=600&fit=crop&q=80"
 +++

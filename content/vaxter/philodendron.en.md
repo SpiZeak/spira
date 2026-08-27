@@ -7,7 +7,10 @@ date = 2026-05-13
 tags = ["easy-care","trailing","beginner","air-purifying"]
 
 [extra]
+family = "Araceae"
+latin_name = "Philodendron hederaceum"
 difficulty = "Easy"
+pet_safe = false
 light = "Low to moderate indirect light"
 water = "Every 1–2 weeks"
 humidity = "Medium"

@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block title %}{{ trans(key="quiz_title", lang=lang) }} | {{ config.title }}{% endblock title %}
+{% block description %}{{ trans(key="quiz_description", lang=lang) }}{% endblock description %}
+{% block og_title %}{{ trans(key="quiz_title", lang=lang) }} | {{ config.title }}{% endblock og_title %}
+{% block og_description %}{{ trans(key="quiz_description", lang=lang) }}{% endblock og_description %}
+{% block twitter_title %}{{ trans(key="quiz_title", lang=lang) }} | {{ config.title }}{% endblock twitter_title %}
+{% block twitter_description %}{{ trans(key="quiz_description", lang=lang) }}{% endblock twitter_description %}
+
+{% block main_class %}w-full{% endblock main_class %}
+
+{% block content %}
+
+{% if lang == "en" %}{% set bp = "/en" %}{% set vaxter = get_section(path="vaxter/_index.en.md") %}{% else %}{% set bp = "" %}{% set vaxter = get_section(path="vaxter/_index.md") %}{% endif %}
+
+<section class="relative bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 py-20 overflow-hidden">
+	<div aria-hidden="true"
+		class="-top-24 -right-24 absolute bg-leaf-200/40 blur-3xl rounded-full w-96 h-96 animate-blob-1"></div>
+	<div aria-hidden="true"
+		class="-bottom-20 left-1/2 absolute bg-cream-300/30 blur-3xl rounded-full w-72 h-72 -translate-x-1/2 animate-blob-2 [animation-delay:2s]">
+	</div>
+	<div class="relative mx-auto px-6 max-w-2xl text-center">
+		<p class="mb-3 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em] animate-slide-up delay-50">{{
+			trans(key="quiz_start_label", lang=lang) }}</p>
+		<h1 class="font-serif font-bold text-soil-900 text-5xl md:text-6xl animate-slide-up delay-100">{{
+			trans(key="quiz_title", lang=lang) }}</h1>
+		<p class="mx-auto mt-4 max-w-xl text-soil-500 text-lg leading-relaxed animate-slide-up delay-200">{{
+			trans(key="quiz_description", lang=lang) }}</p>
+	</div>
+</section>
+
+<div class="mx-auto px-6 py-14 max-w-2xl">
+	<!-- Progress -->
+	<div id="quiz-progress" class="mb-8">
+		<p class="mb-2 text-center text-soil-400 text-xs font-medium uppercase tracking-wider"><span
+				id="quiz-progress-label"></span></p>
+		<div class="bg-cream-100 rounded-full h-2 overflow-hidden" role="presentation">
+			<div id="quiz-progress-bar" class="bg-leaf-500 h-full rounded-full transition-all duration-300"
+				style="width: 0%"></div>
+		</div>
+	</div>
+
+	<!-- Intro -->
+	<div id="quiz-intro" class="text-center py-8 animate-fade-in">
+		<svg class="mx-auto mb-6 w-16 h-16 text-leaf-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+			stroke-width="1.5">
+			<path stroke-linecap="round" stroke-linejoin="round"
+				d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+		</svg>
+		<button id="quiz-start-btn" type="button"
+			class="bg-leaf-600 hover:bg-leaf-700 shadow-sm px-8 py-3.5 rounded-full font-semibold text-white text-base transition-colors cursor-pointer animate-slide-up delay-300">
+			{{ trans(key="quiz_start", lang=lang) }}
+		</button>
+	</div>
+
+	<!-- Question card -->
+	<div id="quiz-question" hidden class="bg-white shadow-sm border border-cream-200 rounded-3xl p-8">
+		<h2 id="quiz-question-text" class="font-serif font-bold text-soil-900 text-2xl mb-6"></h2>
+		<div id="quiz-answers" class="gap-3 grid grid-cols-1" role="group"></div>
+		<div class="flex justify-between items-center mt-8">
+			<button id="quiz-back-btn" type="button"
+				class="inline-flex items-center gap-2 font-medium text-soil-400 hover:text-soil-600 text-sm transition-colors cursor-pointer">
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+				</svg>
+				{{ trans(key="quiz_back", lang=lang) }}
+			</button>
+			<span id="quiz-answer-hint" class="text-soil-400 text-xs italic"></span>
+		</div>
+	</div>
+
+	<!-- Results -->
+	<div id="quiz-results" hidden>
+		<div class="mb-8 text-center">
+			<p class="mb-2 font-semibold text-leaf-600 text-xs uppercase tracking-[0.2em]">{{
+				trans(key="quiz_start_label", lang=lang) }}</p>
+			<h2 class="font-serif font-bold text-soil-900 text-4xl">{{ trans(key="quiz_result_title", lang=lang) }}</h2>
+			<p class="mx-auto mt-3 max-w-md text-soil-500 text-sm leading-relaxed">{{ trans(key="quiz_result_sub",
+				lang=lang) }}</p>
+		</div>
+		<div id="quiz-result-cards" class="gap-5 grid grid-cols-1 sm:grid-cols-3"></div>
+		<div class="mt-10 text-center">
+			<button id="quiz-restart-btn" type="button"
+				class="bg-white hover:border-leaf-300 px-6 py-3 border border-cream-200 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-sm transition-colors cursor-pointer">
+				{{ trans(key="quiz_restart", lang=lang) }}
+			</button>
+		</div>
+	</div>
+</div>
+
+<script id="quiz-plants-data" type="application/json">[{% for p in vaxter.pages %}{"title":{{ p.title | json_encode | safe }},"permalink":{{ p.permalink | json_encode | safe }},"latin_name":{{ p.extra.latin_name | default(value="") | json_encode | safe }},"light":{{ p.extra.light | default(value="") | json_encode | safe }},"difficulty":{{ p.extra.difficulty | default(value="") | json_encode | safe }},"pet_safe":{{ p.extra.pet_safe | default(value=false) }},"tags":{{ p.taxonomies.tags | default(value=[]) | json_encode | safe }},"image":{{ p.extra.featured_image | default(value="") | json_encode | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]</script>
+<script>
+	(function () {
+		var PLANTS = JSON.parse(document.getElementById('quiz-plants-data').textContent);
+		var I18N = {
+			questionWord: {{ trans(key="quiz_progress", lang=lang) | json_encode | safe }},
+			of: {{ trans(key="quiz_progress_of", lang=lang) | json_encode | safe }},
+			next: {{ trans(key="quiz_next", lang=lang) | json_encode | safe }},
+			result: {{ trans(key="quiz_result", lang=lang) | json_encode | safe }},
+			questions: [
+				{
+					q: {{ trans(key="quiz_q1", lang=lang) | json_encode | safe }},
+					answers: [
+						{ label: {{ trans(key="quiz_q1a1", lang=lang) | json_encode | safe }}, light: 'sun' },
+						{ label: {{ trans(key="quiz_q1a2", lang=lang) | json_encode | safe }}, light: 'indirect' },
+						{ label: {{ trans(key="quiz_q1a3", lang=lang) | json_encode | safe }}, light: 'shade' }
+					]
+				},
+				{
+					q: {{ trans(key="quiz_q2", lang=lang) | json_encode | safe }},
+					answers: [
+						{ label: {{ trans(key="quiz_q2a1", lang=lang) | json_encode | safe }}, difficulty: 0 },
+						{ label: {{ trans(key="quiz_q2a2", lang=lang) | json_encode | safe }}, difficulty: 1 },
+						{ label: {{ trans(key="quiz_q2a3", lang=lang) | json_encode | safe }}, difficulty: 2 }
+					]
+				},
+				{
+					q: {{ trans(key="quiz_q3", lang=lang) | json_encode | safe }},
+					answers: [
+						{ label: {{ trans(key="quiz_q3a1", lang=lang) | json_encode | safe }}, pets: true },
+						{ label: {{ trans(key="quiz_q3a2", lang=lang) | json_encode | safe }}, pets: false }
+					]
+				},
+				{
+					q: {{ trans(key="quiz_q4", lang=lang) | json_encode | safe }},
+					answers: [
+						{ label: {{ trans(key="quiz_q4a1", lang=lang) | json_encode | safe }}, placement: 'table' },
+						{ label: {{ trans(key="quiz_q4a2", lang=lang) | json_encode | safe }}, placement: 'hang' },
+						{ label: {{ trans(key="quiz_q4a3", lang=lang) | json_encode | safe }}, placement: 'floor' }
+					]
+				}
+			]
+		};
+
+		var DIFFICULTY_MAP = {
+			{% if lang == "sv" %}
+			'Lätt': 0, 'Medel': 1, 'Svår': 2
+			{% else %}
+			'Easy': 0, 'Medium': 1, 'Hard': 2
+			{% endif %}
+		};
+
+		var els = {
+			intro: document.getElementById('quiz-intro'),
+			question: document.getElementById('quiz-question'),
+			questionText: document.getElementById('quiz-question-text'),
+			answers: document.getElementById('quiz-answers'),
+			back: document.getElementById('quiz-back-btn'),
+			hint: document.getElementById('quiz-answer-hint'),
+			progress: document.getElementById('quiz-progress'),
+			progressLabel: document.getElementById('quiz-progress-label'),
+			progressBar: document.getElementById('quiz-progress-bar'),
+			results: document.getElementById('quiz-results'),
+			resultCards: document.getElementById('quiz-result-cards')
+		};
+
+		var step = -1;
+		var answers = [];
+
+		function esc(s) {
+			var d = document.createElement('div');
+			d.textContent = s == null ? '' : String(s);
+			return d.innerHTML;
+		}
+
+		function updateProgress() {
+			var total = I18N.questions.length;
+			var current = Math.min(step + 1, total);
+			els.progressLabel.textContent = I18N.questionWord + ' ' + current + ' ' + I18N.of + ' ' + total;
+			els.progressBar.style.width = ((step + 1) / total * 100) + '%';
+		}
+
+		function showQuestion() {
+			els.intro.hidden = true;
+			els.results.hidden = true;
+			els.question.hidden = false;
+			var item = I18N.questions[step];
+			els.questionText.textContent = item.q;
+			els.answers.innerHTML = '';
+			els.hint.textContent = '';
+			item.answers.forEach(function (a) {
+				var btn = document.createElement('button');
+				btn.type = 'button';
+				btn.className = 'hover:border-leaf-400 hover:bg-leaf-50 hover:text-leaf-700 bg-cream-50 px-5 py-4 border border-cream-200 rounded-2xl font-medium text-soil-700 text-left text-sm transition-colors cursor-pointer';
+				btn.textContent = a.label;
+				btn.addEventListener('click', function () {
+					answers[step] = a;
+					if (step < I18N.questions.length - 1) {
+						step++;
+						showQuestion();
+					} else {
+						showResults();
+					}
+				});
+				els.answers.appendChild(btn);
+			});
+			els.back.hidden = step === 0;
+			updateProgress();
+		}
+
+		function lightMatch(plantLight, wanted) {
+			var l = (plantLight || '').toLowerCase();
+			if (wanted === 'sun') return l.indexOf('sol') !== -1 || l.indexOf('sunny') !== -1 || l.indexOf('ljust') !== -1 || l.indexOf('bright') !== -1;
+			if (wanted === 'shade') return l.indexOf('skugg') !== -1 || l.indexOf('shade') !== -1;
+			return l.indexOf('indirekt') !== -1 || l.indexOf('indirect') !== -1 || l.indexOf('medel') !== -1 || l.indexOf('medium') !== -1 || l.indexOf('halv') !== -1;
+		}
+
+		function score(plant) {
+			var q1 = answers[0] || {}, q2 = answers[1] || {}, q3 = answers[2] || {}, q4 = answers[3] || {};
+			if (q3.pets && !plant.pet_safe) return -1;
+			var s = 0;
+			if (q1.light && lightMatch(plant.light, q1.light)) s += 3;
+			var diff = DIFFICULTY_MAP[plant.difficulty];
+			if (typeof diff === 'number' && q2.difficulty != null) {
+				if (diff === q2.difficulty) s += 3;
+				else if (Math.abs(diff - q2.difficulty) === 1) s += 1;
+			}
+			var tags = plant.tags || [];
+			if (q4.placement === 'hang' && (tags.indexOf('hängande') !== -1 || tags.indexOf('trailing') !== -1)) s += 2;
+			if (q4.placement === 'floor' && tags.indexOf('elegant') !== -1) s += 1;
+			if (q4.placement === 'table' && tags.indexOf('lättskött') !== -1) s += 1;
+			return s;
+		}
+
+		function showResults() {
+			els.question.hidden = true;
+			els.results.hidden = false;
+			els.progressLabel.textContent = '';
+			els.progressBar.style.width = '100%';
+			var ranked = PLANTS
+				.map(function (p) { return { p: p, s: score(p) }; })
+				.filter(function (x) { return x.s >= 0; })
+				.sort(function (a, b) { return b.s - a.s; });
+			els.resultCards.innerHTML = '';
+			ranked.slice(0, 3).forEach(function (x) {
+				var p = x.p;
+				var li = document.createElement('a');
+				li.href = p.permalink;
+				li.className = 'group bg-white hover:shadow-md border border-cream-200 hover:border-leaf-200 rounded-2xl overflow-hidden transition-all';
+				li.innerHTML =
+					(p.image
+						? '<div class="bg-cream-100 aspect-4/3 overflow-hidden"><img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>'
+						: '<div class="flex justify-center items-center bg-cream-100 aspect-4/3 font-serif text-soil-400 text-4xl">' + esc((p.title || '?').charAt(0)) + '</div>') +
+					'<div class="p-4">' +
+					'<h3 class="font-serif group-hover:text-leaf-600 font-bold text-soil-900 text-base leading-tight transition-colors">' + esc(p.title) + '</h3>' +
+					(p.latin_name ? '<p class="mt-0.5 text-soil-400 text-xs italic">' + esc(p.latin_name) + '</p>' : '') +
+					(p.difficulty ? '<span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full bg-sage-50 border border-sage-200 text-sage-700">' + esc(p.difficulty) + '</span>' : '') +
+					'</div>';
+				els.resultCards.appendChild(li);
+			});
+		}
+
+		document.getElementById('quiz-start-btn').addEventListener('click', function () {
+			step = 0;
+			answers = [];
+			showQuestion();
+		});
+		els.back.addEventListener('click', function () {
+			if (step > 0) { step--; showQuestion(); }
+		});
+		document.getElementById('quiz-restart-btn').addEventListener('click', function () {
+			step = -1;
+			answers = [];
+			els.results.hidden = true;
+			els.intro.hidden = false;
+			updateProgress();
+			els.progressBar.style.width = '0%';
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	})();
+</script>
+
+{% endblock content %}

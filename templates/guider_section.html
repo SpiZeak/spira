@@ -43,12 +43,12 @@ twitter_description %}
 
 {% if all_tags %}
 <div class="flex flex-wrap gap-2 mb-8 animate-slide-up" style="animation-delay: 300ms" id="tag-filters">
-	<button data-tag="all" onclick="filterGuides('all')"
+	<button data-tag="all" onclick="filterGuides('all')" aria-pressed="true"
 		class="bg-leaf-600 tag-filter-btn px-4 py-1.5 border border-leaf-600 rounded-full font-medium text-white text-sm transition-colors cursor-pointer active">
 		{{ trans(key="guide_filter_all", lang=lang) }}
 	</button>
 	{% for tag in all_tags | sort %}
-	<button data-tag="{{ tag }}" onclick="filterGuides('{{ tag }}')"
+	<button data-tag="{{ tag }}" onclick="filterGuides('{{ tag }}')" aria-pressed="false"
 		class="bg-white hover:bg-sage-50 tag-filter-btn px-4 py-1.5 border border-sage-200 rounded-full font-medium text-sage-700 text-sm transition-colors cursor-pointer">
 		{{ tag | title }}
 	</button>
@@ -99,6 +99,7 @@ twitter_description %}
 		const buttons = document.querySelectorAll('.tag-filter-btn');
 
 		buttons.forEach(function (btn) {
+			btn.setAttribute('aria-pressed', String(btn.dataset.tag === tag));
 			if (btn.dataset.tag === tag) {
 				btn.classList.add('active', 'bg-leaf-600', 'border-leaf-600', 'text-white');
 				btn.classList.remove('bg-white', 'border-sage-200', 'text-sage-700', 'hover:bg-sage-50');

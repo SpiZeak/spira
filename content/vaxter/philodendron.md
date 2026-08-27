@@ -4,7 +4,7 @@ description = "Philodendron hederaceum, hjärtbladsfilodendron, är en av de mes
 date = 2026-05-13
 
 [taxonomies]
-tags = ["tropisk", "lättskött", "hangande", "luftrenande", "nyborjare"]
+tags = ["tropisk", "lättskött", "hängande", "luftrenande", "nybörjare"]
 
 [extra]
 latin_name = "Philodendron hederaceum"
@@ -14,6 +14,7 @@ light = "Svagt till måttligt indirekt ljus"
 water = "Var 1–2 vecka"
 humidity = "Medel"
 difficulty = "Lätt"
+pet_safe = false
 max_height = "30–90 cm (rankande)"
 featured_image = "https://images.unsplash.com/photo-1651029826598-676ab4ddc4da?w=800&h=600&fit=crop&q=80"
 +++

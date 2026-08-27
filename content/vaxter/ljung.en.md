@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","outdoor","hardy"]
 
 [extra]
+family = "Ericaceae"
+latin_name = "Calluna vulgaris"
 difficulty = "Easy"
+pet_safe = true
 light = "Full sun"
 water = "Every 5–7 days"
 humidity = "Medium"

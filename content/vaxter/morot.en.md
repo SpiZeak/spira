@@ -14,6 +14,7 @@ light = "Full sun to partial shade"
 water = "Regularly, deep watering"
 humidity = "Medium"
 difficulty = "Easy"
+pet_safe = true
 max_height = "30–50 cm (foliage); root 10–20 cm deep"
 featured_image = "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=800&h=600&fit=crop&q=80"
 +++

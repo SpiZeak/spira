@@ -14,6 +14,7 @@ light = "Full sun"
 water = "Abundant, 2–3 times per week"
 humidity = "Medium"
 difficulty = "Easy"
+pet_safe = true
 max_height = "60–100 cm (bushy)"
 featured_image = "https://images.unsplash.com/photo-1628689469838-524a4a973b8e?w=800&h=600&fit=crop&q=80"
 +++

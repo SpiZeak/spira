@@ -7,7 +7,10 @@ date = 2026-05-04
 tags = ["succulents","drought-tolerant","medicinal"]
 
 [extra]
+family = "Asphodelaceae"
+latin_name = "Aloe vera"
 difficulty = "Easy"
+pet_safe = false
 light = "Full sun to bright indirect light"
 water = "Every 3–4 weeks"
 humidity = "Low"

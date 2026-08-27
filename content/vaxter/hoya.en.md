@@ -7,7 +7,10 @@ date = 2026-05-13
 tags = ["easy-care","trailing","flowering"]
 
 [extra]
+family = "Apocynaceae"
+latin_name = "Hoya carnosa"
 difficulty = "Easy"
+pet_safe = true
 light = "Moderate to bright indirect light"
 water = "Every 2–3 weeks"
 humidity = "Medium"

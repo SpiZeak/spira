@@ -7,6 +7,7 @@ date = 2026-05-10
 tags = ["tropisk", "luftfuktande", "elegant", "exotisk"]
 
 [extra]
+featured = true
 latin_name = "Calathea orbifolia (och Calathea-släktet)"
 family = "Marantaceae"
 origin = "Tropiska Syd- och Centralamerika"
@@ -14,6 +15,7 @@ light = "Måttligt till svagt indirekt ljus"
 water = "Var 1–2 vecka"
 humidity = "Hög"
 difficulty = "Medel"
+pet_safe = true
 max_height = "40–90 cm"
 featured_image = "https://images.unsplash.com/photo-1714507767656-2fb307e1b03d?w=800&h=600&fit=crop&q=80"
 +++

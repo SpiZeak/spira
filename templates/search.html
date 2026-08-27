@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}{{ trans(key="search_title", lang=lang) }} | {{ config.title }}{% endblock title %}
+{% block description %}{{ trans(key="search_description", lang=lang) }}{% endblock description %}
+{% block og_title %}{{ trans(key="search_title", lang=lang) }} | {{ config.title }}{% endblock og_title %}
+{% block og_description %}{{ trans(key="search_description", lang=lang) }}{% endblock og_description %}
+{% block twitter_title %}{{ trans(key="search_title", lang=lang) }} | {{ config.title }}{% endblock twitter_title %}
+{% block twitter_description %}{{ trans(key="search_description", lang=lang) }}{% endblock twitter_description %}
+
+{% block content %}
+
+{% if lang == "en" %}{% set bp = "/en" %}{% else %}{% set bp = "" %}{% endif %}
+
+<section class="relative bg-linear-to-br from-leaf-50 via-cream-50 to-sage-50 py-20 overflow-hidden">
+	<div aria-hidden="true"
+		class="-top-24 -left-24 absolute bg-leaf-200/40 blur-3xl rounded-full w-96 h-96 animate-blob-1"></div>
+	<div aria-hidden="true"
+		class="top-10 -right-32 absolute bg-sage-200/40 blur-3xl rounded-full w-80 h-80 animate-blob-2 [animation-delay:4s]">
+	</div>
+	<div class="relative mx-auto px-6 max-w-3xl text-center">
+		<h1 class="font-serif font-bold text-soil-900 text-5xl md:text-6xl animate-slide-up delay-100">{{
+			trans(key="search_title", lang=lang) }}</h1>
+		<p class="mt-4 text-soil-500 text-lg animate-slide-up delay-200">{{ page.description }}</p>
+		<div class="relative mt-8 animate-slide-up delay-300">
+			<svg class="top-1/2 left-4 absolute w-5 h-5 text-soil-400 -translate-y-1/2 pointer-events-none"
+				fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round"
+					d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+			</svg>
+			<input id="search-input" type="search" autocomplete="off"
+				aria-label="{{ trans(key='search_placeholder', lang=lang) }}"
+				placeholder="{{ trans(key='search_placeholder', lang=lang) }}"
+				class="bg-white shadow-sm py-4 pr-4 pl-12 border border-cream-200 focus:border-leaf-400 rounded-full focus:outline-none focus:ring-2 focus:ring-leaf-200 w-full text-soil-800 placeholder:text-soil-400 text-lg transition-colors" />
+		</div>
+	</div>
+</section>
+
+<div class="mx-auto px-6 py-14 max-w-3xl">
+	<p id="search-status" class="text-soil-400 text-sm" aria-live="polite">{{ trans(key="search_loading", lang=lang) }}
+	</p>
+	<ul id="search-results" class="gap-4 grid grid-cols-1"></ul>
+	<div id="search-empty" hidden class="py-12 text-center">
+		<svg class="mx-auto mb-4 w-12 h-12 text-cream-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+			stroke-width="1.5">
+			<path stroke-linecap="round" stroke-linejoin="round"
+				d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+		</svg>
+		<p id="search-empty-title" class="font-serif font-bold text-soil-900 text-xl"></p>
+		<p class="mt-2 text-soil-500 text-sm">{{ trans(key="search_no_results_hint", lang=lang) }}</p>
+	</div>
+</div>
+
+<script src="/elasticlunr.min.js" defer></script>
+{% if lang == "sv" %}
+<script src="/js/lunr-shim.js" defer></script>
+<script src="/js/lunr.stemmer.support.min.js" defer></script>
+<script src="/js/lunr.sv.min.js" defer></script>
+{% endif %}
+<script src="/search_index.{{ lang }}.js" defer></script>
+<script>
+	window.addEventListener('DOMContentLoaded', function () {
+		var input = document.getElementById('search-input');
+		var status = document.getElementById('search-status');
+		var list = document.getElementById('search-results');
+		var emptyBox = document.getElementById('search-empty');
+		var emptyTitle = document.getElementById('search-empty-title');
+		var resultsFor = {{ trans(key="search_hit_plural", lang=lang) | json_encode | safe }};
+		var resultOne = {{ trans(key="search_hit_singular", lang=lang) | json_encode | safe }};
+		var noResults = {{ trans(key="search_no_results", lang=lang) | json_encode | safe }};
+		var index = null;
+
+		var ready = window.searchIndex && window.elasticlunr;
+		if (!ready) {
+			status.textContent = {{ trans(key="search_failed", lang=lang) | json_encode | safe }};
+			return;
+		}
+		// Zola builds the Swedish index with lunr-language pipeline names that the
+		// bundled elasticlunr does not register — provide pass-throughs so the index loads.
+		var pipeline = window.searchIndex.pipeline || [];
+		pipeline.forEach(function (name) {
+			if (name && !elasticlunr.Pipeline.registeredFunctions[name]) {
+				elasticlunr.Pipeline.registerFunction(function (token) { return token; }, name);
+			}
+		});
+		index = elasticlunr.Index.load(window.searchIndex);
+		status.textContent = '';
+
+		function esc(s) {
+			var d = document.createElement('div');
+			d.textContent = s == null ? '' : String(s);
+			return d.innerHTML;
+		}
+
+		function render(query) {
+			list.innerHTML = '';
+			if (!query) {
+				status.textContent = '';
+				emptyBox.hidden = true;
+				return;
+			}
+			var results = index.search(query, { bool: 'OR', expand: true });
+			emptyBox.hidden = results.length !== 0;
+			emptyTitle.textContent = noResults + ' \u201c' + query + '\u201d';
+			status.textContent = results.length + ' ' + (results.length === 1 ? resultOne : resultsFor) + ' \u2014 \u201c' + query + '\u201d';
+			results.slice(0, 20).forEach(function (r) {
+				var doc = index.documentStore.getDoc(r.ref) || {};
+				var url = doc.url || r.ref;
+				var isPlant = url.indexOf('/vaxter/') !== -1;
+				var excerpt = String(doc.body || '').replace(/[#*_`>\[\]()]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 140);
+				var li = document.createElement('li');
+				li.innerHTML =
+					'<a href="' + esc(url) + '" class="group flex items-start gap-4 bg-white hover:shadow-md border border-cream-200 hover:border-leaf-200 rounded-2xl p-4 transition-all">' +
+					'<div class="flex flex-shrink-0 justify-center items-center bg-leaf-50 group-hover:bg-leaf-100 rounded-xl w-10 h-10 transition-colors">' +
+					(isPlant
+						? '<svg class="w-5 h-5 text-leaf-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8m0 0c-4.97 0-9-2.686-9-6s4.03-6 9-6 9 2.686 9 6-4.03 6-9 6Zm0 0c0 3.314 2.239 6 5 6"/></svg>'
+						: '<svg class="w-5 h-5 text-leaf-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>') +
+					'</div>' +
+					'<div class="min-w-0">' +
+					'<h2 class="font-serif group-hover:text-leaf-600 font-bold text-soil-900 text-lg transition-colors">' + esc(doc.title || url) + '</h2>' +
+					(excerpt ? '<p class="mt-1 text-soil-500 text-sm line-clamp-2 leading-relaxed">' + esc(excerpt) + '…</p>' : '') +
+					'</div></a>';
+				list.appendChild(li);
+			});
+		}
+
+		var t = null;
+		input.addEventListener('input', function () {
+			clearTimeout(t);
+			var q = input.value.trim();
+			t = setTimeout(function () { render(q); }, 150);
+		});
+		input.focus();
+		var initial = new URLSearchParams(window.location.search).get('q');
+		if (initial) {
+			input.value = initial;
+			render(initial);
+		}
+	});
+</script>
+
+{% endblock content %}

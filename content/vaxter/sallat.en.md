@@ -14,6 +14,7 @@ light = "Partial shade to indirect light"
 water = "Regularly, keep soil moist"
 humidity = "Medium to high"
 difficulty = "Easy"
+pet_safe = true
 max_height = "20–40 cm"
 featured_image = "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&q=80"
 +++

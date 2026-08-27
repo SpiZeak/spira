@@ -14,6 +14,7 @@ light = "Full sun"
 water = "Regularly, keep soil evenly moist"
 humidity = "Medium"
 difficulty = "Easy"
+pet_safe = true
 max_height = "30–60 cm"
 featured_image = "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=800&h=600&fit=crop&q=80"
 +++

@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","outdoor","perennial"]
 
 [extra]
+family = "Fabaceae"
+latin_name = "Lupinus polyphyllus"
 difficulty = "Easy"
+pet_safe = false
 light = "Full sun to semi-shade"
 water = "Every 5–7 days"
 humidity = "Low to medium"

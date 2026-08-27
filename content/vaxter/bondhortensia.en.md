@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","outdoor","hardy"]
 
 [extra]
+family = "Hydrangeaceae"
+latin_name = "Hydrangea arborescens"
 difficulty = "Easy"
+pet_safe = false
 light = "Sun to shade"
 water = "Every 2–3 days"
 humidity = "Medium to high"

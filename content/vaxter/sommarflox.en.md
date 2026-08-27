@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","fragrant","outdoor","summer-flower"]
 
 [extra]
+family = "Polemoniaceae"
+latin_name = "Phlox paniculata"
 difficulty = "Easy"
+pet_safe = true
 light = "Full sun to semi-shade"
 water = "Every 3–5 days"
 humidity = "Medium"

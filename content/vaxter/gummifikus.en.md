@@ -7,7 +7,10 @@ date = 2026-05-13
 tags = ["easy-care","elegant","air-purifying"]
 
 [extra]
+family = "Moraceae"
+latin_name = "Ficus elastica"
 difficulty = "Easy"
+pet_safe = false
 light = "Moderate to bright indirect light"
 water = "Every 1–2 weeks"
 humidity = "Medium"

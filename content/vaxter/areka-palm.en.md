@@ -7,7 +7,10 @@ date = 2026-05-10
 tags = ["tropical","air-purifying","elegant"]
 
 [extra]
+family = "Arecaceae"
+latin_name = "Dypsis lutescens"
 difficulty = "Medium"
+pet_safe = true
 light = "Bright indirect light"
 water = "Every 1–2 weeks"
 humidity = "Medium to high"

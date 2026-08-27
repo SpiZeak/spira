@@ -7,7 +7,10 @@ date = 2026-05-08
 tags = ["easy-care","air-purifying","elegant"]
 
 [extra]
+family = "Asparagaceae"
+latin_name = "Dracaena marginata"
 difficulty = "Easy"
+pet_safe = false
 light = "Moderate to bright indirect light"
 water = "Every 2–3 weeks"
 humidity = "Medium"

@@ -14,6 +14,7 @@ light = "Full sun"
 water = "Abundant, daily watering"
 humidity = "Medium to high"
 difficulty = "Easy"
+pet_safe = true
 max_height = "100–200 cm (climbing)"
 featured_image = "https://images.unsplash.com/photo-1604977042946-1eecc30f269e?w=800&h=600&fit=crop&q=80"
 +++

@@ -7,7 +7,10 @@ date = 2026-05-07
 tags = ["tropical","elegant","indoor"]
 
 [extra]
+family = "Moraceae"
+latin_name = "Ficus lyrata"
 difficulty = "Medium"
+pet_safe = false
 light = "Bright indirect light"
 water = "Every 1–2 weeks"
 humidity = "Medium to high"

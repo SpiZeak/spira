@@ -14,6 +14,7 @@ light = "Fullt solljus till halvskugga"
 water = "Regelbundet, djupt vattning"
 humidity = "Medel"
 difficulty = "Lätt"
+pet_safe = true
 max_height = "30–50 cm (blast); rot 10–20 cm djup"
 featured_image = "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=800&h=600&fit=crop&q=80"
 +++

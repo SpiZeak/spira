@@ -7,7 +7,10 @@ date = 2026-05-07
 tags = ["easy-care","trailing","beginner","air-purifying"]
 
 [extra]
+family = "Asparagaceae"
+latin_name = "Chlorophytum comosum"
 difficulty = "Easy"
+pet_safe = true
 light = "Indirect light to semi-shade"
 water = "Every 1–2 weeks"
 humidity = "Medium"

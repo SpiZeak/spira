@@ -1,0 +1,206 @@
+<!-- Plant comparison component (global) -->
+<div id="compare-tray" hidden
+	class="fixed bottom-4 left-1/2 z-[70] -translate-x-1/2 mx-4 w-auto max-w-[calc(100vw-2rem)]">
+	<div class="flex items-center gap-3 bg-white shadow-lg border border-cream-200 rounded-2xl px-4 py-3"
+		role="region" aria-label="{{ trans(key='compare_tray_title', lang=lang) }}">
+		<span class="hidden sm:inline font-serif font-bold text-soil-900 text-sm">{{ trans(key="compare_tray_title",
+			lang=lang) }}</span>
+		<div id="compare-tray-items" class="flex items-center gap-2"></div>
+		<button id="compare-open-btn" type="button"
+			class="bg-leaf-600 hover:bg-leaf-700 px-4 py-2 rounded-full font-semibold text-white text-xs transition-colors cursor-pointer">
+			{{ trans(key="compare_open", lang=lang) }} (<span id="compare-count">0</span>)
+		</button>
+		<button id="compare-clear-btn" type="button"
+			class="font-medium text-soil-400 hover:text-soil-600 text-xs transition-colors cursor-pointer">{{
+			trans(key="compare_clear", lang=lang) }}</button>
+	</div>
+</div>
+
+<div id="compare-modal" hidden class="fixed inset-0 z-[80]" role="dialog" aria-modal="true"
+	aria-label="{{ trans(key='compare_modal_title', lang=lang) }}">
+	<div id="compare-backdrop" class="absolute inset-0 bg-soil-900/50 backdrop-blur-sm"></div>
+	<div class="relative flex justify-center items-center px-4 py-8 min-h-full overflow-y-auto">
+		<div class="bg-cream-50 shadow-xl border border-cream-200 rounded-2xl w-full max-w-4xl">
+			<div class="flex justify-between items-center px-6 py-4 border-cream-200 border-b">
+				<h2 class="font-serif font-bold text-soil-900 text-xl">{{ trans(key="compare_modal_title", lang=lang)
+					}}</h2>
+				<button id="compare-close-btn" type="button"
+					class="flex items-center justify-center hover:bg-cream-100 rounded-full w-9 h-9 text-soil-500 hover:text-soil-800 transition-colors cursor-pointer"
+					aria-label="{{ trans(key='compare_close', lang=lang) }}">
+					<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+			<div id="compare-modal-body" class="px-6 py-4 overflow-x-auto"></div>
+			<p id="compare-hint" class="px-6 pb-5 text-soil-400 text-xs">{{ trans(key="compare_browse", lang=lang) }}
+			</p>
+		</div>
+	</div>
+</div>
+
+<script>
+	(function () {
+		var KEY = 'spira_compare_v1';
+		var MAX = 3;
+		var I18N = {
+			max: {{ trans(key="compare_max", lang=lang) | json_encode | safe }},
+			remove: {{ trans(key="compare_remove", lang=lang) | json_encode | safe }},
+			petSafe: {{ trans(key="compare_pet_safe", lang=lang) | json_encode | safe }},
+			yes: {{ trans(key="compare_yes", lang=lang) | json_encode | safe }},
+			no: {{ trans(key="compare_no", lang=lang) | json_encode | safe }},
+			light: {{ trans(key="plant_light", lang=lang) | json_encode | safe }},
+			water: {{ trans(key="plant_water", lang=lang) | json_encode | safe }},
+			humidity: {{ trans(key="plant_humidity", lang=lang) | json_encode | safe }},
+			maxHeight: {{ trans(key="plant_max_height", lang=lang) | json_encode | safe }},
+			origin: {{ trans(key="plant_origin", lang=lang) | json_encode | safe }},
+			family: {{ trans(key="plant_family", lang=lang) | json_encode | safe }},
+			difficulty: {{ trans(key="plant_difficulty", lang=lang) | json_encode | safe }},
+			latin: {{ trans(key="plant_care_guide", lang=lang) | json_encode | safe }}
+		};
+
+		var ROWS = [
+			['light', I18N.light], ['water', I18N.water], ['humidity', I18N.humidity],
+			['max_height', I18N.maxHeight], ['difficulty', I18N.difficulty],
+			['pet_safe', I18N.petSafe, 'pet'], ['origin', I18N.origin], ['family', I18N.family]
+		];
+
+		function read() {
+			try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; }
+		}
+		function write(items) {
+			try { localStorage.setItem(KEY, JSON.stringify(items)); } catch (e) { }
+			syncButtons();
+		}
+		function byPermalink(p) { return read().filter(function (x) { return x.permalink === p; })[0]; }
+
+		var tray = document.getElementById('compare-tray');
+		var trayItems = document.getElementById('compare-tray-items');
+		var modal = document.getElementById('compare-modal');
+		var modalBody = document.getElementById('compare-modal-body');
+		var countEl = document.getElementById('compare-count');
+
+		function esc(s) {
+			var d = document.createElement('div');
+			d.textContent = s == null ? '' : String(s);
+			return d.innerHTML;
+		}
+
+		function renderTray() {
+			var items = read();
+			countEl.textContent = items.length;
+			tray.hidden = items.length === 0;
+			trayItems.innerHTML = '';
+			items.forEach(function (p) {
+				var chip = document.createElement('span');
+				chip.className = 'bg-cream-100 border border-cream-200 rounded-full px-2.5 py-1 text-soil-700 text-xs font-medium max-w-28 truncate';
+				chip.textContent = p.title;
+				chip.title = p.title;
+				trayItems.appendChild(chip);
+			});
+		}
+
+		function renderModal() {
+			var items = read();
+			var html = '<table class="w-full text-sm"><thead><tr>';
+			html += '<th class="p-2"></th>';
+			items.forEach(function (p) {
+				html += '<th class="p-2 min-w-40 align-top">' +
+					'<a href="' + esc(p.permalink) + '" class="group block">' +
+					(p.image
+						? '<img src="' + esc(p.image) + '" alt="" loading="lazy" class="bg-cream-100 mb-2 border border-cream-200 rounded-xl w-full aspect-4/3 object-cover" />'
+						: '<div class="flex justify-center items-center bg-cream-100 mb-2 border border-cream-200 rounded-xl w-full aspect-4/3 font-serif text-soil-400 text-2xl">' + esc((p.title || '?').charAt(0)) + '</div>') +
+					'<span class="font-serif group-hover:text-leaf-600 font-bold text-soil-900 text-base transition-colors">' + esc(p.title) + '</span>' +
+					(p.latin_name ? '<span class="block mt-0.5 text-soil-400 text-xs italic">' + esc(p.latin_name) + '</span>' : '') +
+					'</a>' +
+					'<button type="button" data-remove="' + esc(p.permalink) + '" class="mt-1 text-soil-400 hover:text-crimson-600 text-xs transition-colors cursor-pointer">' + esc(I18N.remove) + '</button>' +
+					'</th>';
+			});
+			html += '</tr></thead><tbody>';
+			ROWS.forEach(function (row) {
+				var key = row[0], label = row[1], kind = row[2];
+				html += '<tr class="border-cream-200 border-t"><th scope="row" class="p-2 text-left font-medium text-soil-400 text-xs whitespace-nowrap">' + esc(label) + '</th>';
+				items.forEach(function (p) {
+					var v = p[key];
+					var cell = '—';
+					if (kind === 'pet') {
+						cell = '<span class="' + (v ? 'text-leaf-700' : 'text-crimson-700') + ' font-medium">' + (v ? esc(I18N.yes) : esc(I18N.no)) + '</span>';
+					} else if (v) {
+						cell = esc(v);
+					}
+					html += '<td class="p-2 text-soil-700">' + cell + '</td>';
+				});
+				html += '</tr>';
+			});
+			html += '</tbody></table>';
+			modalBody.innerHTML = html;
+		}
+
+		function syncButtons() {
+			var items = read();
+			document.querySelectorAll('.js-compare-btn').forEach(function (btn) {
+				var p = btn.getAttribute('data-plant');
+				if (!p) return;
+				try {
+					var obj = JSON.parse(p);
+					var active = !!byPermalink(obj.permalink);
+					btn.setAttribute('aria-pressed', String(active));
+					btn.classList.toggle('is-active', active);
+				} catch (e) { }
+			});
+		}
+
+		function toggle(obj) {
+			var items = read();
+			var exists = items.filter(function (x) { return x.permalink === obj.permalink; }).length > 0;
+			if (exists) {
+				write(items.filter(function (x) { return x.permalink !== obj.permalink; }));
+			} else if (items.length >= MAX) {
+				alert(I18N.max);
+			} else {
+				items.push(obj);
+				write(items);
+			}
+			renderTray();
+		}
+
+		document.addEventListener('click', function (e) {
+			var btn = e.target.closest ? e.target.closest('.js-compare-btn') : null;
+			if (btn) {
+				e.preventDefault();
+				e.stopPropagation();
+				try { toggle(JSON.parse(btn.getAttribute('data-plant'))); } catch (err) { }
+				return;
+			}
+			var rm = e.target.closest ? e.target.closest('[data-remove]') : null;
+			if (rm) {
+				write(read().filter(function (x) { return x.permalink !== rm.getAttribute('data-remove'); }));
+				renderTray();
+				renderModal();
+			}
+		});
+
+		document.getElementById('compare-open-btn').addEventListener('click', function () {
+			renderModal();
+			modal.hidden = false;
+			document.body.style.overflow = 'hidden';
+			document.getElementById('compare-close-btn').focus();
+		});
+		function closeModal() {
+			modal.hidden = true;
+			document.body.style.overflow = '';
+		}
+		document.getElementById('compare-close-btn').addEventListener('click', closeModal);
+		document.getElementById('compare-backdrop').addEventListener('click', closeModal);
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && !modal.hidden) closeModal();
+		});
+		document.getElementById('compare-clear-btn').addEventListener('click', function () {
+			write([]);
+			renderTray();
+		});
+
+		renderTray();
+		syncButtons();
+	})();
+</script>

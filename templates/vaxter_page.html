@@ -216,6 +216,40 @@ endif -%}{% endblock twitter_description %}
 
 				</dl>
 
+				{% if page.extra.pet_safe is defined %}
+				<div class="flex items-start gap-3 pt-3 border-cream-200 border-t">
+					<div
+						class="flex flex-shrink-0 justify-center items-center mt-0.5 border rounded-xl w-9 h-9 {% if page.extra.pet_safe %}bg-leaf-50 border-leaf-200{% else %}bg-crimson-50 border-crimson-200{% endif %}">
+						<svg class="w-4.5 h-4.5 {% if page.extra.pet_safe %}text-leaf-600{% else %}text-crimson-600{% endif %}"
+							fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round"
+								d="M8 10.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm8 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm-9.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm11 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM12 12c-2.5 0-4.5 2-4.5 4.5 0 1.5 1 2.5 2.5 2.5 1 0 1.5-.5 2-.5s1 .5 2 .5c1.5 0 2.5-1 2.5-2.5C16.5 14 14.5 12 12 12Z" />
+						</svg>
+					</div>
+					<div>
+						<dt class="font-medium text-soil-400 text-xs uppercase tracking-wide">{{
+							trans(key="pet_safe_label", lang=lang) }}</dt>
+						<dd class="mt-0.5 font-semibold text-sm {% if page.extra.pet_safe %}text-leaf-700{% else %}text-crimson-700{% endif %}">
+							{% if page.extra.pet_safe %}{{ trans(key="pet_safe_yes", lang=lang) }}{% else %}{{ trans(key="pet_safe_no", lang=lang) }}{% endif %}
+						</dd>
+					</div>
+				</div>
+				{% endif %}
+
+				<!-- Compare -->
+				<div class="pt-4">
+					<button type="button" id="plant-compare-btn"
+						class="js-compare-btn flex items-center gap-2 bg-white hover:border-leaf-300 px-4 py-2.5 border border-cream-200 rounded-full font-semibold text-soil-700 hover:text-leaf-600 text-xs transition-colors cursor-pointer w-full justify-center"
+						aria-pressed="false"
+						data-plant='{"title":{{ page.title | json_encode }},"permalink":{{ page.permalink | json_encode }},"latin_name":{{ page.extra.latin_name | default(value="") | json_encode }},"light":{{ page.extra.light | default(value="") | json_encode }},"water":{{ page.extra.water | default(value="") | json_encode }},"humidity":{{ page.extra.humidity | default(value="") | json_encode }},"max_height":{{ page.extra.max_height | default(value="") | json_encode }},"difficulty":{{ page.extra.difficulty | default(value="") | json_encode }},"origin":{{ page.extra.origin | default(value="") | json_encode }},"family":{{ page.extra.family | default(value="") | json_encode }},"pet_safe":{{ page.extra.pet_safe | default(value=false) }},"image":{{ page.extra.featured_image | default(value="") | json_encode }}}'>
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round"
+								d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4" />
+						</svg>
+						{{ trans(key="compare_add_current", lang=lang) }}
+					</button>
+				</div>
+
 				<!-- Related guides -->
 				{% if lang == "en" %}
 				{% set guider_section = get_section(path="guider/_index.en.md") %}
@@ -251,6 +285,26 @@ endif -%}{% endblock twitter_description %}
 	{% else %}
 	{% set vaxter_section = get_section(path="vaxter/_index.md") %}
 	{% endif %}
+	{% set current_tags = page.taxonomies.tags | default(value=[]) %}
+	{% set related = [] %}
+	{% for p in vaxter_section.pages %}
+	{% if p.permalink != page.permalink %}
+	{% set_global shared = 0 %}
+	{% for t in p.taxonomies.tags | default(value=[]) %}
+	{% if t in current_tags %}{% set_global shared = shared + 1 %}{% endif %}
+	{% endfor %}
+	{% if shared > 0 %}
+	{% set_global related = related | concat(with=p) %}
+	{% endif %}
+	{% endif %}
+	{% endfor %}
+	{% for p in vaxter_section.pages %}
+	{% if p.permalink != page.permalink and related | length < 3 %}
+	{% if p not in related %}
+	{% set_global related = related | concat(with=p) %}
+	{% endif %}
+	{% endif %}
+	{% endfor %}
 	<div class="mt-16 pt-12 border-cream-200 border-t">
 		<div class="flex justify-between items-center mb-8">
 			<h2 class="font-serif font-bold text-soil-900 text-2xl">{{ trans(key="plant_explore_more", lang=lang) }}
@@ -259,14 +313,16 @@ endif -%}{% endblock twitter_description %}
 				trans(key="plant_see_all", lang=lang) }}</a>
 		</div>
 		<div class="gap-5 grid grid-cols-1 sm:grid-cols-3">
-			{% for p in vaxter_section.pages | slice(end=3) %}
-			{% if p.permalink != page.permalink %}
+			{% for p in related | slice(end=3) %}
 			<a href="{{ p.permalink }}"
 				class="group bg-white hover:shadow-md border border-cream-200 hover:border-leaf-200 rounded-2xl overflow-hidden transition-all">
 				{% if p.extra.featured_image %}
+				{% set img = p.extra.featured_image %}
+				{% if img is containing("unsplash") %}
+				{% set img = img | replace(from='w=800&h=600', to='w=400&h=300&auto=format') %}
+				{% endif %}
 				<div class="bg-cream-100 aspect-[4/3] overflow-hidden">
-					<img src="{{ p.extra.featured_image | replace(from='w=800&h=600', to='w=400&h=300') }}&auto=format"
-						alt="{{ p.title }}"
+					<img src="{{ img }}" alt="{{ p.title }}"
 						class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 						loading="lazy" />
 				</div>
@@ -279,7 +335,6 @@ endif -%}{% endblock twitter_description %}
 					</p>{% endif %}
 				</div>
 			</a>
-			{% endif %}
 			{% endfor %}
 		</div>
 	</div>

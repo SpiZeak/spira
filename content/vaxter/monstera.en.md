@@ -7,7 +7,11 @@ date = 2026-05-01
 tags = ["tropical","easy-care","elegant","beginner"]
 
 [extra]
+featured = true
+family = "Araceae"
+latin_name = "Monstera deliciosa"
 difficulty = "Easy"
+pet_safe = false
 light = "Indirect light"
 water = "Every 1–2 weeks"
 humidity = "Medium to high"

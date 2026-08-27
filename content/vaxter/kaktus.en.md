@@ -7,7 +7,11 @@ date = 2026-05-09
 tags = ["succulents","drought-tolerant","easy-care"]
 
 [extra]
+featured = true
+family = "Cactaceae"
+latin_name = "Cactaceae (familj)"
 difficulty = "Easy"
+pet_safe = true
 light = "Full sun"
 water = "Every 2–6 weeks"
 humidity = "Low"

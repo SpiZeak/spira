@@ -7,7 +7,10 @@ date = 2026-05-14
 tags = ["flowering","shade-tolerant","outdoor"]
 
 [extra]
+family = "Hydrangeaceae"
+latin_name = "Hydrangea macrophylla"
 difficulty = "Medium"
+pet_safe = false
 light = "Semi-shade to shade"
 water = "Every 2–3 days"
 humidity = "High"

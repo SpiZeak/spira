@@ -14,6 +14,7 @@ light = "Full sun"
 water = "Regularly, slightly drier at ripening"
 humidity = "Low to medium"
 difficulty = "Easy to medium"
+pet_safe = false
 max_height = "100–150 cm"
 featured_image = "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800&h=600&fit=crop&q=80"
 +++

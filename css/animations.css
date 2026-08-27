@@ -80,8 +80,7 @@
 	@media (prefers-reduced-motion: reduce) {
 		.animate-slide-down,
 		.animate-slide-up,
-		.animate-fade-in,
-		.animate-blob {
+		.animate-fade-in {
 			animation: none;
 		}
 	}
@@ -93,13 +92,19 @@
 		grid-template-rows: 0fr;
 		transition:
 			grid-template-rows 0.25s ease,
-			opacity 0.25s ease;
+			opacity 0.25s ease,
+			visibility 0s linear 0.25s;
 		opacity: 0;
+		visibility: hidden;
 	}
 
 	.mobile-menu.is-open {
 		grid-template-rows: 1fr;
 		opacity: 1;
+		visibility: visible;
+		transition:
+			grid-template-rows 0.25s ease,
+			opacity 0.25s ease;
 	}
 
 	.mobile-menu > ul {

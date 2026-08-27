@@ -7,7 +7,10 @@ date = 2026-05-11
 tags = ["easy-care","trailing","air-humidifying"]
 
 [extra]
+family = "Commelinaceae"
+latin_name = "Tradescantia zebrina"
 difficulty = "Easy"
+pet_safe = false
 light = "Moderate to bright indirect light"
 water = "Every 1–2 weeks"
 humidity = "Medium"

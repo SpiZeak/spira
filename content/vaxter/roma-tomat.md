@@ -14,6 +14,7 @@ light = "Fullt solljus"
 water = "Regelbundet, något torrare vid mognad"
 humidity = "Låg till medel"
 difficulty = "Lätt till medel"
+pet_safe = false
 max_height = "100–150 cm"
 featured_image = "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800&h=600&fit=crop&q=80"
 +++

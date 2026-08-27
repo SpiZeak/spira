@@ -4,7 +4,7 @@ description = "Svärmors tunga är en av världens mest populära inomhusväxter
 date = 2026-05-05
 
 [taxonomies]
-tags = ["lättskött", "luftrenande", "skuggtalig", "torktålig"]
+tags = ["lättskött", "luftrenande", "skuggtålig", "torktålig"]
 
 [extra]
 latin_name = "Dracaena trifasciata"
@@ -14,6 +14,7 @@ light = "Svag skugga till starkt indirekt ljus"
 water = "Var 3–6 vecka"
 humidity = "Låg"
 difficulty = "Lätt"
+pet_safe = false
 max_height = "60–120 cm"
 featured_image = "https://images.unsplash.com/photo-1695742339593-9d0488a7dfe7?w=800&h=600&fit=crop&q=80"
 +++
