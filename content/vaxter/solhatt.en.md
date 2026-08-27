@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Easy"
 pet_safe = true
 max_height = "60–100 cm"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1629310439929-90e906926859?w=800&h=600&fit=crop&q=80"
 +++
 
 Coneflower is late to wake in spring but then unstoppable: flowering for eight weeks, drought-tolerant, excellent cut, and fine as a winter silhouette with frost on the cones.

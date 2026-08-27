@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Medium"
 pet_safe = true
 max_height = "200–400 cm (climbing)"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1623280292578-faa896857681?w=800&h=600&fit=crop&q=80"
 +++
 
 Clematis elevates any wall: elegant flowers, dense foliage, and a season that can run all summer if you pick varieties with different flowering times.

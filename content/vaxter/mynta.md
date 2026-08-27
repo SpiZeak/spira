@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "30–60 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1618130070080-91f4d55a2383?w=800&h=600&fit=crop&q=80"
 +++
 
 Mynta är nästan omöjlig att döda och ger doftande skörd hela sommarn. Grönmynta för mat, pepparmynta för te — båda växer snabbt.

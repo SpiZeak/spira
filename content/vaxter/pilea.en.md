@@ -17,7 +17,7 @@ humidity = "Average"
 difficulty = "Easy"
 pet_safe = true
 max_height = "30–40 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1714507767653-6bc42bf05a0d?w=800&h=600&fit=crop&q=80"
 +++
 
 The pilea looks almost like a drawing — perfectly round, glossy leaves held up like tiny umbrellas. It is easy to care for, grows quickly, and generously produces small offshoots you can share.

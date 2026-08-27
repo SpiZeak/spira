@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Easy"
 pet_safe = true
 max_height = "150–200 cm"
-featured_image = "/img/plants/bar.svg"
+featured_image = "https://images.unsplash.com/photo-1530983820165-35b7aa38a105?w=800&h=600&fit=crop&q=80"
 +++
 
 Raspberry is perhaps the easiest berry to grow in Sweden: hardy, self-sufficient and generous. Once planted it spreads by root suckers and crops for twenty years.

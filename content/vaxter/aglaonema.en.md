@@ -16,7 +16,7 @@ humidity = "Medium to high"
 difficulty = "Easy"
 pet_safe = false
 max_height = "50–100 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1712912768536-5d8efd3942e9?w=800&h=600&fit=crop&q=80"
 +++
 
 Aglaonema is the quiet survivor that stays green in dark corners where other plants give up. Varieties range from subtle silver patterns to dramatic red foliage.

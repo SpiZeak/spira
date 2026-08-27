@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Medium"
 pet_safe = false
 max_height = "30–60 cm"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1576252105954-c07121f91ebe?w=800&h=600&fit=crop&q=80"
 +++
 
 No plant says December like the poinsettia. With proper care the colourful bracts last from early December well into the new year.

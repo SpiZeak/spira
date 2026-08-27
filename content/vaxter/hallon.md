@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "150–200 cm"
-featured_image = "/img/plants/bar.svg"
+featured_image = "https://images.unsplash.com/photo-1530983820165-35b7aa38a105?w=800&h=600&fit=crop&q=80"
 +++
 
 Hallon är kanske det enklaste bäret att odla i Sverige: härdigt, självförsörjande och generöst. En gång planterad sprider den sig med rotsuckare och ger skörd i tjugo år.

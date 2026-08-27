@@ -16,7 +16,7 @@ humidity = "Medel till hög"
 difficulty = "Lätt"
 pet_safe = false
 max_height = "50–100 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1712912768536-5d8efd3942e9?w=800&h=600&fit=crop&q=80"
 +++
 
 Aglaoneman är den tysta överlevaren som grönskar i mörka hörn där andra växter ger upp. Sorterna ger allt från diskret silvermönster till dramatiskt röda blad.

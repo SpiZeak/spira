@@ -16,7 +16,7 @@ humidity = "Låg"
 difficulty = "Medel"
 pet_safe = true
 max_height = "100–200 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1698036867785-a8aeb0f59c48?w=800&h=600&fit=crop&q=80"
 +++
 
 Få växter andas semester som ett olivträd i kruka. De silvergrå bladen och den karaktärsfulla stammen gör den lika hemma på balkongen som i vardagsrummet.

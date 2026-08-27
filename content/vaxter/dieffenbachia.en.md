@@ -16,7 +16,7 @@ humidity = "Medium to high"
 difficulty = "Medium"
 pet_safe = false
 max_height = "100–150 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1677083812686-7410108dd49b?w=800&h=600&fit=crop&q=80"
 +++
 
 Dieffenbachia looks expensive and works as green architecture in a room: sturdy stems, large beautifully patterned leaves. With moderate care it grows into an impressive specimen.

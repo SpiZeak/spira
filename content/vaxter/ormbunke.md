@@ -16,7 +16,7 @@ humidity = "Hög"
 difficulty = "Medel"
 pet_safe = true
 max_height = "60–90 cm"
-featured_image = "/img/plants/ormbunke.svg"
+featured_image = "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=800&h=600&fit=crop&q=80"
 +++
 
 Med sina yviga gröna frön är ormbunken både vintergrön och luftrenande. Den är lite mer krävande än genomsnittsväxten — men belöningen är ett yvigt, levande tableau i badrummet.

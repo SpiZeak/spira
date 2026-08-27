@@ -16,7 +16,7 @@ humidity = "Low"
 difficulty = "Easy"
 pet_safe = false
 max_height = "20–40 cm"
-featured_image = "/img/plants/suckulent.svg"
+featured_image = "https://images.unsplash.com/photo-1720583720651-ba1ab749197e?w=800&h=600&fit=crop&q=80"
 +++
 
 Kalanchoe is the succulent world's splash of colour: water-storing fleshy leaves combined with weeks of flowers. The perfect sunny-window plant for the forgetful.

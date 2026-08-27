@@ -16,7 +16,7 @@ humidity = "Low"
 difficulty = "Medium"
 pet_safe = true
 max_height = "100–200 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1698036867785-a8aeb0f59c48?w=800&h=600&fit=crop&q=80"
 +++
 
 Few plants breathe holiday like a potted olive tree. The silvery foliage and characterful trunk feel equally at home on a balcony or in the living room.

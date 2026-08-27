@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Easy"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1598998255703-ea48fb246da0?w=800&h=600&fit=crop&q=80"
 +++
 
 Parsley is the kitchen garden's staple: easy, nutritious and always useful. Curly parsley is the prettiest; flat-leaf has the most flavour.

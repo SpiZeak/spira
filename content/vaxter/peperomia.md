@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/suckulent.svg"
+featured_image = "https://images.unsplash.com/photo-1685721269025-d70a32c5bcd9?w=800&h=600&fit=crop&q=80"
 +++
 
 Peperomior är småväxta, pedantiskt snygga växter med köttiga blad som lagrar vatten. De ställer få krav, växter långsamt och passar utmärkt för dig som vill ha grönt utan omplåstring.

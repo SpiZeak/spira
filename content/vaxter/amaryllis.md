@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Medel"
 pet_safe = false
 max_height = "30–50 cm"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1766837318304-d18226df565b?w=800&h=600&fit=crop&q=80"
 +++
 
 Att titta på när en amaryllislök vecklar ut sin första blomma hör till decembermörkrets finaste små upplevelser. Med vård blommar löken igen år efter år.

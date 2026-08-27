@@ -16,7 +16,7 @@ humidity = "High"
 difficulty = "Medium"
 pet_safe = true
 max_height = "60–90 cm"
-featured_image = "/img/plants/ormbunke.svg"
+featured_image = "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=800&h=600&fit=crop&q=80"
 +++
 
 With its lush, arching fronds the Boston fern stays green year-round and cleans the air. It asks a little more than the average plant — but rewards you with a lavish, living display in the bathroom.

@@ -16,7 +16,7 @@ humidity = "Low"
 difficulty = "Easy"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1424772684780-a05a720ff374?w=800&h=600&fit=crop&q=80"
 +++
 
 Thyme is equally at home between paving slabs and in a pot: a drought-tolerant groundcover with intense fragrance. Bees love the flowers, cooks love the leaves.

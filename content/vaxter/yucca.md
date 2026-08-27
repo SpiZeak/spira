@@ -16,7 +16,7 @@ humidity = "Låg"
 difficulty = "Lätt"
 pet_safe = false
 max_height = "150–300 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1731486380883-aa06f51012e3?w=800&h=600&fit=crop&q=80"
 +++
 
 Yuccan ser ut som en minipalm med redaktionell stil: tjock trädstam, svärdgröna blad och nästan inga krav alls. Ge den sol och den mår bra i åratal.

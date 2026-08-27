@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Easy"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/suckulent.svg"
+featured_image = "https://images.unsplash.com/photo-1685721269025-d70a32c5bcd9?w=800&h=600&fit=crop&q=80"
 +++
 
 Peperomias are compact, immaculate plants with fleshy, water-storing leaves. They ask for very little, grow slowly, and suit anyone who wants greenery without fuss.

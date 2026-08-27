@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Lätt"
 pet_safe = false
 max_height = "150–200 cm (hängande)"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1529066539519-c327b29ef275?w=800&h=600&fit=crop&q=80"
 +++
 
 Murgröna ger direkt engelsk cottage-känsla med sina rankor av mörkgröna blad. Inomhus lyser den i hängkorgar eller på hyllor, och som trädgårdsväxt täcker den murar och mark.

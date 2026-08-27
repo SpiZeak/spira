@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Easy"
 pet_safe = false
 max_height = "150–200 cm (trailing)"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1529066539519-c327b29ef275?w=800&h=600&fit=crop&q=80"
 +++
 
 English ivy brings instant cottage charm with its trails of dark green leaves. Indoors it shines in hanging baskets or on shelves, and in the garden it cloaks walls and ground.

@@ -17,7 +17,7 @@ humidity = "Medel"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "30–40 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1714507767653-6bc42bf05a0d?w=800&h=600&fit=crop&q=80"
 +++
 
 Pilean ser nästan ut som en teckning — perfekt runda, glansiga blad som hålls upp som små paraplyer. Den är lätt att ta hand om, växer snabbt och delar generöst med sig av sig själv genom små sidoplantor.

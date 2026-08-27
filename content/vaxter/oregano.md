@@ -16,7 +16,7 @@ humidity = "Låg"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "30–50 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1690877468013-f5c174498a53?w=800&h=600&fit=crop&q=80"
 +++
 
 Oregano är köksträdgårdens italienska sommarkort: härdig perenn, doftar starkast i solen och självklar i varje köksträdgård. Vinterväxt i Sverige och kommer igen år efter år.

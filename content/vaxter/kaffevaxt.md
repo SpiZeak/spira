@@ -16,7 +16,7 @@ humidity = "Hög"
 difficulty = "Medel"
 pet_safe = false
 max_height = "100–150 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1753652735948-47b47c1d5713?w=800&h=600&fit=crop&q=80"
 +++
 
 Att odla sitt eget kaffe är en önskedröm, men kaffeväxten är mycket mer än nyfiken kuriosa: dess tätvuxna, glansiga bladverk gör den till en av de stiligaste tropiska krukväxterna.

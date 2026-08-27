@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "60–100 cm"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1629310439929-90e906926859?w=800&h=600&fit=crop&q=80"
 +++
 
 Solhatten är sent att komma igång på våren men sedan oslagbar: blommar i åtta veckor, tål torka, passar snitt och håller sig fin som vinterståndare med frost på käglorna.

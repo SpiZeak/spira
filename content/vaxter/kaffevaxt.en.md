@@ -16,7 +16,7 @@ humidity = "High"
 difficulty = "Medium"
 pet_safe = false
 max_height = "100–150 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1753652735948-47b47c1d5713?w=800&h=600&fit=crop&q=80"
 +++
 
 Growing your own coffee is a dream for a patient few, but the coffee plant is far more than a curiosity: its dense, glossy foliage makes it one of the handsomest tropical houseplants.

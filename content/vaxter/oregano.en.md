@@ -16,7 +16,7 @@ humidity = "Low"
 difficulty = "Easy"
 pet_safe = true
 max_height = "30–50 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1690877468013-f5c174498a53?w=800&h=600&fit=crop&q=80"
 +++
 
 Oregano is the kitchen garden's Italian summer card: a hardy perennial that smells strongest in sunshine and self-seeds politely, returning year after year.

@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Medium"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/bar.svg"
+featured_image = "https://images.unsplash.com/photo-1588165171080-c89acfa5ee83?w=800&h=600&fit=crop&q=80"
 +++
 
 Strawberries are the kitchen garden's most popular fruit and work as well in a balcony pot as in a bed. Established plants crop for several years.

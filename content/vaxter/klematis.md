@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Medel"
 pet_safe = true
 max_height = "200–400 cm (klättrande)"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1623280292578-faa896857681?w=800&h=600&fit=crop&q=80"
 +++
 
 Klematis lyfter varje vägg: eleganta blommor, tät grönska och en blomning som kan pågå hela sommarn om man väljer sorter med olika blomningstid.

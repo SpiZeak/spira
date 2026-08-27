@@ -16,7 +16,7 @@ humidity = "Medium to high"
 difficulty = "Easy"
 pet_safe = true
 max_height = "30–40 cm (trailing)"
-featured_image = "/img/plants/suckulent.svg"
+featured_image = "https://images.unsplash.com/photo-1745688944744-e76a2d492458?w=800&h=600&fit=crop&q=80"
 +++
 
 The Christmas cactus is the gentlest of cacti: no thorns, simple needs, and a December bloom that blankets the plant. Specimens live for generations and are passed down as heirlooms.

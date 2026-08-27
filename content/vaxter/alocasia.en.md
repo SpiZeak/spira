@@ -16,7 +16,7 @@ humidity = "Very high"
 difficulty = "Hard"
 pet_safe = false
 max_height = "40–100 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1609652432927-96477bff237f?w=800&h=600&fit=crop&q=80"
 +++
 
 Alocasia is sculptural as album art: dark, pointed leaves with white veins that look hand-drawn. It makes demands — but few plants make such a strong interior statement.

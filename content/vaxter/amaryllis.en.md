@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Medium"
 pet_safe = false
 max_height = "30–50 cm"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1766837318304-d18226df565b?w=800&h=600&fit=crop&q=80"
 +++
 
 Watching an amaryllis bulb unfurl its first flower is one of December darkness's finest small experiences. With care the bulb reblooms year after year.

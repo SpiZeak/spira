@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1598998255703-ea48fb246da0?w=800&h=600&fit=crop&q=80"
 +++
 
 Persiljan är köksträdgårdens bas: snäll, näringsrik och alltid användbar. Krusig persilja är dekorativast, slät persilja har mest smak.

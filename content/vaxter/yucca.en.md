@@ -16,7 +16,7 @@ humidity = "Low"
 difficulty = "Easy"
 pet_safe = false
 max_height = "150–300 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1731486380883-aa06f51012e3?w=800&h=600&fit=crop&q=80"
 +++
 
 Yucca looks like a mini palm with editorial style: thick woody trunk, sword-green leaves and almost no demands at all. Give it sun and it thrives for years.

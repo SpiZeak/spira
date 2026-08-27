@@ -16,7 +16,7 @@ humidity = "Låg"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1424772684780-a05a720ff374?w=800&h=600&fit=crop&q=80"
 +++
 
 Timjan är lika hemma mellan stenplattor som i kruka: en torktålig marktäckare med intensiv doft. Blommorna älskas av bin, bladen av kockar.

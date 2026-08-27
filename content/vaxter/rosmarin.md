@@ -16,7 +16,7 @@ humidity = "Låg"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "60–100 cm"
-featured_image = "/img/plants/kryddvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1515586000433-45406d8e6662?w=800&h=600&fit=crop&q=80"
 +++
 
 Rosmarin doftar semester i Provence och är samtidigt en av de tåligaste kryddorna. Den trivs i kruka, övervintrar svalt och ger året om skörd till ugnsrostade rotfrukter.

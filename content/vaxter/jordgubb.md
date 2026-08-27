@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Medel"
 pet_safe = true
 max_height = "20–30 cm"
-featured_image = "/img/plants/bar.svg"
+featured_image = "https://images.unsplash.com/photo-1588165171080-c89acfa5ee83?w=800&h=600&fit=crop&q=80"
 +++
 
 Jordgubbar är köksträdgårdens mest populära bär och fungerar lika bra i kruka på altanen som i landet. Etablerade plantor ger skörd i flera år.

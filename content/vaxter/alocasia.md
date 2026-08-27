@@ -16,7 +16,7 @@ humidity = "Mycket hög"
 difficulty = "Svår"
 pet_safe = false
 max_height = "40–100 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1609652432927-96477bff237f?w=800&h=600&fit=crop&q=80"
 +++
 
 Alocasian är skulptural som en konstplakat: mörka, spetsiga blad med vita nackäder som ser ut att vara ritade för hand. Den kräver sitt — men få växter gör så stark inredningsstatement.

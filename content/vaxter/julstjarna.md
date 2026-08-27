@@ -16,7 +16,7 @@ humidity = "Medel"
 difficulty = "Medel"
 pet_safe = false
 max_height = "30–60 cm"
-featured_image = "/img/plants/blomma.svg"
+featured_image = "https://images.unsplash.com/photo-1576252105954-c07121f91ebe?w=800&h=600&fit=crop&q=80"
 +++
 
 Ingen annan växt säger svensk december som julstjärnan. Med rätt skötsel håller färgpraktens högblad från lucia till nyår — och längre.

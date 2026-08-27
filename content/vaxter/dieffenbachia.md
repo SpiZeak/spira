@@ -16,7 +16,7 @@ humidity = "Medel till hög"
 difficulty = "Medel"
 pet_safe = false
 max_height = "100–150 cm"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1677083812686-7410108dd49b?w=800&h=600&fit=crop&q=80"
 +++
 
 Dieffenbachian ser dyr ut och fungerar som grön arkitektur i rummet: kraftig stam, stora blad med vackra fläckmönster. Med lagom omsorg växer den till en imponerande rumsväxt.

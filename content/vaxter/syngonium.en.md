@@ -16,7 +16,7 @@ humidity = "Average"
 difficulty = "Easy"
 pet_safe = false
 max_height = "100–150 cm (trailing)"
-featured_image = "/img/plants/krukvaxt.svg"
+featured_image = "https://images.unsplash.com/photo-1606979608471-6478324d9097?w=800&h=600&fit=crop&q=80"
 +++
 
 Syngonium is happy to grow almost anywhere and cascades over a shelf edge within six months. White and pink varieties add extra colour.

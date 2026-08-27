@@ -16,7 +16,7 @@ humidity = "Medel till hög"
 difficulty = "Lätt"
 pet_safe = true
 max_height = "30–40 cm (hängande)"
-featured_image = "/img/plants/suckulent.svg"
+featured_image = "https://images.unsplash.com/photo-1745688944744-e76a2d492458?w=800&h=600&fit=crop&q=80"
 +++
 
 Julkaktusen är kaktusvärldens snälling: ingen taggar, enkla krav och en blomning i december som lavvis täcker plantan. Den kan leva i generationer och gå i arv.
