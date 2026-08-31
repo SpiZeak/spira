@@ -36,9 +36,31 @@ twitter_card %}
 {% if lang == "en" %}{% set bp = "/en" %}{% else %}{% set bp = "" %}{% endif %}
 
 {% if page.extra.featured_image %}
+{% set hero_fallback = page.extra.featured_image %}
+{% set hero_640 = hero_fallback %}
+{% set hero_1280 = hero_fallback %}
+{% set hero_1920 = hero_fallback %}
+{% set hero_2560 = hero_fallback %}
+{% set hero_3840 = hero_fallback %}
+{% if hero_fallback is containing("?w=1200&h=600") %}
+{# Hero renders 100vw at 45vh (<768px) / 55vh (md+); h per candidate w: w*100% on ~9:19.5 phones, w*30% on 16:9 desktop #}
+{% set hero_base = hero_fallback | replace(from='?w=1200&h=600&fit=crop&q=80', to='') %}
+{% set hero_h640 = 640 * 100 / 100 %}
+{% set hero_h1280 = 1280 * 30 / 100 %}
+{% set hero_h1920 = 1920 * 30 / 100 %}
+{% set hero_h2560 = 2560 * 30 / 100 %}
+{% set hero_h3840 = 3840 * 30 / 100 %}
+{% set hero_640 = hero_base ~ "?w=640&h=" ~ hero_h640 ~ "&fit=crop&q=80&auto=format" %}
+{% set hero_1280 = hero_base ~ "?w=1280&h=" ~ hero_h1280 ~ "&fit=crop&q=80&auto=format" %}
+{% set hero_1920 = hero_base ~ "?w=1920&h=" ~ hero_h1920 ~ "&fit=crop&q=80&auto=format" %}
+{% set hero_2560 = hero_base ~ "?w=2560&h=" ~ hero_h2560 ~ "&fit=crop&q=80&auto=format" %}
+{% set hero_3840 = hero_base ~ "?w=3840&h=" ~ hero_h3840 ~ "&fit=crop&q=80&auto=format" %}
+{% endif %}
 <div class="relative bg-cream-100 w-full h-[45vh] md:h-[55vh] overflow-hidden">
-	<img src="{{ page.extra.featured_image }}" alt="{{ page.title }}"
-		class="w-full h-full object-center object-cover" />
+	<img src="{{ hero_1920 }}"
+		srcset="{{ hero_640 }} 640w, {{ hero_1280 }} 1280w, {{ hero_1920 }} 1920w, {{ hero_2560 }} 2560w, {{ hero_3840 }} 3840w"
+		sizes="100vw" alt="{{ page.title }}" class="w-full h-full object-center object-cover"
+		fetchpriority="high" decoding="sync" />
 	<div class="bottom-0 absolute inset-x-0 bg-gradient-to-t from-cream-50 to-transparent h-48 pointer-events-none">
 	</div>
 </div>
